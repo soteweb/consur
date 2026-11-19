@@ -1,0 +1,90 @@
+{
+    "yaris-hatchback": {
+        "regular": "images\/models\/yaris-hatchback.webp",
+        "hover": "images\/models\/yaris-hatchback-hover.webp"
+    },
+    "corolla": {
+        "regular": "images\/models\/corolla.webp",
+        "hover": "images\/models\/corolla-hover.png"
+    },
+    "agya": {
+        "regular": "images\/models\/agya.png",
+        "hover": "images\/models\/agya-hover.png"
+    },
+    "hilux-cabina-doble": {
+        "regular": "images\/models\/hilux-cabina-doble.webp",
+        "hover": "images\/models\/hilux-cabina-doble-hover.webp"
+    },
+    "hilux-cabina-simple": {
+        "regular": "images\/models\/hilux-cabina-simple.png",
+        "hover": "images\/models\/hilux-cabina-simple-hover.png"
+    },
+    "hilux-gr-sport": {
+        "regular": "images\/models\/hilux-gr-sport.png",
+        "hover": "images\/models\/hilux-gr-sport-hover.png"
+    },
+    "corolla-cross": {
+        "regular": "images\/models\/corolla-cross.webp",
+        "hover": "images\/models\/corolla-cross-hover.webp"
+    },
+    "fortuner-sw4": {
+        "regular": "images\/models\/fortuner-sw4.webp",
+        "hover": "images\/models\/fortuner-sw4-hover.webp"
+    },
+    "yaris-cross": {
+        "regular": "images\/models\/yaris-cross.webp",
+        "hover": "images\/models\/yaris-cross-hover.webp"
+    },
+    "land-cruiser-prado": {
+        "regular": "images\/models\/land-cruiser-prado.png",
+        "hover": "images\/models\/land-cruiser-prado-hover.png"
+    },
+    "land-cruiser-300": {
+        "regular": "images\/models\/land-cruiser-300.png",
+        "hover": "images\/models\/land-cruiser-300-hover.png"
+    },
+    "raize-sport": {
+        "regular": "images\/models\/raize-sport.png",
+        "hover": "images\/models\/raize-sport-hover.png"
+    },
+    "rush": {
+        "regular": "images\/models\/rush.jpg",
+        "hover": "images\/models\/rush-hover.jpg"
+    },
+    "hiace-furgon": {
+        "regular": "images\/models\/hiace-furgon.webp",
+        "hover": "images\/models\/hiace-furgon-hover.webp"
+    },
+    "hiace-commuter": {
+        "regular": "images\/models\/hiace-commuter.webp",
+        "hover": "images\/models\/hiace-commuter-hover.webp"
+    },
+    "gr-yaris": {
+        "regular": "images\/models\/gr-yaris.webp",
+        "hover": "images\/models\/gr-yaris-hover.webp"
+    },
+    "corolla-gr-sport": {
+        "regular": "images\/models\/corolla-gr-sport.webp",
+        "hover": "images\/models\/corolla-gr-sport-hover.webp"
+    },
+    "gr86": {
+        "regular": "images\/models\/gr86.webp",
+        "hover": "images\/models\/gr86-hover.webp"
+    },
+    "corolla-hybrid": {
+        "regular": "images\/models\/corolla-hybrid.webp",
+        "hover": "images\/models\/corolla-hybrid-hover.webp"
+    },
+    "corolla-cross-hybrid": {
+        "regular": "images\/models\/corolla-cross-hybrid.webp",
+        "hover": "images\/models\/corolla-cross-hybrid-hover.webp"
+    },
+    "rav4-hybrid": {
+        "regular": "images\/models\/rav4-hybrid.png",
+        "hover": "images\/models\/rav4-hybrid-hover.png"
+    },
+    "yaris-cross-hybrid": {
+        "regular": "images\/models\/yaris-cross-hybrid.webp",
+        "hover": "images\/models\/yaris-cross-hybrid-hover.webp"
+    }
+}

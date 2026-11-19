@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 90" fill="none">
+  <g transform="translate(10, 15)">
+    <!-- Can-Am Shield -->
+    <path d="M12 12h38l-6 38-13 6-13-6-6-38z" fill="#0f172a"/>
+    <path d="M18 16h26l-4 28-9 4-9-4-4-28z" fill="#facc15"/>
+    <path d="M25 24h12l-6 16-6-16z" fill="#0f172a"/>
+    
+    <!-- can-am Typography -->
+    <text x="64" y="38" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="28" fill="#0f172a" letter-spacing="1">can-am</text>
+    <text x="66" y="50" font-family="'Raleway', 'Inter', Arial, sans-serif" font-weight="800" font-size="8" fill="#eab308" letter-spacing="3">BY BRP &bull; OFF-ROAD &amp; ON-ROAD</text>
+  </g>
+</svg>

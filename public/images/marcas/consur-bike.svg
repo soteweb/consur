@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90" fill="none">
+  <g transform="translate(10, 15)">
+    <!-- Bike Silhouette / Wheel Icon -->
+    <circle cx="18" cy="34" r="12" stroke="#dc2626" stroke-width="3" fill="none"/>
+    <circle cx="44" cy="34" r="12" stroke="#dc2626" stroke-width="3" fill="none"/>
+    <path d="M18 34l12-14 8 14h-14l6-10" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M38 20l4-6h6" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="30" cy="18" r="2.5" fill="#dc2626"/>
+
+    <!-- Text -->
+    <text x="68" y="30" font-family="'Raleway', 'Inter', Arial, sans-serif" font-weight="900" font-size="20" fill="#0f172a" letter-spacing="1">CONSUR</text>
+    <text x="160" y="30" font-family="'Raleway', 'Inter', Arial, sans-serif" font-weight="900" font-size="20" fill="#dc2626" letter-spacing="1">BIKE</text>
+    <text x="70" y="46" font-family="'Raleway', 'Inter', Arial, sans-serif" font-weight="700" font-size="8.5" fill="#64748b" letter-spacing="2">CICLISMO, E-BIKES &amp; AVENTURA</text>
+  </g>
+</svg>

@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+    
+    html, body {
+        scroll-behavior: smooth;
+        font-family: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6, .font-heading {
+        font-family: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 400;
+    }
+}
+
+/* Tipografía base para páginas 0 Km y compensación de barras sticky */
+.vehicle-custom-html section[id],
+#hero,
+#colores,
+#diseno,
+#interior,
+#tecnologia,
+#video,
+#desempeno,
+#seguridad,
+#galeria,
+#especificaciones,
+#modelos,
+#versiones {
+    scroll-margin-top: 4rem;
+}
+
+.vehicle-custom-html h1,
+.vehicle-custom-html h2 {
+    font-family: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300 !important;
+    letter-spacing: -0.01em;
+}
+
+.vehicle-custom-html h3,
+.vehicle-custom-html h4 {
+    font-family: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500 !important;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
+    background: #020617;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Hero Slider - Proporciones Oficiales CONSUR (Desktop: 1920x633 | Mobile: 600x953) */
+.toyota-hero-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #020617;
+    aspect-ratio: 600 / 953;
+    height: auto;
+}
+@media (min-width: 768px) {
+    .toyota-hero-slider {
+        aspect-ratio: 1920 / 633;
+        min-height: 400px;
+        max-height: 633px;
+    }
+}
+
+/* Preloader Speedometer & Tachometer Needle Sweep Animation */
+@keyframes consurNeedleSweep {
+    0% {
+        transform: rotate(-125deg);
+    }
+    38% {
+        transform: rotate(115deg);
+    }
+    48% {
+        transform: rotate(90deg);
+    }
+    68% {
+        transform: rotate(115deg);
+    }
+    100% {
+        transform: rotate(-125deg);
+    }
+}
+
+@keyframes consurGlowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(235, 10, 30, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 45px rgba(235, 10, 30, 0.65);
+    }
+}
+
+.animate-needle-sweep {
+    animation: consurNeedleSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-glow-pulse {
+    animation: consurGlowPulse 2s ease-in-out infinite;
+}
+
+/* Dark Mode Enhancements for Dynamic CMS Pages & Vehicle Showcase HTML (Slate / Deep Titanium Scheme) */
+.dark .vehicle-custom-html,
+.dark .cms-fullwidth-wrapper {
+    background-color: #020617;
+    color: #f1f5f9;
+}
+
+.dark .vehicle-custom-html section.bg-white,
+.dark .vehicle-custom-html div.bg-white,
+.dark .cms-fullwidth-wrapper section.bg-white,
+.dark .cms-fullwidth-wrapper div.bg-white {
+    background-color: #020617 !important;
+    border-color: #1e293b !important;
+}
+
+.dark .vehicle-custom-html section.bg-slate-50,
+.dark .vehicle-custom-html div.bg-slate-50,
+.dark .cms-fullwidth-wrapper section.bg-slate-50,
+.dark .cms-fullwidth-wrapper div.bg-slate-50 {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+.dark .vehicle-custom-html section.bg-slate-100,
+.dark .vehicle-custom-html div.bg-slate-100,
+.dark .cms-fullwidth-wrapper section.bg-slate-100,
+.dark .cms-fullwidth-wrapper div.bg-slate-100 {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+.dark .vehicle-custom-html .text-slate-900,
+.dark .vehicle-custom-html .text-neutral-900,
+.dark .cms-fullwidth-wrapper .text-slate-900,
+.dark .cms-fullwidth-wrapper .text-neutral-900 {
+    color: #ffffff !important;
+}
+
+.dark .vehicle-custom-html .text-slate-800,
+.dark .vehicle-custom-html .text-slate-700,
+.dark .cms-fullwidth-wrapper .text-slate-800,
+.dark .cms-fullwidth-wrapper .text-slate-700 {
+    color: #e2e8f0 !important;
+}
+
+.dark .vehicle-custom-html .text-slate-600,
+.dark .vehicle-custom-html .text-slate-500,
+.dark .cms-fullwidth-wrapper .text-slate-600,
+.dark .cms-fullwidth-wrapper .text-slate-500 {
+    color: #94a3b8 !important;
+}
+
+.dark .vehicle-custom-html .border-slate-200,
+.dark .vehicle-custom-html .border-slate-200\/80,
+.dark .vehicle-custom-html .border-slate-100,
+.dark .cms-fullwidth-wrapper .border-slate-200,
+.dark .cms-fullwidth-wrapper .border-slate-200\/80,
+.dark .cms-fullwidth-wrapper .border-slate-100 {
+    border-color: #1e293b !important;
+}
+
+
