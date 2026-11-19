@@ -154,6 +154,36 @@ class DatabaseSyncCommand extends Command
                         }
                     }
 
+                    // Manejo inteligente de claves únicas para evitar violaciones de unicidad (e.g. slug duplicado con otro ID previo de una migración)
+                    $uniqueKeys = [
+                        'pages' => ['slug'],
+                        'settings' => ['key'],
+                        'site_sections' => ['section_key'],
+                        'form_configs' => ['key'],
+                        'users' => ['email'],
+                        'brands' => ['slug'],
+                        'vehicle_categories' => ['slug'],
+                        'vehicles' => ['slug'],
+                    ];
+
+                    if (isset($uniqueKeys[$table])) {
+                        $match = [];
+                        foreach ($uniqueKeys[$table] as $k) {
+                            if (isset($row[$k])) {
+                                $match[$k] = $row[$k];
+                            }
+                        }
+
+                        if (!empty($match)) {
+                            // Si ya existe un registro con esta clave pero con otro ID previo, eliminar el viejo
+                            if (isset($row['id'])) {
+                                DB::table($table)->where($match)->where('id', '!=', $row['id'])->delete();
+                            }
+                            DB::table($table)->updateOrInsert($match, $row);
+                            continue;
+                        }
+                    }
+
                     if (isset($row['id'])) {
                         DB::table($table)->updateOrInsert(
                             ['id' => $row['id']],
