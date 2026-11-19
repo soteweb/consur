@@ -56,6 +56,37 @@ class DatabaseSyncCommand extends Command
         return Command::FAILURE;
     }
 
+    protected function ensureLongTextColumns(): void
+    {
+        try {
+            if (DB::getDriverName() === 'pgsql') {
+                $queries = [
+                    'ALTER TABLE branches ALTER COLUMN google_maps_url TYPE text;',
+                    'ALTER TABLE branches ALTER COLUMN image_url TYPE text;',
+                    'ALTER TABLE branches ALTER COLUMN address TYPE text;',
+                    'ALTER TABLE vehicle_images ALTER COLUMN image_path TYPE text;',
+                    'ALTER TABLE sliders ALTER COLUMN image_desktop TYPE text;',
+                    'ALTER TABLE sliders ALTER COLUMN image_mobile TYPE text;',
+                    'ALTER TABLE sliders ALTER COLUMN button_url TYPE text;',
+                    'ALTER TABLE sliders ALTER COLUMN button_secondary_url TYPE text;',
+                    'ALTER TABLE testimonials ALTER COLUMN avatar_url TYPE text;',
+                    'ALTER TABLE podcasts ALTER COLUMN spotify_url TYPE text;',
+                    'ALTER TABLE podcasts ALTER COLUMN youtube_url TYPE text;',
+                    'ALTER TABLE podcasts ALTER COLUMN cover_image TYPE text;',
+                ];
+                foreach ($queries as $sql) {
+                    try {
+                        DB::statement($sql);
+                    } catch (\Throwable) {
+                        // Continuar si la tabla o columna aún no existe
+                    }
+                }
+            }
+        } catch (\Throwable) {
+            // Ignorar excepciones al ajustar tipos
+        }
+    }
+
     protected function exportData(): int
     {
         $this->info('Exportando datos de la base de datos a JSON...');
@@ -98,6 +129,9 @@ class DatabaseSyncCommand extends Command
 
         // Desactivar restricciones de claves foráneas temporalmente
         Schema::disableForeignKeyConstraints();
+
+        // Asegurar que las columnas de URLs y textos largos tengan tipo TEXT
+        $this->ensureLongTextColumns();
 
         try {
             foreach ($this->tables as $table) {
@@ -152,3 +186,4 @@ class DatabaseSyncCommand extends Command
         }
     }
 }
+
