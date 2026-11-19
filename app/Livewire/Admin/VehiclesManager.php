@@ -22,6 +22,7 @@ class VehiclesManager extends BaseCrudComponent
 
     // Condición fija del módulo ('0km' o 'usado')
     public string $forcedCondition = '';
+    public string $scope = '0km';
     public bool $viewOnly = false; // Modo solo lectura para vendedores en 0km
 
     // Filtros de tabla y selección de modelos
@@ -110,6 +111,7 @@ class VehiclesManager extends BaseCrudComponent
         }
 
         $this->condition = $this->forcedCondition ?: '0km';
+        $this->scope = $this->condition;
         if (request()->has('brand_id')) {
             $this->filterBrand = (string) request()->query('brand_id');
         }
@@ -203,6 +205,7 @@ class VehiclesManager extends BaseCrudComponent
     protected function resetInputFields(): void
     {
         $this->condition = $this->forcedCondition ?: '0km';
+        $this->scope = $this->condition;
         $this->brand_id = !empty($this->filterBrand) ? (int) $this->filterBrand : Brand::first()?->id;
         $this->vehicle_category_id = VehicleCategory::first()?->id;
         $this->branch_id = Branch::first()?->id;
@@ -1085,6 +1088,8 @@ class VehiclesManager extends BaseCrudComponent
             ->orderBy('model')
             ->get();
 
+        $scope = $this->scope;
+
         return view('livewire.admin.vehicles-manager', compact(
             'vehicles',
             'brands',
@@ -1093,6 +1098,7 @@ class VehiclesManager extends BaseCrudComponent
             'categories',
             'branches',
             'isZeroKm',
+            'scope',
             'kpiTotal',
             'kpiDisponibles',
             'kpiReservados',

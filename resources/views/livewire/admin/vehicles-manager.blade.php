@@ -668,7 +668,7 @@
                                                class="w-full text-xs rounded-xl border border-slate-200 py-2.5 focus:ring-2 focus:ring-[#416A8D]">
                                     </div>
 
-                                    @if($scope === '0km')
+                                    @if($isZeroKm)
                                         <div>
                                             <label class="block text-xs font-bold text-slate-700 mb-1">Cuota Mensual Desde (USD)</label>
                                             <input type="number" wire:model="monthly_fee_usd" step="1" placeholder="Ej: 465"
@@ -1235,7 +1235,7 @@
                                     <div class="font-black text-slate-900 text-xs">
                                         {{ $veh->formatted_price_usd }}
                                     </div>
-                                    @if($veh->monthly_fee_usd && $scope === '0km')
+                                    @if($veh->monthly_fee_usd && $isZeroKm)
                                         <div class="text-[10px] font-bold text-emerald-600">
                                             Cuotas desde {{ $veh->formatted_monthly_fee }}
                                         </div>
