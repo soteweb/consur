@@ -426,15 +426,6 @@
                                      decoding="async"
                                      class="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105">
                             </picture>
-
-                            <!-- Sutil gradiente inferior interactivo -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-
-                            <!-- Badge flotante de acceso rápido -->
-                            <div class="absolute bottom-4 right-4 bg-slate-950/80 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-md border border-white/20 flex items-center gap-2 transition-all duration-300 group-hover:bg-red-600">
-                                <span>Ir a ConsurShop</span>
-                                <i class="fas fa-arrow-right text-[11px] transition-transform duration-300 group-hover:translate-x-1"></i>
-                            </div>
                         </a>
                     </div>
                 </div>
