@@ -645,24 +645,37 @@
                     </div>
                 </div>
 
-                <!-- Columna 2: Menú de Marcas (Con las marcas que tenemos arriba) -->
+                <!-- Columna 2: Accesos Directos (Catálogo, Posventa, Usados, Novedades) -->
                 <div>
                     <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-heading flex items-center gap-2">
-                        <i class="fas fa-layer-group text-red-500 text-xs"></i>
-                        <span>{{ \App\Models\Setting::get('footer_col2_title', 'Marcas Oficiales') }}</span>
+                        <i class="fas fa-compass text-red-500 text-xs"></i>
+                        <span>{{ \App\Models\Setting::get('footer_col2_title', 'Explorá CONSUR') }}</span>
                     </h4>
                     <ul class="space-y-3 text-xs">
-                        @foreach($featuredBrands as $b)
-                            <li>
-                                <a href="{{ $b->effective_url }}" class="hover:text-red-500 transition flex items-center gap-2 group">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>{{ $b->name }}</span>
-                                    @if($b->slug === 'toyota')
-                                        <span class="text-[9px] px-1.5 py-0.5 rounded font-bold uppercase bg-red-600 text-white ml-auto">0 KM</span>
-                                    @endif
-                                </a>
-                            </li>
-                        @endforeach
+                        <li>
+                            <a href="{{ route('catalogo') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
+                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                <span>Catálogo</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('posventa') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
+                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                <span>Posventa</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('usados') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
+                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                <span>Usados</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
+                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                <span>Novedades</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

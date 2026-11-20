@@ -197,7 +197,7 @@
                                 <span>Ver Modelo</span>
                                 <i class="fas fa-arrow-right text-[10px]"></i>
                             </a>
-                            <a href="https://wa.me/595985804106?text=Hola%20Consur%2C%20quisiera%20cotizar%20el%20Toyota%20{{ urlencode($veh->model) }}%200%20Km." 
+                            <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%2C%20quisiera%20cotizar%20el%20Toyota%20{{ urlencode($veh->model) }}%200%20Km." 
                                target="_blank"
                                class="p-3 bg-red-50 dark:bg-red-950/40 hover:bg-red-100 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400 rounded-xl transition-colors text-sm"
                                title="Cotizar por WhatsApp">
@@ -393,7 +393,7 @@
                             <i class="fas fa-calendar-check"></i>
                             <span>Agendar Turno Online</span>
                         </a>
-                        <a href="https://wa.me/595985804106?text=Hola%20Consur%2C%20quisiera%20consultar%20sobre%20el%20Servicio%20T%C3%A9cnico%20y%20Repuestos%20Toyota." 
+                        <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%2C%20quisiera%20consultar%20sobre%20el%20Servicio%20T%C3%A9cnico%20y%20Repuestos%20Toyota." 
                            target="_blank" 
                            class="inline-flex items-center gap-2 px-6 py-3.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-semibold rounded-xl shadow-xs transition-all">
                             <i class="fab fa-whatsapp text-emerald-600"></i>
@@ -642,7 +642,7 @@
                     <span>Casa Central: +595 71 204 106</span>
                 </a>
                 <span>&bull;</span>
-                <a href="https://wa.me/595985804106" target="_blank" class="hover:text-emerald-400 flex items-center gap-2">
+                <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}" target="_blank" class="hover:text-emerald-400 flex items-center gap-2">
                     <i class="fab fa-whatsapp text-emerald-500"></i>
                     <span>WhatsApp Ventas: +595 985 804 106</span>
                 </a>

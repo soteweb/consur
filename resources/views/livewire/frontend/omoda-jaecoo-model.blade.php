@@ -289,7 +289,7 @@
                     @endforeach
 
                     <div class="pt-3 space-y-2.5">
-                        <a href="https://wa.me/595985804106?text={{ urlencode($modelData['hero']['whatsapp_text']) }}" target="_blank" rel="noopener" class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-[11px] font-bold uppercase tracking-[0.16em] rounded-xl transition shadow-sm">
+                        <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text={{ urlencode($modelData['hero']['whatsapp_text']) }}" target="_blank" rel="noopener" class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-[11px] font-bold uppercase tracking-[0.16em] rounded-xl transition shadow-sm">
                             <i class="fab fa-whatsapp text-base"></i> Hablar con un asesor
                         </a>
                         @if(!empty($modelData['catalog_pdf']))
@@ -791,7 +791,7 @@
                 <span class="block">{{ $modelData['test_drive']['line2'] }}</span>
             </h2>
             <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/595985804106?text={{ urlencode($modelData['hero']['whatsapp_text']) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 border border-white/40 hover:border-white hover:bg-white/10 text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition">
+                <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text={{ urlencode($modelData['hero']['whatsapp_text']) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 border border-white/40 hover:border-white hover:bg-white/10 text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition">
                     <i class="fab fa-whatsapp text-sm"></i> Hablar con un asesor
                 </a>
                 <a href="#cotizacion" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 btn-shimmer text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition hover:-translate-y-0.5">

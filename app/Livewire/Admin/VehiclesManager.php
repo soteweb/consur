@@ -119,7 +119,7 @@ class VehiclesManager extends BaseCrudComponent
 
     protected function rules(): array
     {
-        return [
+        $rules = [
             'condition' => 'required|in:0km,usado',
             'brand_id' => 'required|exists:brands,id',
             'vehicle_category_id' => 'nullable|exists:vehicle_categories,id',
@@ -135,26 +135,28 @@ class VehiclesManager extends BaseCrudComponent
             'status' => 'required|in:disponible,reservado,vendido,oculto',
             'monthly_fee_usd' => 'nullable|numeric|min:0',
             'airbags' => 'nullable|integer|min:0|max:12',
-            'video_url' => 'nullable|url|max:255',
-            'brochure_url' => 'nullable|string|max:255',
-            'brochureFile' => 'nullable|file|mimes:pdf|max:20480',
-            'colors.*.name' => 'nullable|string|max:60',
-            'colors.*.hex' => ['nullable', 'regex:/^#[0-9A-Fa-f]{6}$/'],
-            'colorFiles.*' => 'nullable|image|max:4096',
-            'highlightFiles.*' => 'nullable|image|max:4096',
-            'uploadedHeroBanners.*' => 'nullable|image|max:8192',
-            'uploadedHtmlMedia.*' => 'nullable|image|max:8192',
-            'versions.*.name' => 'nullable|string|max:100',
-            'versions.*.price_usd' => 'nullable|numeric|min:0',
-            'versions.*.monthly_fee_usd' => 'nullable|numeric|min:0',
+            'video_url' => 'nullable|max:500',
+            'brochure_url' => 'nullable|string|max:1000',
+            'brochureFile' => 'nullable|file|max:51200',
         ];
+
+        if ($this->condition !== '0km') {
+            $rules['colors.*.name'] = 'nullable|string|max:60';
+            $rules['colors.*.hex'] = 'nullable';
+            $rules['colorFiles.*'] = 'nullable|image|max:4096';
+            $rules['highlightFiles.*'] = 'nullable|image|max:4096';
+            $rules['versions.*.name'] = 'nullable|string|max:100';
+            $rules['versions.*.price_usd'] = 'nullable|numeric|min:0';
+            $rules['versions.*.monthly_fee_usd'] = 'nullable|numeric|min:0';
+        }
+
+        return $rules;
     }
 
     protected function messages(): array
     {
         return [
-            'brochureFile.mimes' => 'La ficha técnica debe ser un archivo PDF.',
-            'brochureFile.max' => 'El PDF no puede superar los 20 MB.',
+            'brochureFile.max' => 'El PDF no puede superar los 50 MB.',
             'colors.*.hex.regex' => 'El color debe tener formato HEX (#RRGGBB).',
             'colorFiles.*.image' => 'El render de color debe ser una imagen.',
             'highlightFiles.*.image' => 'La imagen del bloque debe ser una imagen.',
@@ -487,6 +489,17 @@ class VehiclesManager extends BaseCrudComponent
     {
         unset($this->extraSpecs[$index]);
         $this->extraSpecs = array_values($this->extraSpecs);
+    }
+
+    public function updatedBrochureFile()
+    {
+        $this->validateOnly('brochureFile');
+        if ($this->brochureFile) {
+            $path = $this->brochureFile->store('brochures', 'public');
+            $this->brochure_url = $path;
+            $this->brochureFile = null;
+            $this->notify('Brochure PDF cargado con éxito. Hacé clic en "Guardar Cambios" para confirmar.');
+        }
     }
 
     public function removeBrochure()

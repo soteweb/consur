@@ -399,7 +399,20 @@
                     @endif
                 </div>
 
-                <form wire:submit="save" class="p-6 space-y-6">
+                <form wire:submit="save" novalidate class="p-6 space-y-6">
+
+                    @if ($errors->any())
+                        <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs space-y-1.5 shadow-xs">
+                            <div class="font-bold flex items-center gap-1.5 text-rose-700">
+                                <i class="fas fa-exclamation-triangle"></i> Por favor revisá los siguientes campos para poder guardar:
+                            </div>
+                            <ul class="list-disc list-inside space-y-0.5 pl-1 text-[11px]">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <!-- ================= PESTAÑA 1 ================= -->
                     <div x-show="tab === 'general'" class="space-y-6">
@@ -577,25 +590,45 @@
                                     <div class="space-y-3">
                                         <div>
                                             <label class="block text-xs font-bold text-slate-700 mb-1">Subir PDF desde tu PC</label>
-                                            <input type="file" wire:model="brochureFile" accept="application/pdf"
+                                            <input type="file" wire:model="brochureFile" accept=".pdf,application/pdf"
                                                    class="w-full text-xs rounded-xl border border-slate-200 py-2 bg-white file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-red-600 file:text-white">
+                                            <div wire:loading wire:target="brochureFile" class="text-xs text-amber-600 font-semibold mt-1.5 flex items-center gap-1.5">
+                                                <i class="fas fa-spinner fa-spin"></i> Subiendo archivo PDF...
+                                            </div>
+                                            @error('brochureFile')
+                                                <p class="text-xs text-rose-600 font-bold mt-1.5 flex items-center gap-1">
+                                                    <i class="fas fa-exclamation-triangle"></i> {{ $message }}
+                                                </p>
+                                            @enderror
                                         </div>
                                         <div>
                                             <label class="block text-xs font-bold text-slate-700 mb-1">O Enlace URL del Brochure PDF</label>
-                                            <input type="text" wire:model="brochure_url" placeholder="https://consur.com.py/catalogos/..."
+                                            <input type="text" wire:model.live.debounce.300ms="brochure_url" placeholder="https://consur.com.py/catalogos/... o ruta del PDF"
                                                    class="w-full text-xs rounded-xl border border-slate-200 py-2 bg-white focus:ring-2 focus:ring-red-500">
+                                            @error('brochure_url')
+                                                <p class="text-xs text-rose-600 font-bold mt-1.5 flex items-center gap-1">
+                                                    <i class="fas fa-exclamation-triangle"></i> {{ $message }}
+                                                </p>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     @if($brochure_url)
-                                        <div class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 text-xs">
-                                            <div class="flex items-center gap-2 truncate">
-                                                <i class="fas fa-file-pdf text-red-600 text-base"></i>
-                                                <span class="font-bold text-slate-800 truncate">{{ $brochure_url }}</span>
+                                        <div class="flex items-center justify-between p-3.5 rounded-xl bg-white border border-emerald-300 text-xs shadow-xs">
+                                            <div class="flex items-center gap-2.5 truncate">
+                                                <div class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+                                                    <i class="fas fa-file-pdf text-base"></i>
+                                                </div>
+                                                <div class="truncate">
+                                                    <span class="font-bold text-slate-800 truncate block">{{ $brochure_url }}</span>
+                                                    <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
+                                                        <i class="fas fa-check-circle"></i> Brochure vinculado correctamente
+                                                    </span>
+                                                </div>
                                             </div>
                                             <div class="flex items-center gap-2 flex-shrink-0">
-                                                <a href="{{ \App\Models\Vehicle::mediaUrl($brochure_url) }}" target="_blank" class="text-red-600 hover:underline font-bold">Ver PDF</a>
-                                                <button type="button" wire:click="removeBrochure" class="text-rose-600 hover:text-rose-800 font-bold ml-1">Quitar</button>
+                                                <a href="{{ \App\Models\Vehicle::mediaUrl($brochure_url) }}" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition">Ver PDF</a>
+                                                <button type="button" wire:click="removeBrochure" class="text-rose-600 hover:text-rose-800 font-bold text-xs ml-1">Quitar</button>
                                             </div>
                                         </div>
                                     @endif

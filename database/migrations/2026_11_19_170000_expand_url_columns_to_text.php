@@ -18,6 +18,11 @@ return new class extends Migration
             $table->text('image_path')->change();
         });
 
+        Schema::table('vehicles', function (Blueprint $table) {
+            $table->text('brochure_url')->nullable()->change();
+            $table->text('video_url')->nullable()->change();
+        });
+
         Schema::table('sliders', function (Blueprint $table) {
             $table->text('image_desktop')->change();
             $table->text('image_mobile')->nullable()->change();

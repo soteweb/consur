@@ -339,7 +339,7 @@
                         <span>Explorar modelos</span>
                         <i class="fas fa-arrow-down text-[10px] opacity-80"></i>
                     </a>
-                    <a href="https://wa.me/595985804106?text=Hola%20Consur%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20gama%20OMODA%20y%20JAECOO."
+                    <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20gama%20OMODA%20y%20JAECOO."
                        target="_blank"
                        class="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/25 text-[11px] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm transition hover:-translate-y-0.5">
                         <i class="fab fa-whatsapp text-emerald-400 text-sm"></i>
@@ -922,7 +922,7 @@
                     <!-- WhatsApp direct -->
                     <div class="mt-8 pt-8 border-t border-slate-200 text-center">
                         <p class="text-xs text-slate-500 mb-4">¿Preferís contacto directo e inmediato?</p>
-                        <a href="https://wa.me/595985804106?text=Hola%20Consur%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20modelos%20OMODA%20y%20JAECOO."
+                        <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20modelos%20OMODA%20y%20JAECOO."
                            target="_blank"
                            class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-700 text-xs font-semibold uppercase tracking-widest hover:bg-emerald-100 transition">
                             <i class="fab fa-whatsapp text-base"></i>
