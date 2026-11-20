@@ -325,7 +325,7 @@
 
                 <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between text-xs text-slate-600">
                     <span>Enlaces Legales y Firma en Barra Inferior:</span>
-                    <span class="font-semibold text-slate-800">Términos & Privacidad &bull; Garantía & Seguros &bull; Powered by <strong class="text-[#eb0a1e]">Soteweb</strong></span>
+                    <span class="font-semibold text-slate-800">Política de Privacidad &bull; Garantía & Seguros &bull; Powered by <strong class="text-[#eb0a1e]">Soteweb</strong></span>
                 </div>
             </div>
         </div>

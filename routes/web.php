@@ -101,6 +101,8 @@ Route::get('/rrhh', fn () => redirect()->route('trabaja-con-nosotros'));
 Route::get('/contacto', ContactPage::class)->name('contacto');
 Route::get('/descubremas', DescubreMas::class)->name('descubremas');
 Route::get('/descubre-mas', fn () => redirect()->route('descubremas'));
+Route::get('/politica-de-privacidad', fn () => redirect(asset('docs/POLITICA-DE-PRIVACIDAD-CONSUR.pdf')))->name('politica-privacidad');
+Route::get('/privacidad', fn () => redirect(asset('docs/POLITICA-DE-PRIVACIDAD-CONSUR.pdf')));
 Route::get('/novedades', NewsIndex::class)->name('novedades');
 Route::get('/category/novedades', fn () => redirect()->route('novedades'));
 Route::get('/novedades/{slug}', NewsDetail::class)->name('novedades.show');

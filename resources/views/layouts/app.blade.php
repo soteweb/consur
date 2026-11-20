@@ -753,7 +753,7 @@
             <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4 text-center md:text-left">
                 <p>{{ $copyrightText }}</p>
                 <div class="flex flex-wrap justify-center md:justify-end items-center gap-3">
-                    <a href="{{ route('page.show', 'terminos-y-condiciones') }}" class="hover:text-slate-300 transition">Términos & Privacidad</a>
+                    <a href="{{ asset('docs/POLITICA-DE-PRIVACIDAD-CONSUR.pdf') }}" target="_blank" class="hover:text-slate-300 transition">Política de Privacidad</a>
                     <span>•</span>
                     <a href="{{ route('page.show', 'garantia-y-seguros') }}" class="hover:text-slate-300 transition">Garantía & Seguros</a>
                     <span>•</span>
