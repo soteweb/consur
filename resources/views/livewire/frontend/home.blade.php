@@ -274,7 +274,7 @@
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-2.5 gap-x-4">
                                 @foreach($tallerChecklist as $point)
                                     <div class="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
-                                        <span class="w-4 h-4 rounded-full bg-red-50 dark:bg-red-950/60 text-red-600 flex items-center justify-center flex-shrink-0 text-[9px]">
+                                        <span class="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center flex-shrink-0 text-[9px]">
                                             <i class="fas fa-check"></i>
                                         </span>
                                         <span>{{ $point }}</span>
@@ -286,14 +286,14 @@
                         <div class="pt-1 flex flex-wrap gap-3.5">
                             <a href="{{ $secTaller->content['button_1_url'] ?? \App\Models\Setting::get('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131') }}"
                                target="_blank" rel="noopener"
-                               class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition shadow-md shadow-red-600/20 flex items-center gap-2">
+                               class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition shadow-md shadow-red-600/20 flex items-center gap-2">
                                 <i class="far fa-calendar-check"></i>
                                 <span>{{ $secTaller->content['button_1_text'] ?? 'Agendar Turno Online' }}</span>
                             </a>
                             <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text={{ urlencode($secTaller->content['button_2_msg'] ?? 'Hola CONSUR, solicito el servicio de Taller Móvil') }}"
                                target="_blank" rel="noopener"
-                               class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition shadow-md shadow-emerald-600/20 flex items-center gap-2">
-                                <i class="fab fa-whatsapp text-sm"></i>
+                               class="bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition shadow-md flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-sm text-emerald-400"></i>
                                 <span>{{ $secTaller->content['button_2_text'] ?? 'Solicitar Taller Móvil' }}</span>
                             </a>
                         </div>
@@ -310,25 +310,25 @@
         </section>
     @endif
 
-    <!-- 4. Banner Usados Certificados con Garantía (100% Dinámico desde SiteSection) -->
+    <!-- 4. Banner Usados Certificados con Garantía (Luminoso, Comercial & Limpio) -->
     @php $secUsados = \App\Models\SiteSection::getSection('usados_banner'); @endphp
     @if($secUsados->is_visible)
-        <section class="py-16 bg-slate-900 text-white relative overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center opacity-15" style="background-image: url('{{ $secUsados->content['background_image'] ?? 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920' }}')"></div>
+        <section class="py-16 md:py-20 bg-white dark:bg-slate-950 text-slate-900 dark:text-white relative border-t border-slate-100 dark:border-neutral-800 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-10" data-aos="fade-up">
                     <div class="max-w-xl space-y-4">
-                        <span class="text-xs uppercase font-medium tracking-widest text-red-500">
+                        <span class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-slate-400 dark:text-neutral-500">
+                            <span class="w-2 h-2 rounded-full bg-red-600"></span>
                             {{ $secUsados->content['badge'] ?? 'CONSUR Usados Certificados' }}
                         </span>
-                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-light sm:font-normal font-heading uppercase tracking-normal">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 dark:text-white font-heading uppercase tracking-wide">
                             {{ $secUsados->content['title'] ?? 'Vehículos Usados Seleccionados' }}
                         </h2>
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                            {{ $secUsados->content['desc'] ?? 'Gran variedad de vehículos usados de diferentes marcas y modelos. Consultanos y un asesor comercial se pondrá en contacto con vos.' }}
+                        <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed font-light">
+                            {{ $secUsados->content['desc'] ?? 'Gran variedad de vehículos usados de diferentes marcas y modelos con certificación mecánica y garantía de procedencia.' }}
                         </p>
                         <div class="flex flex-wrap gap-4 pt-2">
-                            <a href="{{ $secUsados->content['button_url'] ?? '/usados' }}" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full transition shadow-lg shadow-red-600/30 flex items-center gap-2">
+                            <a href="{{ $secUsados->content['button_url'] ?? '/usados' }}" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-xl transition shadow-md shadow-red-600/25 flex items-center gap-2">
                                 <span>{{ $secUsados->content['button_text'] ?? 'Ver Todo el Stock de Usados' }}</span>
                                 <i class="fas fa-arrow-right text-xs"></i>
                             </a>
@@ -338,14 +338,14 @@
                     <!-- Showcase de 2 Usados Destacados -->
                     <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         @foreach($featuredUsados->take(2) as $u)
-                            <a href="{{ route('vehiculo.detalle', $u->slug) }}" class="bg-slate-800/90 backdrop-blur-md rounded-2xl p-4 border border-slate-700 hover:border-red-500 transition group flex flex-col justify-between">
-                                <div class="aspect-[16/10] rounded-xl overflow-hidden mb-3 bg-slate-900">
+                            <a href="{{ route('vehiculo.detalle', $u->slug) }}" class="bg-slate-50 dark:bg-neutral-900/90 rounded-2xl p-4 border border-slate-200/80 dark:border-neutral-800 hover:border-slate-300 dark:hover:border-neutral-700 hover:shadow-xl transition-all group flex flex-col justify-between">
+                                <div class="aspect-[16/10] rounded-xl overflow-hidden mb-3 bg-slate-200 dark:bg-neutral-800">
                                     <img src="{{ $u->primary_image_url }}" alt="{{ $u->full_name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                                 </div>
-                                <h4 class="text-sm font-bold text-white uppercase group-hover:text-red-400 transition">{{ $u->model }} {{ $u->version }}</h4>
-                                <div class="flex justify-between items-center mt-2 text-xs">
-                                    <span class="text-slate-400">{{ $u->year }} &bull; {{ $u->formatted_mileage }}</span>
-                                    <span class="font-extrabold text-white">{{ $u->formatted_price_usd }}</span>
+                                <h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase group-hover:text-red-600 transition">{{ $u->model }} {{ $u->version }}</h4>
+                                <div class="flex justify-between items-center mt-2.5 text-xs">
+                                    <span class="text-slate-500 dark:text-slate-400 font-light">{{ $u->year }} &bull; {{ $u->formatted_mileage }}</span>
+                                    <span class="font-extrabold text-slate-900 dark:text-white">{{ $u->formatted_price_usd }}</span>
                                 </div>
                             </a>
                         @endforeach
@@ -401,7 +401,7 @@
                         <div class="pt-2">
                             <a href="{{ $secShop->content['button_url'] ?? 'https://consurshop.com' }}"
                                target="_blank" rel="noopener"
-                               class="inline-flex items-center gap-3 bg-slate-900 dark:bg-slate-800 hover:bg-red-600 dark:hover:bg-red-600 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full transition-colors duration-300 shadow-lg shadow-slate-900/15">
+                               class="inline-flex items-center gap-3 bg-slate-900 dark:bg-slate-800 hover:bg-red-600 dark:hover:bg-red-600 text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-xl transition-colors duration-300 shadow-md shadow-slate-900/10">
                                 <i class="fas fa-shopping-bag text-xs"></i>
                                 <span>{{ $secShop->content['button_text'] ?? 'Visitar ConsurShop.com' }}</span>
                                 <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-80"></i>
@@ -713,7 +713,7 @@
 
                             <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                                 <a href="{{ $spotifyChannelUrl }}" target="_blank" rel="noopener"
-                                   class="inline-flex items-center gap-2.5 bg-[#1DB954] hover:bg-[#1ed760] text-slate-950 font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full transition shadow-lg shadow-[#1DB954]/25">
+                                   class="inline-flex items-center gap-2.5 bg-[#1DB954] hover:bg-[#1ed760] text-slate-950 font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition shadow-md shadow-[#1DB954]/20">
                                     <i class="fab fa-spotify text-base"></i>
                                     <span>Ir al Canal en Spotify</span>
                                     <i class="fas fa-external-link-alt text-[10px]"></i>

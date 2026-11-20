@@ -529,16 +529,70 @@
         {{ $slot }}
     </main>
 
-    <!-- Floating WhatsApp CTA Button -->
-    <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%20S.A.,%20quisiera%20recibir%20asesoramiento" 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
-       title="Chatear con un Asesor">
-        <i class="fab fa-whatsapp text-3xl"></i>
-        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-bold text-sm px-0 group-hover:px-2">
-            Chatear con Asesor
-        </span>
-    </a>
+    <!-- Botón Flotante Inteligente: Quick Action Hub (Speed Dial) -->
+    <div x-data="{ open: false }" 
+         @keydown.escape.window="open = false" 
+         @click.outside="open = false"
+         class="fixed bottom-6 right-6 z-50 flex flex-col items-end select-none">
+
+        <!-- Menú Desplegable de Acciones Rápidas -->
+        <div x-show="open" 
+             x-cloak 
+             x-transition:enter="transition ease-out duration-250"
+             x-transition:enter-start="opacity-0 translate-y-3 scale-95"
+             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+             x-transition:leave-end="opacity-0 translate-y-3 scale-95"
+             class="mb-3 flex flex-col items-end gap-2.5">
+
+            <!-- 1. WhatsApp Oficial -->
+            <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20CONSUR%20S.A.,%20quisiera%20recibir%20asesoramiento%20comercial"
+               target="_blank"
+               class="group flex items-center gap-3 bg-white dark:bg-neutral-900 text-slate-800 dark:text-white pl-4 pr-2.5 py-2 rounded-2xl shadow-xl border border-slate-200/90 dark:border-neutral-800 hover:border-emerald-500 hover:shadow-2xl transition-all duration-200">
+                <span class="text-xs font-semibold whitespace-nowrap">Chatear por WhatsApp</span>
+                <span class="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                </span>
+            </a>
+
+            <!-- 2. Agendar Turno de Taller Online -->
+            <a href="{{ \App\Models\Setting::get('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131') }}"
+               target="_blank"
+               class="group flex items-center gap-3 bg-white dark:bg-neutral-900 text-slate-800 dark:text-white pl-4 pr-2.5 py-2 rounded-2xl shadow-xl border border-slate-200/90 dark:border-neutral-800 hover:border-red-500 hover:shadow-2xl transition-all duration-200">
+                <span class="text-xs font-semibold whitespace-nowrap">Agendar Turno de Taller</span>
+                <span class="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center shadow-md shadow-red-600/30 group-hover:scale-105 transition-transform">
+                    <i class="far fa-calendar-check text-sm"></i>
+                </span>
+            </a>
+
+            <!-- 3. Cómo Llegar / Sucursales & Teléfonos -->
+            <a href="{{ route('contacto') }}"
+               class="group flex items-center gap-3 bg-white dark:bg-neutral-900 text-slate-800 dark:text-white pl-4 pr-2.5 py-2 rounded-2xl shadow-xl border border-slate-200/90 dark:border-neutral-800 hover:border-slate-400 hover:shadow-2xl transition-all duration-200">
+                <span class="text-xs font-semibold whitespace-nowrap">Sucursales & Teléfonos</span>
+                <span class="w-9 h-9 rounded-xl bg-slate-900 dark:bg-neutral-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fas fa-map-marker-alt text-sm text-red-500"></i>
+                </span>
+            </a>
+        </div>
+
+        <!-- Botón Disparador Principal -->
+        <button type="button" 
+                @click="open = !open"
+                class="flex items-center gap-2.5 bg-neutral-950 text-white pl-4 pr-3 py-2.5 rounded-full shadow-2xl border border-white/20 hover:bg-neutral-900 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none"
+                :class="open ? 'ring-2 ring-red-600' : ''"
+                aria-label="Atención y Contacto Rápido">
+            <span class="text-xs font-bold tracking-wider uppercase">
+                <span x-show="!open">¿En qué te ayudamos?</span>
+                <span x-show="open" x-cloak>Cerrar</span>
+            </span>
+            <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white text-sm shadow-md transition-transform duration-300"
+                 :class="open ? 'rotate-45 bg-neutral-800' : ''">
+                <i class="fas fa-plus text-xs" x-show="!open"></i>
+                <i class="fas fa-times text-xs" x-show="open" x-cloak></i>
+            </div>
+        </button>
+    </div>
 
     <!-- Footer Corporativo CONSUR Dinámico -->
     @php
