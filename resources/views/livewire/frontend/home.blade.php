@@ -341,15 +341,23 @@
                             {{ $secUsados->content['badge'] ?? 'CONSUR Usados Certificados' }}
                         </span>
                         <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 dark:text-white font-heading uppercase tracking-wide">
-                            {{ $secUsados->content['title'] ?? 'Vehículos Usados Seleccionados' }}
+                            {{ $secUsados->content['title'] ?? 'Vehículos con Respaldo Oficial' }}
                         </h2>
                         <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed font-light">
                             {{ $secUsados->content['desc'] ?? 'Gran variedad de vehículos usados de diferentes marcas y modelos con certificación mecánica y garantía de procedencia.' }}
                         </p>
-                        <div class="flex flex-wrap gap-4 pt-2">
+                        <div class="flex flex-wrap items-center gap-3 pt-2">
                             <a href="{{ $secUsados->content['button_url'] ?? '/usados' }}" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-xl transition shadow-md shadow-red-600/25 flex items-center gap-2">
-                                <span>{{ $secUsados->content['button_text'] ?? 'Ver Todo el Stock de Usados' }}</span>
+                                <span>{{ $secUsados->content['button_text'] ?? 'VER STOCK DE USADOS' }}</span>
                                 <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="{{ $secUsados->content['facebook_url'] ?? 'https://www.facebook.com/profile.php?id=61575103643185' }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               title="Facebook de CONSUR Usados"
+                               class="bg-[#1877F2] hover:bg-[#166fe5] text-white font-semibold text-xs uppercase tracking-wider px-4 py-3.5 rounded-xl transition shadow-md shadow-blue-600/20 flex items-center gap-2">
+                                <i class="fab fa-facebook-f text-sm"></i>
+                                <span>Facebook</span>
                             </a>
                         </div>
                     </div>
