@@ -2,6 +2,9 @@
     <!-- 1. Hero Carrusel Principal (Alpine.js + Sliders DB) -->
     <x-frontend.hero-slider :sliders="$sliders" group="home" />
 
+    <!-- 1.1 Grilla Cinemática de Marcas y Unidades de Negocio (Full-Width Bento Grid) -->
+    <x-frontend.brand-showcase-grid />
+
     <!-- 2. Vehículos 0 KM Destacados -->
     @php $sec0km = \App\Models\SiteSection::getSection('featured_0km'); @endphp
     @if($sec0km->is_visible)
