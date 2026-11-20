@@ -169,6 +169,16 @@ class BrandsManager extends BaseCrudComponent
         $this->isOpen = true;
     }
 
+    public function toggleBrandActive(int $id)
+    {
+        $brand = Brand::findOrFail($id);
+        $brand->is_active = !$brand->is_active;
+        $brand->save();
+
+        $status = $brand->is_active ? 'activada' : 'desactivada';
+        $this->notify("La marca '{$brand->name}' ha sido {$status}.", 'info');
+    }
+
     public function toggleFeaturedMenu(int $id)
     {
         $brand = Brand::findOrFail($id);
