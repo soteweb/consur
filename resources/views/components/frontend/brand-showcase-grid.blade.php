@@ -84,7 +84,7 @@
                 ECOSISTEMA OFICIAL CONSUR S.A.
             </div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-light text-white tracking-tight font-heading">
-                NUESTRAS <span class="font-bold text-white">MARCAS OFICIALES</span>
+                NUESTRAS <span class="font-bold text-white">MARCAS & DIVISIONES</span>
             </h2>
         </div>
         <p class="text-xs sm:text-sm text-neutral-400 font-light max-w-md sm:text-right">

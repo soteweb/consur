@@ -293,7 +293,7 @@
                                 class="px-3.5 py-2 flex items-center gap-1.5 transition text-[13.5px] font-medium"
                                 :class="brandsMenuOpen ? 'text-[#eb0a1e]' : 'text-neutral-800 dark:text-neutral-200 hover:text-[#eb0a1e] dark:hover:text-[#eb0a1e]'">
                             <i class="fas fa-layer-group text-xs text-[#eb0a1e]"></i>
-                            <span>Marcas</span>
+                            <span>Nuestras Marcas</span>
                             <i class="fas fa-chevron-down text-[9px] transition-transform duration-200"
                                :class="brandsMenuOpen ? 'rotate-180 text-[#eb0a1e]' : 'text-neutral-400'"></i>
                         </button>
@@ -350,9 +350,6 @@
 
                     <a href="{{ \App\Models\Setting::get('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131') }}" target="_blank" class="text-xs uppercase font-medium tracking-wider text-neutral-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 transition flex items-center gap-1.5">
                         <i class="far fa-calendar-check text-red-600 text-sm"></i> Turnos Online
-                    </a>
-                    <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}" target="_blank" class="bg-red-600 text-white font-medium text-xs uppercase tracking-wider px-4 py-2 rounded-full hover:bg-red-700 hover:shadow-md transition-all flex items-center gap-1.5">
-                        <i class="fab fa-whatsapp text-sm"></i> WhatsApp
                     </a>
                     @auth
                         <a href="{{ route('admin.dashboard') }}" class="bg-slate-900 text-white text-xs font-medium px-3.5 py-1.5 rounded-full hover:bg-slate-800 transition">
@@ -473,7 +470,7 @@
                 <button @click="marcasMobileOpen = !marcasMobileOpen" class="w-full flex items-center justify-between text-sm font-semibold text-neutral-900 dark:text-white py-1.5">
                     <span class="flex items-center gap-2">
                         <i class="fas fa-layer-group text-sm text-[#eb0a1e]"></i>
-                        <span>Marcas y Divisiones Oficiales</span>
+                        <span>Nuestras Marcas</span>
                     </span>
                     <i class="fas fa-chevron-down text-xs transition-transform duration-200" :class="marcasMobileOpen ? 'rotate-180 text-[#eb0a1e]' : 'text-neutral-400'"></i>
                 </button>
@@ -516,9 +513,6 @@
             <div class="pt-4 border-t border-slate-100 dark:border-neutral-800 flex flex-col space-y-3">
                 <a href="{{ \App\Models\Setting::get('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131') }}" target="_blank" class="w-full text-center bg-slate-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 py-2.5 rounded-xl font-medium text-sm">
                     Agendar Turno Online
-                </a>
-                <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}" target="_blank" class="w-full text-center bg-red-600 text-white py-2.5 rounded-xl font-medium text-sm">
-                    Contactar por WhatsApp
                 </a>
             </div>
         </div>

@@ -7,7 +7,7 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
             <div class="flex items-center gap-2 flex-shrink-0 text-xs font-bold text-slate-400 dark:text-neutral-500 uppercase tracking-widest">
                 <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-                <span class="hidden sm:inline">MARCAS:</span>
+                <span class="hidden sm:inline">NUESTRAS MARCAS:</span>
             </div>
             
             <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
