@@ -2,8 +2,53 @@
     <!-- 1. Hero Carrusel Principal (Alpine.js + Sliders DB) -->
     <x-frontend.hero-slider :sliders="$sliders" group="home" />
 
-    <!-- 1.1 Grilla Cinemática de Marcas y Unidades de Negocio (Full-Width Bento Grid) -->
-    <x-frontend.brand-showcase-grid />
+    <!-- 1.1 Barra Rápida de Acceso a Marcas del Grupo (Minimalista, Clara & Luminosa) -->
+    <div class="w-full bg-white dark:bg-neutral-900 border-b border-slate-200/80 dark:border-neutral-800 py-2.5 px-4 sm:px-6 lg:px-8 select-none transition-colors">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                <span class="hidden sm:inline">Explorar Marcas:</span>
+            </div>
+            
+            <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+                <a href="{{ url('/toyota') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/toyota.svg') }}" alt="Toyota" class="h-3.5 w-auto object-contain">
+                    <span>Toyota</span>
+                </a>
+                <a href="{{ url('/omoda-jaecoo') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/omoda-jaecoo.svg') }}" alt="Omoda Jaecoo" class="h-3.5 w-auto object-contain">
+                    <span>Omoda | Jaecoo</span>
+                </a>
+                <a href="{{ url('/hino') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/hino.svg') }}" alt="Hino" class="h-3.5 w-auto object-contain">
+                    <span>Hino</span>
+                </a>
+                <a href="{{ url('/canam') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/can-am.png') }}" alt="Can-Am" class="h-3 w-auto object-contain">
+                    <span>Can-Am</span>
+                </a>
+                <a href="{{ url('/seadoo') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/sea-doo.svg') }}" alt="Sea-Doo" class="h-3.5 w-auto object-contain">
+                    <span>Sea-Doo</span>
+                </a>
+                <a href="{{ url('/consur-bike') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/consur-bike.png') }}" alt="Bike" class="h-3.5 w-auto object-contain">
+                    <span>Bike</span>
+                </a>
+                <a href="{{ url('/seguros') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
+                    <img src="{{ asset('images/marcas/consur-seguros.png') }}" alt="Seguros" class="h-3.5 w-auto object-contain">
+                    <span>Seguros</span>
+                </a>
+
+                <span class="w-px h-3.5 bg-slate-200 dark:bg-neutral-700 mx-1"></span>
+
+                <a href="#marcas-consur" class="inline-flex items-center gap-1 text-xs font-bold text-red-600 hover:text-red-700 transition whitespace-nowrap pl-1">
+                    <span>Ver todas</span>
+                    <i class="fas fa-arrow-down text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- 2. Vehículos 0 KM Destacados -->
     @php $sec0km = \App\Models\SiteSection::getSection('featured_0km'); @endphp
@@ -870,6 +915,9 @@
             </div>
         </section>
     @endif
+
+    <!-- 7.5 Mosaico Panorámico de Marcas Oficiales CONSUR (Compacto & Luminoso) -->
+    <x-frontend.brand-showcase-grid />
 
     <!-- 8. Formulario Reactivo de Cotización (100% Dinámico desde SiteSection) -->
     @php $secQuotation = \App\Models\SiteSection::getSection('quotation_section'); @endphp
