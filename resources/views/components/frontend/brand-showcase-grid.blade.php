@@ -92,12 +92,12 @@
         </p>
     </div>
 
-    <!-- Mosaico Asimétrico Full-Width (Bento Grid Edge-to-Edge) -->
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-1.5 p-1.5 bg-neutral-900/60">
+    <!-- Mosaico Asimétrico Full-Width Recto (Bento Grid Edge-to-Edge) -->
+    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-1 bg-neutral-950">
         @foreach($brandCards as $card)
             <a href="{{ $card['url'] }}"
                wire:navigate
-               class="group relative {{ $card['cols'] }} {{ $card['height'] }} overflow-hidden rounded-xl sm:rounded-2xl flex items-center justify-center p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-black focus:outline-none focus:ring-2 focus:ring-red-600">
+               class="group relative {{ $card['cols'] }} {{ $card['height'] }} overflow-hidden rounded-none flex items-center justify-center p-6 transition-all duration-500 focus:outline-none">
 
                 <!-- 1. Fotografía Protagonista de Alta Claridad (Lazy Loading Nativo) -->
                 <img src="{{ $card['image'] }}" 
@@ -110,7 +110,7 @@
 
                 <!-- 2. Capa de Contraste Cinemático Suave (Deja ver la foto con total nitidez) -->
                 <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/25 to-neutral-950/40 group-hover:from-neutral-950/60 transition-colors duration-500"></div>
-                <div class="absolute inset-0 rounded-xl sm:rounded-2xl border border-white/10 group-hover:border-white/30 transition-colors duration-300 pointer-events-none"></div>
+                <div class="absolute inset-0 rounded-none border border-white/10 group-hover:border-white/30 transition-colors duration-300 pointer-events-none"></div>
 
                 <!-- 3. Badge Superior de Categoría -->
                 <span class="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-black/65 backdrop-blur-md text-white/90 border border-white/15 shadow-sm">
