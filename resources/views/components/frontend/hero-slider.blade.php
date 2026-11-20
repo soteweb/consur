@@ -32,7 +32,6 @@
         
         @foreach ($sliders as $index => $slide)
             @php
-                // Sólo activar opacidad y capa oscura si tiene título o descripción explícitos
                 $hasText = !empty(trim($slide->title ?? '')) || !empty(trim($slide->description ?? ''));
                 $hasButtons = !empty(trim($slide->button_text ?? '')) || !empty(trim($slide->button_secondary_text ?? ''));
                 $hasTag = !empty(trim($slide->tag ?? ''));
@@ -71,7 +70,7 @@
                 @endif
 
                 @if($hasText)
-                    <!-- Gradient Overlay: Sólo se aplica si hay título o descripción para dar contraste a la lectura -->
+                    <!-- Gradient Overlay: Se aplica ÚNICAMENTE cuando el slide tiene título o descripción -->
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent md:bg-gradient-to-r md:from-slate-950 md:via-slate-950/70 md:to-transparent"></div>
                 @endif
 
