@@ -67,7 +67,7 @@
                 'name' => 'Broker de Seguros',
                 'badge' => 'Cobertura Integral',
                 'url' => url('/seguros'),
-                'image' => asset('images/pages/seguros-slider.webp'),
+                'image' => asset('images/pages/seguros-bg.webp'),
                 'logo' => asset('images/marcas/consur-seguros.png'),
                 'cols' => 'col-span-1 sm:col-span-1 lg:col-span-3',
                 'height' => 'h-[210px] sm:h-[240px] lg:h-[270px]',
