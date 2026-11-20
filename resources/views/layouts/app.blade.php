@@ -495,19 +495,14 @@
                     </span>
                     <i class="fas fa-chevron-down text-xs transition-transform duration-200" :class="marcasMobileOpen ? 'rotate-180 text-[#eb0a1e]' : 'text-neutral-400'"></i>
                 </button>
-                <div x-show="marcasMobileOpen" x-cloak x-transition class="mt-2 space-y-1.5 pl-2 border-l-2 border-[#eb0a1e]/40">
+                <div x-show="marcasMobileOpen" x-cloak x-transition class="mt-2 space-y-1 pl-2 border-l-2 border-[#eb0a1e]/40">
                     @foreach($featuredBrands as $b)
-                        <a href="{{ $b->effective_url }}" @click="mobileMenuOpen = false" class="flex items-center gap-3 py-2 px-2.5 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-900 transition">
-                            <div class="w-9 h-9 rounded-lg bg-white border border-neutral-200/80 shadow-xs flex items-center justify-center p-1.5 flex-shrink-0">
-                                <img src="{{ $b->logo_src }}" alt="{{ $b->name }}" class="max-h-6 max-w-full object-contain">
+                        <a href="{{ $b->effective_url }}" @click="mobileMenuOpen = false" class="flex items-center justify-between py-2 px-3 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-900 transition group">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#eb0a1e] flex-shrink-0"></span>
+                                <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-red-600 transition truncate">{{ $b->name }}</span>
                             </div>
-                            <div class="flex-1 min-w-0">
-                                <span class="block text-xs font-semibold text-neutral-800 dark:text-neutral-200 truncate">{{ $b->name }}</span>
-                                <span class="block text-[10px] text-neutral-400 font-light truncate">
-                                    {{ $b->slug === 'toyota' ? 'Vitrina Oficial 0 KM' : ($b->tagline ?: 'Línea Oficial') }}
-                                </span>
-                            </div>
-                            <i class="fas fa-chevron-right text-[10px] text-neutral-300 dark:text-neutral-600"></i>
+                            <i class="fas fa-chevron-right text-[11px] text-neutral-400 dark:text-neutral-500 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all"></i>
                         </a>
                     @endforeach
                 </div>
@@ -544,11 +539,24 @@
         {{ $slot }}
     </main>
 
-    <!-- Botón Flotante Inteligente: Quick Action Hub (Speed Dial) -->
-    <div x-data="{ open: false }" 
+    <!-- Botón Flotante Inteligente: Quick Action Hub (Speed Dial) con Auto-Ocultamiento en el Footer -->
+    <div x-data="{ 
+            open: false, 
+            footerVisible: false,
+            init() {
+                const footer = document.querySelector('footer');
+                if (footer && 'IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        this.footerVisible = entries[0].isIntersecting;
+                    }, { threshold: 0.1 });
+                    observer.observe(footer);
+                }
+            }
+         }" 
          @keydown.escape.window="open = false" 
          @click.outside="open = false"
-         class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end select-none">
+         :class="footerVisible ? 'translate-y-28 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'"
+         class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end select-none transition-all duration-300 ease-out">
 
         <!-- Menú Desplegable de Acciones Rápidas -->
         <div x-show="open" 
