@@ -314,6 +314,9 @@
         </section>
     @endif
 
+    <!-- 3.5. Ecosistema Oficial: Mosaico Panorámico de Marcas & Divisiones CONSUR S.A. (Modo Oscuro Premium Full-Width) -->
+    <x-frontend.brand-showcase-grid />
+
     <!-- 4. Banner Usados Certificados con Garantía (Luminoso, Comercial & Limpio) -->
     @php $secUsados = \App\Models\SiteSection::getSection('usados_banner'); @endphp
     @if($secUsados->is_visible)
@@ -912,8 +915,5 @@
             </div>
         </section>
     @endif
-
-    <!-- 7.5 Gran Cierre: Mosaico Panorámico de Marcas Oficiales CONSUR S.A. (Modo Oscuro Premium Full-Width) -->
-    <x-frontend.brand-showcase-grid />
 
 </div>
