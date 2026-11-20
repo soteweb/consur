@@ -32,9 +32,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-                heading: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-                display: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
+                sans: ['"Raleway"', ...defaultTheme.fontFamily.sans],
+                heading: ['"Raleway"', ...defaultTheme.fontFamily.sans],
+                display: ['"Raleway"', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 consur: {

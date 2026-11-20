@@ -32,9 +32,8 @@
         
         @foreach ($sliders as $index => $slide)
             @php
-                $hasText = !empty(trim($slide->title ?? '')) || !empty(trim($slide->description ?? ''));
-                $hasButtons = !empty(trim($slide->button_text ?? '')) || !empty(trim($slide->button_secondary_text ?? ''));
-                $hasTag = !empty(trim($slide->tag ?? ''));
+                $hasText = !empty($slide->tag) || !empty($slide->title) || !empty($slide->description);
+                $hasButtons = !empty($slide->button_text) || !empty($slide->button_secondary_text);
             @endphp
             <div x-show="activeSlide === {{ $index }}" 
                  @if($index > 0) x-cloak @endif
@@ -51,7 +50,7 @@
                 @if($slide->has_video)
                     <video autoplay muted loop playsinline
                            poster="{{ $slide->desktop_image_url }}"
-                           class="absolute inset-0 w-full h-full object-cover object-center {{ $hasText ? 'opacity-60 md:opacity-75' : 'opacity-100' }}">
+                           class="absolute inset-0 w-full h-full object-cover object-center">
                         <source src="{{ $slide->video_src }}" type="video/mp4">
                         <picture class="w-full h-full">
                             <source media="(max-width: 768px)" srcset="{{ $slide->mobile_image_url }}">
@@ -65,13 +64,8 @@
                         <source media="(max-width: 768px)" srcset="{{ $slide->mobile_image_url }}">
                         <img src="{{ $slide->desktop_image_url }}" 
                              alt="{{ $slide->title ?: 'Banner CONSUR' }}" 
-                             class="w-full h-full object-cover object-center {{ $hasText ? 'opacity-60 md:opacity-75' : 'opacity-100' }}">
+                             class="w-full h-full object-cover object-center">
                     </picture>
-                @endif
-
-                @if($hasText)
-                    <!-- Gradient Overlay: Se aplica ÚNICAMENTE cuando el slide tiene título o descripción -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent md:bg-gradient-to-r md:from-slate-950 md:via-slate-950/70 md:to-transparent"></div>
                 @endif
 
                 @if(!$hasButtons && $slide->button_url)
@@ -79,11 +73,11 @@
                     <a href="{{ $slide->button_url }}" class="absolute inset-0 z-10" target="_blank" rel="noopener" aria-label="{{ $slide->title ?: 'Ver más información' }}"></a>
                 @endif
                 
-                @if($hasText || $hasButtons || $hasTag)
+                @if($hasText || $hasButtons)
                     <!-- Content Container: Ubicación adaptable según content_position (left, center, right) -->
                     <div class="absolute inset-0 flex items-end pb-16 sm:pb-20 md:items-center md:pb-0 pointer-events-none">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex {{ $slide->content_position === 'right' ? 'justify-end' : ($slide->content_position === 'center' ? 'justify-center' : 'justify-start') }}">
-                            <div class="max-w-2xl space-y-2 sm:space-y-3.5 pl-2 sm:pl-0 pointer-events-auto {{ $slide->content_position === 'right' ? 'text-right' : ($slide->content_position === 'center' ? 'text-center' : 'text-left') }}">
+                            <div class="max-w-2xl space-y-2 sm:space-y-3.5 pointer-events-auto {{ $slide->content_position === 'right' ? 'text-right' : ($slide->content_position === 'center' ? 'text-center' : 'text-left') }} @if($hasText) bg-slate-950/70 backdrop-blur-md p-5 sm:p-7 md:p-8 rounded-2xl border border-white/10 shadow-2xl @else pl-2 sm:pl-0 @endif">
                                 @if($slide->tag)
                                     <div class="inline-flex items-center gap-1.5 bg-red-600/90 backdrop-blur-sm text-white text-[9px] sm:text-[10px] md:text-[11px] font-extrabold uppercase px-2.5 py-1 rounded shadow-md tracking-wider">
                                         <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
