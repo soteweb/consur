@@ -141,6 +141,21 @@
     
     <style>
         [x-cloak] { display: none !important; }
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+        }
         html, body, *, ::before, ::after {
             font-variant-numeric: lining-nums tabular-nums;
             font-feature-settings: "lnum" 1, "tnum" 1;
@@ -533,7 +548,7 @@
     <div x-data="{ open: false }" 
          @keydown.escape.window="open = false" 
          @click.outside="open = false"
-         class="fixed bottom-6 right-6 z-50 flex flex-col items-end select-none">
+         class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end select-none">
 
         <!-- Menú Desplegable de Acciones Rápidas -->
         <div x-show="open" 
@@ -603,9 +618,9 @@
     @endphp
     <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-slate-800/80">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-slate-800/80">
                 <!-- Columna 1: Logo CONSUR, Horarios de Atención y Redes Sociales -->
-                <div class="space-y-4">
+                <div class="md:col-span-5 space-y-4">
                     <div class="flex items-center">
                         <a href="{{ route('home') }}" class="inline-block">
                             <img src="{{ asset(ltrim(\App\Models\Setting::get('site_logo_dark_url', '/images/logoconsurweb-white.png'), '/')) }}" alt="CONSUR S.A." class="h-8 md:h-9 w-auto object-contain">
@@ -645,89 +660,92 @@
                     </div>
                 </div>
 
-                <!-- Columna 2: Accesos Directos (Catálogo, Posventa, Usados, Novedades) -->
-                @php
-                    $footerCol2Items = \App\Models\MenuItem::getFooterMenu('footer_col_2');
-                @endphp
-                <div>
-                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-heading flex items-center gap-2">
-                        <i class="fas fa-compass text-red-500 text-xs"></i>
-                        <span>{{ \App\Models\Setting::get('footer_col2_title', 'Explorá CONSUR') }}</span>
-                    </h4>
-                    <ul class="space-y-3 text-xs">
-                        @forelse($footerCol2Items as $f2Item)
-                            <li>
-                                <a href="{{ $f2Item->url }}" target="{{ $f2Item->target ?? '_self' }}" class="hover:text-red-500 transition flex items-center gap-2 group">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>{{ $f2Item->title }}</span>
-                                </a>
-                            </li>
-                        @empty
-                            <li><a href="{{ route('catalogo') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Catálogo</span></a></li>
-                            <li><a href="{{ route('posventa') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Posventa</span></a></li>
-                            <li><a href="{{ route('usados') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Usados</span></a></li>
-                            <li><a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Novedades</span></a></li>
-                        @endforelse
-                    </ul>
-                </div>
+                <!-- En Móvil: 2 Columnas Limpias Lado a Lado (Explorá y Nosotros) -->
+                <div class="md:col-span-7 grid grid-cols-2 gap-6 sm:gap-8 pt-4 md:pt-0 border-t md:border-t-0 border-slate-800/80">
+                    <!-- Columna 2: Explorá CONSUR -->
+                    @php
+                        $footerCol2Items = \App\Models\MenuItem::getFooterMenu('footer_col_2');
+                    @endphp
+                    <div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-heading flex items-center gap-2">
+                            <i class="fas fa-compass text-red-500 text-xs"></i>
+                            <span>{{ \App\Models\Setting::get('footer_col2_title', 'Explorá CONSUR') }}</span>
+                        </h4>
+                        <ul class="space-y-3 text-xs">
+                            @forelse($footerCol2Items as $f2Item)
+                                <li>
+                                    <a href="{{ $f2Item->url }}" target="{{ $f2Item->target ?? '_self' }}" class="hover:text-red-500 transition flex items-center gap-2 group">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>{{ $f2Item->title }}</span>
+                                    </a>
+                                </li>
+                            @empty
+                                <li><a href="{{ route('catalogo') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Catálogo</span></a></li>
+                                <li><a href="{{ route('posventa') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Posventa</span></a></li>
+                                <li><a href="{{ route('usados') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Usados</span></a></li>
+                                <li><a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Novedades</span></a></li>
+                            @endforelse
+                        </ul>
+                    </div>
 
-                <!-- Columna 3: NOSOTROS (La Empresa, Agendamiento, Trabaja con nosotros, Novedades) -->
-                @php
-                    $footerCol3Items = \App\Models\MenuItem::getFooterMenu('footer_col_3');
-                @endphp
-                <div>
-                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-heading flex items-center gap-2">
-                        <i class="fas fa-building text-red-500 text-xs"></i>
-                        <span>{{ \App\Models\Setting::get('footer_col3_title', 'NOSOTROS') }}</span>
-                    </h4>
-                    <ul class="space-y-3 text-xs">
-                        @forelse($footerCol3Items as $fItem)
-                            <li>
-                                <a href="{{ $fItem->url }}" target="{{ $fItem->target }}" class="hover:text-red-500 transition flex items-center gap-2">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>{{ $fItem->title }}</span>
-                                </a>
-                            </li>
-                        @empty
-                            <li>
-                                <a href="{{ route('la-empresa') }}" class="hover:text-red-500 transition flex items-center gap-2">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>La Empresa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ $turnosUrl }}" target="_blank" class="hover:text-red-500 transition flex items-center gap-2">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>Agendamiento</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('trabaja-con-nosotros') }}" class="hover:text-red-500 transition flex items-center gap-2">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>Trabaja con nosotros</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>Novedades</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('contacto') }}" class="hover:text-red-500 transition flex items-center gap-2">
-                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                    <span>Contacto & Sucursales</span>
-                                </a>
-                            </li>
-                        @endforelse
-                    </ul>
+                    <!-- Columna 3: NOSOTROS -->
+                    @php
+                        $footerCol3Items = \App\Models\MenuItem::getFooterMenu('footer_col_3');
+                    @endphp
+                    <div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-heading flex items-center gap-2">
+                            <i class="fas fa-building text-red-500 text-xs"></i>
+                            <span>{{ \App\Models\Setting::get('footer_col3_title', 'NOSOTROS') }}</span>
+                        </h4>
+                        <ul class="space-y-3 text-xs">
+                            @forelse($footerCol3Items as $fItem)
+                                <li>
+                                    <a href="{{ $fItem->url }}" target="{{ $fItem->target }}" class="hover:text-red-500 transition flex items-center gap-2">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>{{ $fItem->title }}</span>
+                                    </a>
+                                </li>
+                            @empty
+                                <li>
+                                    <a href="{{ route('la-empresa') }}" class="hover:text-red-500 transition flex items-center gap-2">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>La Empresa</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ $turnosUrl }}" target="_blank" class="hover:text-red-500 transition flex items-center gap-2">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>Agendamiento</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('trabaja-con-nosotros') }}" class="hover:text-red-500 transition flex items-center gap-2">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>Trabaja con nosotros</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>Novedades</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('contacto') }}" class="hover:text-red-500 transition flex items-center gap-2">
+                                        <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                        <span>Contacto & Sucursales</span>
+                                    </a>
+                                </li>
+                            @endforelse
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Copyright & Créditos (Powered by Soteweb) -->
-            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+            <!-- Copyright & Créditos (Centrado en Móvil) -->
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4 text-center md:text-left">
                 <p>{{ $copyrightText }}</p>
-                <div class="flex flex-wrap items-center gap-3">
+                <div class="flex flex-wrap justify-center md:justify-end items-center gap-3">
                     <a href="{{ route('page.show', 'terminos-y-condiciones') }}" class="hover:text-slate-300 transition">Términos & Privacidad</a>
                     <span>•</span>
                     <a href="{{ route('page.show', 'garantia-y-seguros') }}" class="hover:text-slate-300 transition">Garantía & Seguros</a>

@@ -2,8 +2,8 @@
     <!-- 1. Hero Carrusel Principal (Alpine.js + Sliders DB) -->
     <x-frontend.hero-slider :sliders="$sliders" group="home" />
 
-    <!-- 1.1 Barra Rápida de Acceso a Marcas del Grupo (Solo nombres en MAYÚSCULAS sin logo) -->
-    <div class="w-full bg-white dark:bg-neutral-900 border-b border-slate-200/80 dark:border-neutral-800 py-2.5 px-4 sm:px-6 lg:px-8 select-none transition-colors">
+    <!-- 1.1 Barra Rápida de Acceso a Marcas del Grupo (Oculta en móvil para evitar scrollbars y desbordes) -->
+    <div class="hidden md:block w-full bg-white dark:bg-neutral-900 border-b border-slate-200/80 dark:border-neutral-800 py-2.5 px-4 sm:px-6 lg:px-8 select-none transition-colors">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
             <div class="flex items-center gap-2 flex-shrink-0 text-xs font-bold text-slate-400 dark:text-neutral-500 uppercase tracking-widest">
                 <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
@@ -56,7 +56,7 @@
                     </h2>
                 </div>
 
-                <!-- Tabs de Categorías (Exactamente 4 pestañas: Indestructibles, Híbridos, Urbanos y Utilitarios) -->
+                <!-- Tabs de Categorías (Adaptable Móvil 2x2 Grid sin scrollbars / Desktop clásico) -->
                 @php
                     $toyotaTabs = [
                         'indestructibles' => 'Indestructibles',
@@ -65,12 +65,24 @@
                         'utilitarios' => 'Utilitarios',
                     ];
                 @endphp
-                <div class="flex items-center justify-center mb-12 md:mb-16" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-6 sm:gap-10 md:gap-12 overflow-x-auto no-scrollbar px-2 pb-1">
+                <div class="mb-10 md:mb-16" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Versión Móvil: 2x2 Grid Táctil de Píldoras (Limpio, Sin scrollbars ni texto cortado) -->
+                    <div class="grid grid-cols-2 gap-2 sm:hidden max-w-sm mx-auto px-2">
                         @foreach($toyotaTabs as $tabKey => $tabLabel)
                             <button wire:click="selectCategory('{{ $tabKey }}')"
                                     type="button"
-                                    class="group relative pb-2.5 text-base sm:text-lg tracking-wide transition-all duration-200 whitespace-nowrap {{ $selectedCategory === $tabKey ? 'font-medium text-neutral-900 dark:text-white' : 'font-normal text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white' }}">
+                                    class="py-2.5 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center cursor-pointer {{ $selectedCategory === $tabKey ? 'bg-red-600 text-white shadow-md shadow-red-600/25' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300' }}">
+                                <span>{{ $tabLabel }}</span>
+                            </button>
+                        @endforeach
+                    </div>
+
+                    <!-- Versión Desktop: Pestañas Clásicas con Subrayado -->
+                    <div class="hidden sm:flex items-center justify-center gap-8 md:gap-12 px-2 pb-1">
+                        @foreach($toyotaTabs as $tabKey => $tabLabel)
+                            <button wire:click="selectCategory('{{ $tabKey }}')"
+                                    type="button"
+                                    class="group relative pb-2.5 text-base sm:text-lg tracking-wide transition-all duration-200 whitespace-nowrap cursor-pointer {{ $selectedCategory === $tabKey ? 'font-semibold text-neutral-900 dark:text-white' : 'font-normal text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white' }}">
                                 <span>{{ $tabLabel }}</span>
                                 @if($selectedCategory === $tabKey)
                                     <span class="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#eb0a1e] rounded-full"></span>
@@ -135,10 +147,10 @@
                      @touchend.passive="handleTouchEnd($event)"
                      class="relative w-full max-w-6xl mx-auto">
 
-                    <!-- Línea de Suelo Continua Horizontal (100vw Edge-to-Edge detrás de las ruedas) -->
-                    <div class="absolute left-1/2 -translate-x-1/2 w-[100vw] top-[126px] h-[2px] bg-[#e4e4e7] dark:bg-slate-800 pointer-events-none z-0"></div>
+                    <!-- Línea de Suelo Continua Horizontal (100% de ancho del contenedor sin desborde lateral) -->
+                    <div class="absolute inset-x-0 top-[126px] h-[2px] bg-[#e4e4e7] dark:bg-slate-800 pointer-events-none z-0"></div>
 
-                    <!-- Botón Navegación Izquierda: Chevron Minimalista Delgado -->
+                    <!-- Botón Navegación Izquierda: Oculto en móvil (usan touch swipe), visible en sm+ -->
                     <button @click="prevPage()"
                             x-show="currentPage > 0"
                             x-transition:enter="transition ease-out duration-200"
@@ -148,14 +160,14 @@
                             x-transition:leave-start="opacity-100 translate-x-0"
                             x-transition:leave-end="opacity-0 -translate-x-2"
                             type="button"
-                            class="absolute -left-6 sm:-left-10 md:-left-14 top-[71px] -translate-y-1/2 z-20 p-2 text-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all hover:scale-110 focus:outline-hidden"
+                            class="hidden sm:block absolute sm:-left-8 md:-left-12 top-[71px] -translate-y-1/2 z-20 p-2 text-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all hover:scale-110 focus:outline-hidden"
                             aria-label="Anterior">
                         <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
-                    <!-- Botón Navegación Derecha: Chevron Minimalista Delgado -->
+                    <!-- Botón Navegación Derecha: Oculto en móvil (usan touch swipe), visible en sm+ -->
                     <button @click="nextPage()"
                             x-show="currentPage < totalPages - 1"
                             x-transition:enter="transition ease-out duration-200"
@@ -165,7 +177,7 @@
                             x-transition:leave-start="opacity-100 translate-x-0"
                             x-transition:leave-end="opacity-0 translate-x-2"
                             type="button"
-                            class="absolute -right-6 sm:-right-10 md:-right-14 top-[71px] -translate-y-1/2 z-20 p-2 text-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all hover:scale-110 focus:outline-hidden"
+                            class="hidden sm:block absolute sm:-right-8 md:-right-12 top-[71px] -translate-y-1/2 z-20 p-2 text-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all hover:scale-110 focus:outline-hidden"
                             aria-label="Siguiente">
                         <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -767,17 +779,17 @@
                     </p>
                 </div>
 
-                <!-- Navegación de Pestañas por Ciudad / Sucursal -->
-                <div class="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar pb-2 mb-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="inline-flex items-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
+                <!-- Navegación de Pestañas por Ciudad / Sucursal (Adaptable Móvil y Desktop sin Scrollbars) -->
+                <div class="flex items-center justify-center mb-8 px-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 max-w-full">
                         @foreach($branches as $bTab)
                             <button type="button"
                                     @click="activeBranch = {{ $bTab->id }}"
                                     :class="activeBranch === {{ $bTab->id }}
-                                        ? 'bg-red-600 text-white shadow-sm font-semibold'
+                                        ? 'bg-red-600 text-white shadow-sm font-bold'
                                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800 font-medium'"
-                                    class="px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-200 whitespace-nowrap flex items-center gap-2 cursor-pointer">
-                                <i class="fas fa-map-marker-alt text-xs"
+                                    class="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 sm:gap-2 cursor-pointer">
+                                <i class="fas fa-map-marker-alt text-[11px] sm:text-xs"
                                    :class="activeBranch === {{ $bTab->id }} ? 'text-white' : 'text-red-600'"></i>
                                 <span>{{ $bTab->city }}</span>
                             </button>
