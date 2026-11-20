@@ -696,51 +696,51 @@
         $spotifyEmbedUrl = "https://open.spotify.com/embed/show/{$spotifyShowId}/video?utm_source=generator";
     @endphp
     @if($secPodcast->is_visible)
-        <section id="podcast" class="py-16 md:py-20 bg-[#f8f9fa] dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 transition-colors">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-slate-900 rounded-3xl p-6 sm:p-10 lg:p-12 text-white shadow-xl relative overflow-hidden border border-slate-800/80" data-aos="fade-up">
-                    <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
-                    <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-red-600/10 blur-3xl pointer-events-none"></div>
+        <section id="podcast" class="relative py-20 md:py-28 bg-slate-950 text-white overflow-hidden border-t border-neutral-900 select-none">
+            <!-- Resplandores y Fondo Cinemático Modo Oscuro -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/95 to-slate-950"></div>
+            <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-emerald-500/15 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-red-600/10 blur-3xl pointer-events-none"></div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-                        <!-- Información y Botón al Canal -->
-                        <div class="lg:col-span-5 space-y-5 text-center lg:text-left">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-semibold uppercase tracking-widest">
-                                <i class="fab fa-spotify text-sm"></i>
-                                <span>{{ $secPodcast->content['podcast_badge'] ?? 'Conecta con CONSUR • Podcast Oficial' }}</span>
-                            </div>
-
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-white font-heading uppercase tracking-wide leading-tight">
-                                {{ $secPodcast->content['podcast_title'] ?? 'Último Episodio en Spotify' }}
-                            </h2>
-
-                            <p class="text-sm text-slate-300 leading-relaxed font-normal">
-                                {{ $secPodcast->content['podcast_desc'] ?? 'Escuchá o mirá automáticamente nuestro episodio más reciente sobre novedades automotrices, tecnología Toyota y consejos de posventa, o visitá nuestro canal oficial con todos los capítulos.' }}
-                            </p>
-
-                            <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                                <a href="{{ $spotifyChannelUrl }}" target="_blank" rel="noopener"
-                                   class="inline-flex items-center gap-2.5 bg-[#1DB954] hover:bg-[#1ed760] text-slate-950 font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition shadow-md shadow-[#1DB954]/20">
-                                    <i class="fab fa-spotify text-base"></i>
-                                    <span>Ir al Canal en Spotify</span>
-                                    <i class="fas fa-external-link-alt text-[10px]"></i>
-                                </a>
-                            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                    <!-- Información y Botón al Canal -->
+                    <div class="lg:col-span-5 space-y-6 text-center lg:text-left" data-aos="fade-right">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-widest">
+                            <i class="fab fa-spotify text-sm"></i>
+                            <span>{{ $secPodcast->content['podcast_badge'] ?? 'Conecta con CONSUR • Podcast Oficial' }}</span>
                         </div>
 
-                        <!-- Reproductor Oficial Spotify (Actualiza automáticamente al último episodio publicado en el canal) -->
-                        <div class="lg:col-span-7">
-                            <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-slate-950">
-                                <iframe data-testid="embed-iframe"
-                                        style="border-radius:12px"
-                                        src="{{ $spotifyEmbedUrl }}"
-                                        width="100%"
-                                        height="352"
-                                        frameBorder="0"
-                                        allowfullscreen=""
-                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                        loading="lazy"></iframe>
-                            </div>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white font-heading uppercase tracking-wide leading-tight">
+                            {{ $secPodcast->content['podcast_title'] ?? 'Último Episodio en Spotify' }}
+                        </h2>
+
+                        <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                            {{ $secPodcast->content['podcast_desc'] ?? 'Escuchá o mirá automáticamente nuestro episodio más reciente sobre novedades automotrices, tecnología Toyota y consejos de posventa, o visitá nuestro canal oficial con todos los capítulos.' }}
+                        </p>
+
+                        <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                            <a href="{{ $spotifyChannelUrl }}" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-2.5 bg-[#1DB954] hover:bg-[#1ed760] text-slate-950 font-bold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-300 shadow-lg shadow-[#1DB954]/25 hover:shadow-[#1DB954]/40 hover:scale-105">
+                                <i class="fab fa-spotify text-base"></i>
+                                <span>Ir al Canal en Spotify</span>
+                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Reproductor Oficial Spotify (Actualiza automáticamente al último episodio publicado en el canal) -->
+                    <div class="lg:col-span-7" data-aos="fade-left" data-aos-delay="150">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900/80 backdrop-blur-md p-1.5">
+                            <iframe data-testid="embed-iframe"
+                                    style="border-radius:12px"
+                                    src="{{ $spotifyEmbedUrl }}"
+                                    width="100%"
+                                    height="352"
+                                    frameBorder="0"
+                                    allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
