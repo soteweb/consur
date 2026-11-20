@@ -236,9 +236,9 @@
     <!-- 3. Taller Móvil CONSUR (Con Imagen Oficial de la Unidad Móvil y 12 Puntos de Revisión) -->
     @php
         $secTaller = \App\Models\SiteSection::getSection('posventa_taller_movil');
-        $tallerImg = $secTaller->content['main_image'] ?? '/images/home/hometallermovil.png';
-        if (str_contains($tallerImg, 'unsplash.com')) {
-            $tallerImg = '/images/home/hometallermovil.png';
+        $tallerImg = $secTaller->content['main_image'] ?? '/images/home/consurmovil.png';
+        if (str_contains($tallerImg, 'unsplash.com') || str_contains($tallerImg, 'hometallermovil.png')) {
+            $tallerImg = '/images/home/consurmovil.png';
         }
         $tallerChecklist = [
             'Transmisión', 'Manejo', 'Motor', 'Llantas',
@@ -249,9 +249,20 @@
     @if($secTaller->is_visible)
         <section id="taller-movil" class="py-16 md:py-24 bg-[#f8f9fa] dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800 overflow-hidden transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                    <!-- Columna Izquierda: Información, 12 Puntos y Agendamiento -->
-                    <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                    
+                    <!-- Columna Izquierda: Unidad Taller Móvil CONSUR -->
+                    <div class="lg:col-span-6 relative flex flex-col items-center justify-center order-1 lg:order-1" data-aos="fade-right">
+                        <picture>
+                            <source srcset="{{ asset('images/home/consurmovil.webp') }}" type="image/webp">
+                            <img src="{{ asset(ltrim($tallerImg, '/')) }}"
+                                 alt="Taller Móvil CONSUR S.A."
+                                 class="w-full max-w-[650px] h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                        </picture>
+                    </div>
+
+                    <!-- Columna Derecha: Información, 12 Puntos y Agendamiento -->
+                    <div class="lg:col-span-6 space-y-6 order-2 lg:order-2" data-aos="fade-left" data-aos-delay="150">
                         <div>
                             <span class="inline-flex items-center gap-1.5 text-xs uppercase font-semibold tracking-widest text-red-600">
                                 <i class="fas fa-tools text-[11px]"></i>
@@ -297,13 +308,6 @@
                                 <span>{{ $secTaller->content['button_2_text'] ?? 'Solicitar Taller Móvil' }}</span>
                             </a>
                         </div>
-                    </div>
-
-                    <!-- Columna Derecha: Imagen Oficial de la Unidad Taller Móvil CONSUR (Limpia sin marco redondeado) -->
-                    <div class="lg:col-span-6 relative flex flex-col items-center justify-center" data-aos="fade-left" data-aos-delay="150">
-                        <img src="{{ asset(ltrim($tallerImg, '/')) }}"
-                             alt="Taller Móvil CONSUR S.A."
-                             class="w-full max-w-[650px] h-auto object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
                     </div>
                 </div>
             </div>
