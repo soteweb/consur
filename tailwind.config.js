@@ -32,7 +32,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Raleway"', ...defaultTheme.fontFamily.sans],
+                sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
                 heading: ['"Raleway"', ...defaultTheme.fontFamily.sans],
                 display: ['"Raleway"', ...defaultTheme.fontFamily.sans],
             },

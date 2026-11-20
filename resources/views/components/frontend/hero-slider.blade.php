@@ -32,8 +32,10 @@
         
         @foreach ($sliders as $index => $slide)
             @php
-                $hasText = !empty($slide->tag) || !empty($slide->title) || !empty($slide->description);
-                $hasButtons = !empty($slide->button_text) || !empty($slide->button_secondary_text);
+                // Sólo activar opacidad y capa oscura si tiene título o descripción explícitos
+                $hasText = !empty(trim($slide->title ?? '')) || !empty(trim($slide->description ?? ''));
+                $hasButtons = !empty(trim($slide->button_text ?? '')) || !empty(trim($slide->button_secondary_text ?? ''));
+                $hasTag = !empty(trim($slide->tag ?? ''));
             @endphp
             <div x-show="activeSlide === {{ $index }}" 
                  @if($index > 0) x-cloak @endif
@@ -69,11 +71,8 @@
                 @endif
 
                 @if($hasText)
-                    <!-- Gradient Overlay: Vertical en móviles, horizontal en desktop -->
+                    <!-- Gradient Overlay: Sólo se aplica si hay título o descripción para dar contraste a la lectura -->
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent md:bg-gradient-to-r md:from-slate-950 md:via-slate-950/70 md:to-transparent"></div>
-                @elseif($hasButtons)
-                    <!-- Sutil viñeta inferior sólo para dar contraste a los botones si la imagen es clara -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                 @endif
 
                 @if(!$hasButtons && $slide->button_url)
@@ -81,7 +80,7 @@
                     <a href="{{ $slide->button_url }}" class="absolute inset-0 z-10" target="_blank" rel="noopener" aria-label="{{ $slide->title ?: 'Ver más información' }}"></a>
                 @endif
                 
-                @if($hasText || $hasButtons)
+                @if($hasText || $hasButtons || $hasTag)
                     <!-- Content Container: Ubicación adaptable según content_position (left, center, right) -->
                     <div class="absolute inset-0 flex items-end pb-16 sm:pb-20 md:items-center md:pb-0 pointer-events-none">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex {{ $slide->content_position === 'right' ? 'justify-end' : ($slide->content_position === 'center' ? 'justify-center' : 'justify-start') }}">
