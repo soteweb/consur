@@ -118,102 +118,56 @@
         @endif
 
         <!-- 2. MENÚ DE SECCIONES DEBAJO DEL HERO (Fijo / Sticky en top-0 al hacer scroll hacia abajo) -->
-        <nav class="sticky top-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200/90 dark:border-slate-800 shadow-sm transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16 sm:h-20 gap-4">
-                    
-                    <!-- Lado Izquierdo: Identidad del Modelo -->
-                    <div class="flex items-center gap-3 flex-shrink-0">
-                        <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight font-heading">
-                            {{ $vehicle->model }}
+        <nav class="sticky top-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-neutral-200/90 dark:border-slate-800 shadow-xs transition-all">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <span class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-white uppercase tracking-wide font-heading truncate max-w-[180px] sm:max-w-none">
+                        {{ $vehicle->model }}
+                    </span>
+                    @if($vehicle->is_hybrid)
+                        <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-blue-50 dark:bg-blue-950/60 text-[#005cb9] dark:text-cyan-400 border border-blue-200 dark:border-blue-800/60 tracking-wide">
+                            <i class="fas fa-bolt mr-1 text-[9px]"></i> HEV Híbrido
                         </span>
-                        @if($vehicle->is_hybrid)
-                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase bg-blue-50 dark:bg-blue-950/60 text-[#005cb9] dark:text-cyan-400 border border-blue-200 dark:border-blue-800/60 tracking-wider">
-                                <i class="fas fa-bolt mr-1 text-[10px]"></i> HEV Híbrido
-                            </span>
-                        @else
-                            <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-neutral-100 dark:bg-slate-800 text-neutral-600 dark:text-neutral-300 tracking-wider">
-                                0 KM
-                            </span>
-                        @endif
-                    </div>
-
-                    <!-- Enlaces de navegación rápida de secciones (Estilo Toyota Oficial) -->
-                    <div class="hidden md:flex items-center gap-6 lg:gap-9 h-full">
-                        @if($hasCustomHtml)
-                            @foreach($customAnchors as $anchorId => $anchorLabel)
-                                @if(str_contains($vehicle->custom_html, 'id="' . $anchorId . '"') || str_contains($vehicle->custom_html, "id='" . $anchorId . "'"))
-                                    <a href="#{{ $anchorId }}" 
-                                       class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] dark:hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all duration-200 tracking-wide">
-                                        {{ $anchorLabel }}
-                                    </a>
-                                @endif
-                            @endforeach
-                        @else
-                            @if(!empty($vehicle->colors))
-                                <a href="#colores" class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all tracking-wide">Colores</a>
-                            @endif
-                            @if(!empty($vehicle->highlights))
-                                <a href="#diseno" class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all tracking-wide">Diseño</a>
-                            @endif
-                            @if(!empty($vehicle->safety))
-                                <a href="#seguridad" class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all tracking-wide">Seguridad TSS</a>
-                            @endif
-                            @if($vehicle->video_embed_url)
-                                <a href="#video" class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all tracking-wide">Video</a>
-                            @endif
-                            @if(!empty($vehicle->versions))
-                                <a href="#versiones" class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all tracking-wide">Versiones</a>
-                            @endif
-                            @if(!empty($vehicle->spec_sheet))
-                                <a href="#especificaciones" class="h-full inline-flex items-center px-1 text-sm lg:text-[15px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#eb0a1e] border-b-[3px] border-transparent hover:border-[#eb0a1e] transition-all tracking-wide">Ficha Técnica</a>
-                            @endif
-                        @endif
-                    </div>
-
-                    <!-- Lado Derecho: Acciones Rápidas (Brochure y Cotizar) -->
-                    <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
-                        @if($vehicle->brochure_link)
-                            <a href="{{ $vehicle->brochure_link }}" target="_blank"
-                               class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white text-xs font-bold uppercase tracking-wider transition">
-                                <i class="fas fa-file-pdf text-[#eb0a1e]"></i>
-                                <span>Ficha PDF</span>
-                            </a>
-                        @endif
-                        <a href="https://wa.me/595985204106?text={{ urlencode($waLeadText) }}" target="_blank"
-                           class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-[#eb0a1e] hover:bg-black text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition shadow-sm hover:shadow">
-                            <i class="fab fa-whatsapp text-sm sm:text-base"></i>
-                            <span>Cotizar</span>
-                        </a>
-                    </div>
+                    @endif
                 </div>
 
-                <!-- Barra deslizable móvil para saltar a secciones desde smartphones -->
-                <div class="md:hidden flex items-center gap-4 overflow-x-auto no-scrollbar py-2.5 border-t border-slate-100 dark:border-slate-800/80 -mx-4 px-4 whitespace-nowrap">
+                <!-- Enlaces de salto rápido de sección -->
+                <div class="hidden lg:flex items-center gap-6 text-[13px] font-normal text-neutral-700 dark:text-neutral-300 h-full">
                     @if($hasCustomHtml)
                         @foreach($customAnchors as $anchorId => $anchorLabel)
                             @if(str_contains($vehicle->custom_html, 'id="' . $anchorId . '"') || str_contains($vehicle->custom_html, "id='" . $anchorId . "'"))
-                                <a href="#{{ $anchorId }}" 
-                                   class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-[#eb0a1e] px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 transition">
-                                    {{ $anchorLabel }}
-                                </a>
+                                <a href="#{{ $anchorId }}" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">{{ $anchorLabel }}</a>
                             @endif
                         @endforeach
                     @else
+                        @if(!empty($vehicle->colors))
+                            <a href="#colores" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">Colores</a>
+                        @endif
                         @if(!empty($vehicle->highlights))
-                            <a href="#diseno" class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-[#eb0a1e] px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 transition">Diseño</a>
+                            <a href="#diseno" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">Diseño</a>
+                        @endif
+                        @if(!empty($vehicle->safety))
+                            <a href="#seguridad" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">Seguridad TSS</a>
+                        @endif
+                        @if($vehicle->video_embed_url)
+                            <a href="#video" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">Video</a>
                         @endif
                         @if(!empty($vehicle->versions))
-                            <a href="#versiones" class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-[#eb0a1e] px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 transition">Versiones</a>
+                            <a href="#versiones" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">Versiones</a>
                         @endif
                         @if(!empty($vehicle->spec_sheet))
-                            <a href="#especificaciones" class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-[#eb0a1e] px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 transition">Ficha</a>
+                            <a href="#especificaciones" class="h-full inline-flex items-center border-b-2 border-transparent hover:border-[#eb0a1e] hover:text-[#eb0a1e] transition">Ficha Técnica</a>
                         @endif
                     @endif
+                </div>
+
+                <!-- CTA Botón Descargar Brochure -->
+                <div class="flex items-center gap-2 flex-shrink-0">
                     @if($vehicle->brochure_link)
                         <a href="{{ $vehicle->brochure_link }}" target="_blank"
-                           class="text-xs font-bold text-red-600 px-3 py-1.5 rounded-full bg-red-50 dark:bg-red-950/40 transition flex items-center gap-1.5">
-                            <i class="fas fa-file-pdf"></i> Brochure
+                           class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#eb0a1e] hover:bg-red-700 text-white text-xs font-medium transition shadow-xs">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Descargar Brochure</span>
                         </a>
                     @endif
                 </div>

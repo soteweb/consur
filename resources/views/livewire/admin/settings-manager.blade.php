@@ -4,7 +4,7 @@
         <p class="text-xs text-slate-500">Personalizá logotipos, datos de contacto, cotización de moneda y enlaces corporativos.</p>
     </div>
 
-    <form wire:submit="save" class="space-y-6">
+    <form wire:submit="save" novalidate class="space-y-6">
         <!-- 0. Identidad de Marca & Logotipos -->
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-5">
             <h2 class="text-base font-bold text-slate-900 font-heading border-b border-slate-100 pb-3 flex items-center gap-2">
@@ -64,13 +64,13 @@
                 <div class="space-y-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">URL Logo Principal (Modo Claro)</label>
-                        <input type="url" wire:model.live="site_logo_url" placeholder="https://consur.com.py/wp-content/uploads/2019/07/logoconsurweb.png" 
+                        <input type="text" wire:model.live="site_logo_url" placeholder="https://consur.com.py/wp-content/uploads/2019/07/logoconsurweb.png" 
                                class="w-full text-xs rounded-xl border border-slate-200 py-2 focus:ring-2 focus:ring-[#416A8D]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">URL Logo Fondo Oscuro (Modo Oscuro / Footer)</label>
-                        <input type="url" wire:model.live="site_logo_dark_url" placeholder="https://consur.com.py/wp-content/uploads/2019/07/logoconsurweb-white.png" 
+                        <input type="text" wire:model.live="site_logo_dark_url" placeholder="https://consur.com.py/wp-content/uploads/2019/07/logoconsurweb-white.png" 
                                class="w-full text-xs rounded-xl border border-slate-200 py-2 focus:ring-2 focus:ring-[#416A8D]">
                     </div>
 
@@ -100,7 +100,7 @@
 
             <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1">URL de Favicon (Opcional)</label>
-                <input type="url" wire:model="site_favicon_url" placeholder="https://dominio.com/favicon.ico" 
+                <input type="text" wire:model="site_favicon_url" placeholder="https://dominio.com/favicon.ico" 
                        class="w-full text-xs rounded-xl border border-slate-200 py-2 focus:ring-2 focus:ring-[#416A8D]">
             </div>
         </div>
@@ -124,7 +124,7 @@
 
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-bold text-slate-700 mb-1">Enlace de Turnos Online (Turnos 365)</label>
-                    <input type="url" wire:model="turnos_url" class="w-full text-xs rounded-xl border border-slate-200 py-2 focus:ring-2 focus:ring-[#416A8D]">
+                    <input type="text" wire:model="turnos_url" class="w-full text-xs rounded-xl border border-slate-200 py-2 focus:ring-2 focus:ring-[#416A8D]">
                 </div>
             </div>
         </div>

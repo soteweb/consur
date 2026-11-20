@@ -34,15 +34,7 @@
 #especificaciones,
 #modelos,
 #versiones {
-    scroll-margin-top: 5.25rem;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    scroll-margin-top: 4rem;
 }
 
 .vehicle-custom-html h1,
