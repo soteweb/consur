@@ -95,7 +95,7 @@ class Home extends Component
                   ->orWhereIn('slug', ['corolla-cross', 'rav4', 'yaris-cross', 'corolla']);
             });
         } elseif ($this->selectedCategory === 'urbanos') {
-            $vehiclesQuery->whereIn('slug', ['agya', 'raize', 'rush', 'corolla']);
+            $vehiclesQuery->whereIn('slug', ['agya', 'raize', 'rush', 'corolla', 'corolla-cross']);
         } elseif ($this->selectedCategory === 'utilitarios') {
             $vehiclesQuery->whereIn('slug', ['hiace']);
         } else {
