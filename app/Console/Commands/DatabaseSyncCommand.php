@@ -154,7 +154,7 @@ class DatabaseSyncCommand extends Command
                         }
                     }
 
-                    // Manejo inteligente de claves únicas para evitar violaciones de unicidad (e.g. slug duplicado con otro ID previo de una migración)
+                    // Manejo inteligente de claves únicas y primarias para evitar violaciones de unicidad
                     $uniqueKeys = [
                         'pages' => ['slug'],
                         'settings' => ['key'],
@@ -166,24 +166,21 @@ class DatabaseSyncCommand extends Command
                         'vehicles' => ['slug'],
                     ];
 
-                    if (isset($uniqueKeys[$table])) {
-                        $match = [];
+                    // 1. Si existe otro registro con la misma clave única (ej. email o slug) pero con diferente ID, eliminarlo
+                    if (isset($uniqueKeys[$table]) && isset($row['id'])) {
+                        $matchUnique = [];
                         foreach ($uniqueKeys[$table] as $k) {
                             if (isset($row[$k])) {
-                                $match[$k] = $row[$k];
+                                $matchUnique[$k] = $row[$k];
                             }
                         }
 
-                        if (!empty($match)) {
-                            // Si ya existe un registro con esta clave pero con otro ID previo, eliminar el viejo
-                            if (isset($row['id'])) {
-                                DB::table($table)->where($match)->where('id', '!=', $row['id'])->delete();
-                            }
-                            DB::table($table)->updateOrInsert($match, $row);
-                            continue;
+                        if (!empty($matchUnique)) {
+                            DB::table($table)->where($matchUnique)->where('id', '!=', $row['id'])->delete();
                         }
                     }
 
+                    // 2. Insertar o actualizar usando 'id' como identificador primario para evitar duplicate key en pkey
                     if (isset($row['id'])) {
                         DB::table($table)->updateOrInsert(
                             ['id' => $row['id']],
