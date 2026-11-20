@@ -1,4 +1,4 @@
-<div class="oj-theme bg-[#f4f5f7] dark:bg-slate-950 text-[#0d0e0e] dark:text-neutral-100 antialiased overflow-x-hidden selection:bg-consur-red selection:text-white transition-colors"
+<div class="oj-theme bg-[#f4f5f7] dark:bg-slate-950 text-[#0d0e0e] dark:text-neutral-100 antialiased overflow-x-clip selection:bg-consur-red selection:text-white transition-colors"
      x-data="{
          vehicleInterest: @entangle('vehicleInterest'),
          sentSuccess: @entangle('sentSuccess')

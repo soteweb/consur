@@ -1,4 +1,4 @@
-<div class="oj-theme bg-white dark:bg-slate-950 text-[#0d0e0e] dark:text-white antialiased overflow-x-hidden selection:bg-consur-red selection:text-white transition-colors"
+<div class="oj-theme bg-white dark:bg-slate-950 text-[#0d0e0e] dark:text-white antialiased overflow-x-clip selection:bg-consur-red selection:text-white transition-colors"
      x-data="{
          activeColor: 0,
          colors: @js($modelData['configurator']['colors']),

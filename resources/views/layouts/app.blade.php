@@ -142,10 +142,9 @@
     <style>
         [x-cloak] { display: none !important; }
         html, body {
-            overflow-x: hidden;
+            overflow-x: clip;
             max-width: 100%;
             width: 100%;
-            position: relative;
         }
         .no-scrollbar::-webkit-scrollbar {
             display: none !important;
