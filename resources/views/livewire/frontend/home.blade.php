@@ -351,13 +351,13 @@
                                 <span>{{ $secUsados->content['button_text'] ?? 'VER STOCK DE USADOS' }}</span>
                                 <i class="fas fa-arrow-right text-xs"></i>
                             </a>
-                            <a href="{{ $secUsados->content['facebook_url'] ?? 'https://www.facebook.com/profile.php?id=61575103643185' }}" 
+                            <a href="{{ $secUsados->content['facebook_url'] ?? 'https://www.facebook.com/profile.php?id=100063630099625' }}" 
                                target="_blank" 
                                rel="noopener noreferrer" 
                                title="Facebook de CONSUR Usados"
-                               class="bg-[#1877F2] hover:bg-[#166fe5] text-white font-semibold text-xs uppercase tracking-wider px-4 py-3.5 rounded-xl transition shadow-md shadow-blue-600/20 flex items-center gap-2">
-                                <i class="fab fa-facebook-f text-sm"></i>
-                                <span>Facebook</span>
+                               aria-label="Facebook de CONSUR Usados"
+                               class="w-11 h-11 bg-[#1877F2] hover:bg-[#166fe5] text-white rounded-xl transition shadow-md shadow-blue-600/20 flex items-center justify-center shrink-0 hover:scale-105">
+                                <i class="fab fa-facebook-f text-base"></i>
                             </a>
                         </div>
                     </div>

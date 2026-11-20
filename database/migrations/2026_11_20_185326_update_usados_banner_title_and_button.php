@@ -12,7 +12,7 @@ return new class extends Migration
             $content = $section->content ?? [];
             $content['title'] = 'Vehículos con Respaldo Oficial';
             $content['button_text'] = 'VER STOCK DE USADOS';
-            $content['facebook_url'] = 'https://www.facebook.com/profile.php?id=61575103643185';
+            $content['facebook_url'] = 'https://www.facebook.com/profile.php?id=100063630099625';
             $section->content = $content;
             $section->save();
         }

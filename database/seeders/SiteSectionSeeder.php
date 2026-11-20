@@ -59,7 +59,7 @@ class SiteSectionSeeder extends Seeder
                     'desc' => 'Accedé a autos y camionetas seleccionadas con historial verificado, revisión técnica integral en talleres Consur y planes de financiación directa.',
                     'button_text' => 'VER STOCK DE USADOS',
                     'button_url' => '/usados',
-                    'facebook_url' => 'https://www.facebook.com/profile.php?id=61575103643185',
+                    'facebook_url' => 'https://www.facebook.com/profile.php?id=100063630099625',
                     'background_image' => 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920',
                 ]
             ],
