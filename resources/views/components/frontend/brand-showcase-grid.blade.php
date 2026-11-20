@@ -77,7 +77,7 @@
     @endphp
 
     <!-- Encabezado Cinemático Full-Width -->
-    <div class="w-full px-5 sm:px-8 lg:px-12 pt-10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-900">
+    <div class="w-full px-5 sm:px-8 lg:px-12 pt-10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-neutral-900" data-aos="fade-up">
         <div>
             <div class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-red-600 mb-1.5">
                 <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
@@ -97,6 +97,8 @@
         @foreach($brandCards as $card)
             <a href="{{ $card['url'] }}"
                wire:navigate
+               data-aos="fade-up"
+               data-aos-delay="{{ $loop->index * 60 }}"
                class="group relative {{ $card['cols'] }} {{ $card['height'] }} overflow-hidden rounded-none flex items-center justify-center p-6 transition-all duration-500 focus:outline-none">
 
                 <!-- 1. Fotografía Protagonista de Alta Claridad (Lazy Loading Nativo) -->
