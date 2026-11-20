@@ -365,7 +365,7 @@
     <!-- 5. Llamada a la Acción: Visita Nuestra Tienda Online (CONSUR Shop -> https://consurshop.com) -->
     @php $secShop = \App\Models\SiteSection::getSection('consur_shop_cta'); @endphp
     @if($secShop->is_visible)
-        <section id="consur-shop" class="py-16 md:py-24 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800/80 transition-colors">
+        <section id="consur-shop" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900/90 border-t border-slate-200/80 dark:border-slate-800 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                     <!-- Columna Izquierda: Editorial Premium -->
@@ -386,19 +386,19 @@
                         <!-- Pilares de Confianza -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
                             <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                                <span class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
+                                <span class="w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 text-slate-900 dark:text-white flex items-center justify-center shrink-0 shadow-xs">
                                     <i class="fas fa-lock text-[11px]"></i>
                                 </span>
                                 <span>Compra 100% Segura</span>
                             </div>
                             <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                                <span class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
+                                <span class="w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 text-slate-900 dark:text-white flex items-center justify-center shrink-0 shadow-xs">
                                     <i class="fas fa-truck-fast text-[11px]"></i>
                                 </span>
                                 <span>Envíos a todo el país</span>
                             </div>
                             <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                                <span class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
+                                <span class="w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 text-slate-900 dark:text-white flex items-center justify-center shrink-0 shadow-xs">
                                     <i class="fas fa-certificate text-[11px]"></i>
                                 </span>
                                 <span>Garantía CONSUR</span>
@@ -420,7 +420,7 @@
                     <div class="lg:col-span-7" data-aos="fade-left" data-aos-delay="150">
                         <a href="{{ $secShop->content['button_url'] ?? 'https://consurshop.com' }}"
                            target="_blank" rel="noopener"
-                           class="relative block w-full group rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/60 dark:shadow-black/70 border border-slate-200/80 dark:border-slate-800/80 hover:border-red-500/50 hover:shadow-red-600/15 transition-all duration-500">
+                           class="relative block w-full group rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/70 dark:shadow-black/70 border border-slate-200/90 dark:border-slate-800 hover:border-red-500/50 hover:shadow-red-600/15 transition-all duration-500">
                             <picture class="block w-full overflow-hidden">
                                 <source srcset="{{ asset('images/home/banner_consurshop.webp') }}" type="image/webp">
                                 <img src="{{ asset(ltrim($secShop->content['banner_image'] ?? '/images/home/banner_consurshop.jpg', '/')) }}"
