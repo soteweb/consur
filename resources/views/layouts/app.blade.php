@@ -654,6 +654,12 @@
                                     <span>Novedades</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('contacto') }}" class="hover:text-red-500 transition flex items-center gap-2">
+                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                    <span>Contacto & Sucursales</span>
+                                </a>
+                            </li>
                         @endforelse
                     </ul>
                 </div>

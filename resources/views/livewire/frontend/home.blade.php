@@ -2,48 +2,41 @@
     <!-- 1. Hero Carrusel Principal (Alpine.js + Sliders DB) -->
     <x-frontend.hero-slider :sliders="$sliders" group="home" />
 
-    <!-- 1.1 Barra Rápida de Acceso a Marcas del Grupo (Minimalista, Clara & Luminosa) -->
+    <!-- 1.1 Barra Rápida de Acceso a Marcas del Grupo (Solo nombres en MAYÚSCULAS sin logo) -->
     <div class="w-full bg-white dark:bg-neutral-900 border-b border-slate-200/80 dark:border-neutral-800 py-2.5 px-4 sm:px-6 lg:px-8 select-none transition-colors">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-            <div class="flex items-center gap-2 flex-shrink-0 text-xs font-semibold text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-2 flex-shrink-0 text-xs font-bold text-slate-400 dark:text-neutral-500 uppercase tracking-widest">
                 <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-                <span class="hidden sm:inline">Explorar Marcas:</span>
+                <span class="hidden sm:inline">MARCAS:</span>
             </div>
             
-            <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
-                <a href="{{ url('/toyota') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/toyota.svg') }}" alt="Toyota" class="h-3.5 w-auto object-contain">
-                    <span>Toyota</span>
+            <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                <a href="{{ url('/toyota') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    TOYOTA
                 </a>
-                <a href="{{ url('/omoda-jaecoo') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/omoda-jaecoo.svg') }}" alt="Omoda Jaecoo" class="h-3.5 w-auto object-contain">
-                    <span>Omoda | Jaecoo</span>
+                <a href="{{ url('/omoda-jaecoo') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    OMODA | JAECOO
                 </a>
-                <a href="{{ url('/hino') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/hino.svg') }}" alt="Hino" class="h-3.5 w-auto object-contain">
-                    <span>Hino</span>
+                <a href="{{ url('/hino') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    HINO
                 </a>
-                <a href="{{ url('/canam') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/can-am.png') }}" alt="Can-Am" class="h-3 w-auto object-contain">
-                    <span>Can-Am</span>
+                <a href="{{ url('/canam') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    CAN-AM
                 </a>
-                <a href="{{ url('/seadoo') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/sea-doo.svg') }}" alt="Sea-Doo" class="h-3.5 w-auto object-contain">
-                    <span>Sea-Doo</span>
+                <a href="{{ url('/seadoo') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    SEA-DOO
                 </a>
-                <a href="{{ url('/consur-bike') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/consur-bike.png') }}" alt="Bike" class="h-3.5 w-auto object-contain">
-                    <span>Bike</span>
+                <a href="{{ url('/consur-bike') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    CONSUR BIKE
                 </a>
-                <a href="{{ url('/seguros') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:text-red-600 hover:bg-slate-50 dark:hover:bg-neutral-800 transition">
-                    <img src="{{ asset('images/marcas/consur-seguros.png') }}" alt="Seguros" class="h-3.5 w-auto object-contain">
-                    <span>Seguros</span>
+                <a href="{{ url('/seguros') }}" class="px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-red-600 hover:bg-slate-100 dark:hover:bg-neutral-800 transition">
+                    BROKER DE SEGUROS
                 </a>
 
                 <span class="w-px h-3.5 bg-slate-200 dark:bg-neutral-700 mx-1"></span>
 
-                <a href="#marcas-consur" class="inline-flex items-center gap-1 text-xs font-bold text-red-600 hover:text-red-700 transition whitespace-nowrap pl-1">
-                    <span>Ver todas</span>
+                <a href="#marcas-consur" class="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-red-600 hover:text-red-700 transition whitespace-nowrap pl-1">
+                    <span>VER TODAS</span>
                     <i class="fas fa-arrow-down text-[10px]"></i>
                 </a>
             </div>
@@ -916,94 +909,7 @@
         </section>
     @endif
 
-    <!-- 7.5 Mosaico Panorámico de Marcas Oficiales CONSUR (Compacto & Luminoso) -->
+    <!-- 7.5 Gran Cierre: Mosaico Panorámico de Marcas Oficiales CONSUR S.A. (Modo Oscuro Premium Full-Width) -->
     <x-frontend.brand-showcase-grid />
 
-    <!-- 8. Formulario Reactivo de Cotización (100% Dinámico desde SiteSection) -->
-    @php $secQuotation = \App\Models\SiteSection::getSection('quotation_section'); @endphp
-    @if($secQuotation->is_visible)
-        <section id="contacto" class="py-16 md:py-20 bg-slate-950 text-white relative border-t border-slate-800/80 transition-colors">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-slate-950/80 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl" data-aos="fade-up">
-                    <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
-                        <span class="text-xs uppercase font-medium tracking-widest text-red-500">
-                            {{ $secQuotation->content['badge'] ?? 'Asesoramiento Personalizado' }}
-                        </span>
-                        <h2 class="text-2xl sm:text-3xl font-light sm:font-normal font-heading uppercase tracking-normal">
-                            {{ $secQuotation->content['title'] ?? 'Cotizá tu Próximo Toyota' }}
-                        </h2>
-                        <p class="text-xs text-slate-400">
-                            {{ $secQuotation->content['desc'] ?? 'Completá el formulario y un asesor comercial de CONSUR S.A. se comunicará contigo con las mejores opciones de pago.' }}
-                        </p>
-                    </div>
-
-                    @if($sentSuccess)
-                        <div class="p-6 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-center space-y-2">
-                            <i class="fas fa-check-circle text-3xl text-emerald-400"></i>
-                            <h4 class="font-bold text-base text-white">¡Gracias por contactarnos!</h4>
-                            <p class="text-xs">Hemos recibido tu consulta y nos pondremos en contacto contigo a la brevedad.</p>
-                        </div>
-                    @else
-                        <form wire:submit="submitQuotation" class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre Completo *</label>
-                                    <input type="text" wire:model="name" placeholder="Ej: Carlos Benítez" required
-                                           class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 placeholder-slate-500">
-                                    @error('name') <span class="text-red-400 text-xs mt-1">{{ $message }}</span> @enderror
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Teléfono / WhatsApp *</label>
-                                    <input type="text" wire:model="phone" placeholder="Ej: +595 981 123 456" required
-                                           class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 placeholder-slate-500">
-                                    @error('phone') <span class="text-red-400 text-xs mt-1">{{ $message }}</span> @enderror
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Correo Electrónico (Opcional)</label>
-                                    <input type="email" wire:model="email" placeholder="carlos@correo.com"
-                                           class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 placeholder-slate-500">
-                                    @error('email') <span class="text-red-400 text-xs mt-1">{{ $message }}</span> @enderror
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-300 mb-1">Vehículo de Interés</label>
-                                    <select wire:model="vehicleInterest" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500">
-                                        <option value="">Seleccionar vehículo...</option>
-                                        <option value="Toyota Agya (0 Km)">Toyota Agya (0 Km)</option>
-                                        <option value="Toyota Hilux SRV / GR (0 Km)">Toyota Hilux SRV / GR (0 Km)</option>
-                                        <option value="Toyota Corolla Cross (0 Km)">Toyota Corolla Cross (0 Km)</option>
-                                        <option value="Toyota RAV4 Hybrid (0 Km)">Toyota RAV4 Hybrid (0 Km)</option>
-                                        <option value="Vehículo Usado Certificado">Vehículo Usado Certificado</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Mensaje o Consulta (Opcional)</label>
-                                <textarea wire:model="message" rows="3" placeholder="Contanos tu consulta o si tenés un usado para entregar como parte de pago..."
-                                          class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 placeholder-slate-500"></textarea>
-                            </div>
-
-                            <!-- Cloudflare Turnstile -->
-                            <x-turnstile model="turnstileToken" theme="dark" action="quotation" />
-                            @error('turnstileToken')
-                                <p class="text-xs text-red-400 text-center font-medium">{{ $message }}</p>
-                            @enderror
-
-                            <div class="pt-2 text-center">
-                                <button type="submit" 
-                                        wire:loading.attr="disabled"
-                                        class="w-full sm:w-auto px-10 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider rounded-full transition shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 mx-auto">
-                                    <span wire:loading.remove>{{ $secQuotation->content['button_text'] ?? 'Enviar Solicitud de Cotización' }}</span>
-                                    <span wire:loading><i class="fas fa-spinner fa-spin"></i> Enviando...</span>
-                                </button>
-                            </div>
-                        </form>
-                    @endif
-                </div>
-            </div>
-        </section>
-    @endif
 </div>
