@@ -640,36 +640,28 @@
                 </div>
 
                 <!-- Columna 2: Accesos Directos (Catálogo, Posventa, Usados, Novedades) -->
+                @php
+                    $footerCol2Items = \App\Models\MenuItem::getFooterMenu('footer_col_2');
+                @endphp
                 <div>
                     <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-heading flex items-center gap-2">
                         <i class="fas fa-compass text-red-500 text-xs"></i>
                         <span>{{ \App\Models\Setting::get('footer_col2_title', 'Explorá CONSUR') }}</span>
                     </h4>
                     <ul class="space-y-3 text-xs">
-                        <li>
-                            <a href="{{ route('catalogo') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
-                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                <span>Catálogo</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('posventa') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
-                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                <span>Posventa</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('usados') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
-                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                <span>Usados</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2 group">
-                                <i class="fas fa-angle-right text-[10px] text-red-500"></i>
-                                <span>Novedades</span>
-                            </a>
-                        </li>
+                        @forelse($footerCol2Items as $f2Item)
+                            <li>
+                                <a href="{{ $f2Item->url }}" target="{{ $f2Item->target ?? '_self' }}" class="hover:text-red-500 transition flex items-center gap-2 group">
+                                    <i class="fas fa-angle-right text-[10px] text-red-500"></i>
+                                    <span>{{ $f2Item->title }}</span>
+                                </a>
+                            </li>
+                        @empty
+                            <li><a href="{{ route('catalogo') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Catálogo</span></a></li>
+                            <li><a href="{{ route('posventa') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Posventa</span></a></li>
+                            <li><a href="{{ route('usados') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Usados</span></a></li>
+                            <li><a href="{{ route('novedades') }}" class="hover:text-red-500 transition flex items-center gap-2 group"><i class="fas fa-angle-right text-[10px] text-red-500"></i><span>Novedades</span></a></li>
+                        @endforelse
                     </ul>
                 </div>
 

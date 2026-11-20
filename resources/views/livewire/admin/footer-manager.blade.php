@@ -16,21 +16,21 @@
         </div>
     </div>
 
-    <!-- Navegación de Pestañas (3 Columnas Reales + Barra Inferior) -->
+    <!-- Navegación de Pestañas (Columnas) -->
     <div class="flex space-x-2 border-b border-slate-200 overflow-x-auto pb-1">
-        <button wire:click="$set('activeColumnTab', 'col1')"
+        <button wire:click="$set('activeColumnTab', 'col1'); resetLinkForm();"
                 class="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-t-xl transition-all whitespace-nowrap cursor-pointer {{ $activeColumnTab === 'col1' ? 'bg-white border-t-2 border-[#eb0a1e] text-[#eb0a1e] shadow-2xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="fas fa-clock mr-1.5"></i> Columna 1: Horarios & Redes
+            <i class="fas fa-clock mr-1.5"></i> Columna 1
         </button>
-        <button wire:click="$set('activeColumnTab', 'col2')"
+        <button wire:click="$set('activeColumnTab', 'col2'); resetLinkForm();"
                 class="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-t-xl transition-all whitespace-nowrap cursor-pointer {{ $activeColumnTab === 'col2' ? 'bg-white border-t-2 border-[#eb0a1e] text-[#eb0a1e] shadow-2xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="fas fa-layer-group mr-1.5"></i> Columna 2: Marcas Oficiales
+            <i class="fas fa-compass mr-1.5"></i> Columna 2
         </button>
-        <button wire:click="$set('activeColumnTab', 'col3')"
+        <button wire:click="$set('activeColumnTab', 'col3'); resetLinkForm();"
                 class="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-t-xl transition-all whitespace-nowrap cursor-pointer {{ $activeColumnTab === 'col3' ? 'bg-white border-t-2 border-[#eb0a1e] text-[#eb0a1e] shadow-2xs' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="fas fa-building mr-1.5"></i> Columna 3: NOSOTROS
+            <i class="fas fa-building mr-1.5"></i> Columna 3
         </button>
-        <button wire:click="$set('activeColumnTab', 'copyright')"
+        <button wire:click="$set('activeColumnTab', 'copyright'); resetLinkForm();"
                 class="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-t-xl transition-all whitespace-nowrap cursor-pointer {{ $activeColumnTab === 'copyright' ? 'bg-white border-t-2 border-[#eb0a1e] text-[#eb0a1e] shadow-2xs' : 'text-slate-500 hover:text-slate-800' }}">
             <i class="fas fa-copyright mr-1.5"></i> Barra Inferior & Copyright
         </button>
@@ -121,41 +121,95 @@
     @endif
 
     <!-- ========================================== -->
-    <!-- PESTAÑA 2: COLUMNA 2 (MARCAS OFICIALES)    -->
+    <!-- PESTAÑA 2: COLUMNA 2 (ACCESOS DESTACADOS)  -->
     <!-- ========================================== -->
     @if($activeColumnTab === 'col2')
-        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-2xs space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Formulario de Enlace Columna 2 (4 cols) -->
+            <div class="lg:col-span-4 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-2xs space-y-4">
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fas fa-{{ $editingLinkId ? 'edit' : 'plus-circle' }} text-[#eb0a1e]"></i>
+                    {{ $editingLinkId ? 'Editar Enlace de Columna 2' : 'Agregar Enlace a Columna 2' }}
+                </h3>
+
                 <div>
-                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                        <i class="fas fa-layer-group text-[#eb0a1e]"></i> Columna 2: Menú de Marcas Oficiales
-                    </h3>
-                    <p class="text-xs text-slate-500 mt-0.5">
-                        Esta columna está sincronizada automáticamente con las marcas activas del Mega Menú Superior.
-                    </p>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Título de la Columna 2</label>
+                    <input type="text" wire:model="footer_col2_title" class="w-full text-xs font-bold rounded-xl border border-slate-200 py-2.5 px-3.5" placeholder="Explorá CONSUR">
                 </div>
-                <a href="{{ route('admin.brands') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-[#eb0a1e] text-white text-xs font-bold rounded-xl transition shrink-0">
-                    <i class="fas fa-tags text-[11px]"></i> Gestionar Marcas Oficiales
-                </a>
+
+                <div class="pt-3 border-t border-slate-100">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Texto del Enlace *</label>
+                    <input type="text" wire:model="newLinkTitle" class="w-full text-xs rounded-xl border border-slate-200 py-2.5 px-3.5" placeholder="Ej: Catálogo">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">URL de Destino *</label>
+                    <input type="text" wire:model="newLinkUrl" class="w-full font-mono text-xs rounded-xl border border-slate-200 py-2.5 px-3.5" placeholder="Ej: /catalogo">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Destino</label>
+                        <select wire:model="newLinkTarget" class="w-full text-xs rounded-xl border border-slate-200 py-2.5 px-3">
+                            <option value="_self">Misma pestaña</option>
+                            <option value="_blank">Nueva pestaña</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Orden</label>
+                        <input type="number" wire:model="newLinkOrder" class="w-full text-xs rounded-xl border border-slate-200 py-2.5 px-3">
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                    <button wire:click="addLink" class="w-full py-2.5 px-4 bg-slate-900 hover:bg-[#eb0a1e] text-white font-bold text-xs rounded-xl transition cursor-pointer">
+                        {{ $editingLinkId ? 'Actualizar Enlace' : 'Agregar Enlace' }}
+                    </button>
+                    @if($editingLinkId)
+                        <button wire:click="resetLinkForm" class="py-2.5 px-4 bg-slate-100 text-slate-700 font-bold text-xs rounded-xl hover:bg-slate-200 transition cursor-pointer">Cancelar</button>
+                    @endif
+                </div>
             </div>
 
-            <div class="max-w-md">
-                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Título de la Columna 2</label>
-                <input type="text" wire:model="footer_col2_title" class="w-full text-xs font-bold rounded-xl border border-slate-200 py-2.5 px-3.5" placeholder="Marcas Oficiales">
-            </div>
+            <!-- Lista de Enlaces Activos en Columna 2 (8 cols) -->
+            <div class="lg:col-span-8 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-2xs space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fas fa-list text-[#eb0a1e]"></i> Enlaces de la Columna 2 ({{ $footer_col2_title }})
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Sincronizado 1:1 con la Columna 2 del pie de página público.</p>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400">{{ $col2Links->count() }} enlaces</span>
+                </div>
 
-            <div class="space-y-2">
-                <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Marcas que se listan actualmente en la Columna 2:</span>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                    @foreach($featuredBrands as $b)
-                        <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                            <div class="flex items-center gap-2.5 min-w-0">
-                                <i class="fas fa-angle-right text-[#eb0a1e] text-xs"></i>
-                                <span class="text-xs font-bold text-slate-800 truncate">{{ $b->name }}</span>
+                <div class="divide-y divide-slate-100">
+                    @forelse($col2Links as $link)
+                        <div class="py-3 flex items-center justify-between gap-4 hover:bg-slate-50 px-3 rounded-xl transition">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 font-bold text-xs flex items-center justify-center">
+                                    {{ $link->sort_order }}
+                                </span>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-900">{{ $link->title }}</h4>
+                                    <p class="text-[11px] font-mono text-slate-400">{{ $link->url }} ({{ $link->target }})</p>
+                                </div>
                             </div>
-                            <span class="text-[10px] font-mono text-slate-400 ml-2 truncate">{{ $b->effective_url }}</span>
+                            <div class="flex items-center gap-1.5">
+                                <button wire:click="toggleLinkActive({{ $link->id }})" class="p-1.5 rounded-lg {{ $link->is_active ? 'text-emerald-600 hover:bg-emerald-50' : 'text-slate-400 hover:bg-slate-100' }} cursor-pointer" title="Activar/Desactivar">
+                                    <i class="fas {{ $link->is_active ? 'fa-toggle-on text-lg' : 'fa-toggle-off text-lg' }}"></i>
+                                </button>
+                                <button wire:click="editLink({{ $link->id }})" class="p-1.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg cursor-pointer" title="Editar">
+                                    <i class="fas fa-pencil-alt text-xs"></i>
+                                </button>
+                                <button wire:click="deleteLink({{ $link->id }})" wire:confirm="¿Seguro que deseas eliminar este enlace?" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg cursor-pointer" title="Eliminar">
+                                    <i class="fas fa-trash-alt text-xs"></i>
+                                </button>
+                            </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-xs text-slate-400 text-center py-6">No hay enlaces en esta columna.</p>
+                    @endforelse
                 </div>
             </div>
         </div>

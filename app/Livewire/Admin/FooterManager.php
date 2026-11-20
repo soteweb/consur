@@ -27,8 +27,8 @@ class FooterManager extends Component
     public bool $footer_show_youtube = true;
     public string $youtube_url = '';
 
-    // Columna 2: Marcas Oficiales
-    public string $footer_col2_title = 'Marcas Oficiales';
+    // Columna 2: Explorá CONSUR (Accesos Rápidos)
+    public string $footer_col2_title = 'Explorá CONSUR';
 
     // Columna 3: NOSOTROS
     public string $footer_col3_title = 'NOSOTROS';
@@ -36,7 +36,7 @@ class FooterManager extends Component
     // Barra Inferior: Copyright
     public string $footer_copyright = '';
 
-    // Gestión de pestañas y enlaces de la Columna 3 (NOSOTROS)
+    // Gestión de pestañas y enlaces de columnas (Columna 2 y Columna 3)
     public string $activeColumnTab = 'col1'; // 'col1' | 'col2' | 'col3' | 'copyright'
     public ?int $editingLinkId = null;
     public string $newLinkTitle = '';
@@ -65,7 +65,7 @@ class FooterManager extends Component
         $this->footer_show_youtube = (bool) Setting::get('footer_show_youtube', 1);
         $this->youtube_url = Setting::get('youtube_url', 'https://www.youtube.com/@Consurtoyota');
 
-        $this->footer_col2_title = Setting::get('footer_col2_title', 'Marcas Oficiales');
+        $this->footer_col2_title = Setting::get('footer_col2_title', 'Explorá CONSUR');
         $this->footer_col3_title = Setting::get('footer_col3_title', 'NOSOTROS');
 
         $this->footer_copyright = Setting::get('footer_copyright', '© {year} CONSUR S.A. Todos los derechos reservados. Concesionaria Oficial Toyota Paraguay.');
@@ -106,6 +106,9 @@ class FooterManager extends Component
             'newLinkUrl' => 'required|min:1|max:255',
         ]);
 
+        $targetLocation = ($this->activeColumnTab === 'col2') ? 'footer_col_2' : 'footer_col_3';
+        $colLabel = ($this->activeColumnTab === 'col2') ? 'Columna 2' : 'Columna 3';
+
         if ($this->editingLinkId) {
             $link = MenuItem::findOrFail($this->editingLinkId);
             $link->update([
@@ -114,17 +117,17 @@ class FooterManager extends Component
                 'target' => $this->newLinkTarget,
                 'sort_order' => $this->newLinkOrder,
             ]);
-            $msg = 'Enlace de la columna NOSOTROS actualizado.';
+            $msg = "Enlace de la {$colLabel} actualizado.";
         } else {
             MenuItem::create([
-                'location' => 'footer_col_3',
+                'location' => $targetLocation,
                 'title' => $this->newLinkTitle,
                 'url' => $this->newLinkUrl,
                 'target' => $this->newLinkTarget,
-                'sort_order' => (int) MenuItem::where('location', 'footer_col_3')->max('sort_order') + 1,
+                'sort_order' => (int) MenuItem::where('location', $targetLocation)->max('sort_order') + 1,
                 'is_active' => true,
             ]);
-            $msg = 'Enlace agregado a la columna NOSOTROS.';
+            $msg = "Enlace agregado a la {$colLabel}.";
         }
 
         $this->resetLinkForm();
@@ -153,7 +156,7 @@ class FooterManager extends Component
     public function deleteLink(int $id)
     {
         MenuItem::findOrFail($id)->delete();
-        $this->dispatch('notify', ['type' => 'warning', 'message' => 'Enlace eliminado de la columna NOSOTROS.']);
+        $this->dispatch('notify', ['type' => 'warning', 'message' => 'Enlace eliminado correctamente.']);
     }
 
     public function toggleLinkActive(int $id)
@@ -165,8 +168,7 @@ class FooterManager extends Component
 
     public function render()
     {
-        $featuredBrands = Brand::where('is_active', true)
-            ->where('is_featured_menu', true)
+        $col2Links = MenuItem::where('location', 'footer_col_2')
             ->orderBy('sort_order', 'asc')
             ->get();
 
@@ -174,6 +176,6 @@ class FooterManager extends Component
             ->orderBy('sort_order', 'asc')
             ->get();
 
-        return view('livewire.admin.footer-manager', compact('featuredBrands', 'col3Links'));
+        return view('livewire.admin.footer-manager', compact('col2Links', 'col3Links'));
     }
 }
