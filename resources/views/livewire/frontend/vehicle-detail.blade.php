@@ -927,7 +927,7 @@
                                         <div>
                                             <label class="block text-xs font-bold text-slate-700 dark:text-neutral-300 uppercase mb-1">Ciudad*</label>
                                             <select wire:model="clientCity" 
-                                                    class="w-full text-xs font-semibold px-3.5 py-2.5 rounded-lg border border-slate-300 dark:border-neutral-700 focus:ring-2 focus:ring-[#eb0a1e]/30 focus:border-[#eb0a1e] bg-white dark:bg-[#111318] text-slate-900 dark:text-white transition outline-none">
+                                                    class="w-full text-xs font-semibold pl-3.5 pr-10 py-2.5 rounded-lg border border-slate-300 dark:border-neutral-700 focus:ring-2 focus:ring-[#eb0a1e]/30 focus:border-[#eb0a1e] bg-white dark:bg-[#111318] text-slate-900 dark:text-white transition outline-none">
                                                 <option value="">-- Selecciona tu ciudad --</option>
                                                 <option value="Encarnación">Encarnación</option>
                                                 <option value="Cambyretá">Cambyretá</option>

@@ -97,7 +97,7 @@
                     <!-- Filter Group: Sucursal -->
                     <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
                         <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Sucursal</h3>
-                        <select wire:model.live="selectedBranch" class="w-full text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white py-2 focus:ring-2 focus:ring-red-500">
+                        <select wire:model.live="selectedBranch" class="w-full text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white pl-3 pr-8 py-2 focus:ring-2 focus:ring-red-500">
                             <option value="">Todas las sucursales</option>
                             @foreach($branches as $branch)
                                 <option value="{{ $branch->id }}">{{ $branch->city }}</option>
@@ -119,7 +119,7 @@
                         <!-- Sort Dropdown -->
                         <div class="flex items-center gap-2 text-xs">
                             <span class="text-slate-500 dark:text-slate-400">Ordenar:</span>
-                            <select wire:model.live="sortBy" class="text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white py-1.5 focus:ring-2 focus:ring-red-500">
+                            <select wire:model.live="sortBy" class="text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white pl-3 pr-8 py-1.5 focus:ring-2 focus:ring-red-500">
                                 <option value="newest">Más recientes</option>
                                 <option value="price_asc">Menor precio</option>
                                 <option value="price_desc">Mayor precio</option>

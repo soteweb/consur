@@ -87,7 +87,7 @@
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Departamento / Área de Interés *</label>
                                 <select wire:model="department" required
-                                        class="w-full px-4 py-2.5 bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-xl text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 transition">
+                                        class="w-full pl-4 pr-10 py-2.5 bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-xl text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 transition">
                                     <option value="ventas">Ventas 0 KM (Toyota, Omoda, Jaecoo, Hino)</option>
                                     <option value="usados">Catálogo de Usados Certificados</option>
                                     <option value="brp">Powersports BRP (Can-Am / Sea-Doo)</option>

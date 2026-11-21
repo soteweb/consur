@@ -599,7 +599,7 @@
                         <div class="space-y-1.5">
                             <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">Modelo de Interés *</label>
                             <select wire:model="vehicleInterest" 
-                                    class="w-full px-4 py-3 bg-neutral-800 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-red-500 transition">
+                                    class="w-full pl-4 pr-10 py-3 bg-neutral-800 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-red-500 transition">
                                 @foreach($vehicles as $v)
                                     <option value="Toyota {{ $v->model }}">{{ $v->model }} (0 Km)</option>
                                 @endforeach

@@ -454,7 +454,7 @@
                                     Modelo de Interés *
                                 </label>
                                 <select wire:model="vehicleInterest"
-                                        class="w-full bg-neutral-900 border border-neutral-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-white text-sm px-4 py-2.5 outline-none transition">
+                                        class="w-full bg-neutral-900 border border-neutral-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-white text-sm pl-4 pr-10 py-2.5 outline-none transition">
                                     @foreach($this->getModels() as $m)
                                         <option value="{{ $m['name'] }}">{{ $m['name'] }} ({{ $m['category_label'] }})</option>
                                     @endforeach
