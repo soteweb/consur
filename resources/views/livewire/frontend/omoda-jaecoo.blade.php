@@ -935,4 +935,105 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════════════════
+         7. SOPORTE OFICIAL ESPECIALIZADO • NUEVA GENERACIÓN
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="posventa-oficial" class="py-20 sm:py-24 bg-[#0d0e0e] text-white border-t border-white/10 relative overflow-hidden">
+        <!-- Glows ambientales sutiles -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-consur-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+
+            <div class="p-8 sm:p-12 lg:p-16 rounded-3xl bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 shadow-2xl relative overflow-hidden" data-aos="fade-up">
+                <div class="absolute top-0 left-0 bottom-0 w-2 bg-consur-red"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Columna de Información -->
+                    <div class="lg:col-span-8 space-y-6">
+                        <div class="inline-flex items-center gap-2.5 bg-consur-red/15 border border-consur-red/30 text-consur-red text-[11px] font-bold uppercase px-3.5 py-1.5 rounded-full tracking-[0.2em]">
+                            <i class="fas fa-bolt text-xs"></i>
+                            <span>Soporte Oficial Especializado &bull; Nueva Generación</span>
+                        </div>
+
+                        <div>
+                            <h2 class="oj-heading text-2xl sm:text-4xl lg:text-5xl text-white font-light uppercase tracking-wide leading-tight">
+                                Servicio Técnico &amp; Posventa Oficial <span class="font-normal text-consur-red">OMODA &amp; JAECOO</span>
+                            </h2>
+                            <p class="mt-4 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
+                                Contamos con bahías exclusivas de atención, equipamiento de diagnóstico electrónico avanzado, soporte especializado para sistemas híbridos enchufables (<strong class="text-white font-semibold">PHEV</strong>) y vehículos 100% eléctricos (<strong class="text-white font-semibold">EV</strong>), además de repuestos legítimos para toda la gama <strong class="text-white font-semibold">OMODA y JAECOO</strong> en Paraguay con el respaldo y la garantía oficial de <strong class="text-white font-semibold">CONSUR S.A.</strong>
+                            </p>
+                        </div>
+
+                        <!-- 4 Pilares del Servicio Técnico OMODA / JAECOO -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
+                                <div class="w-10 h-10 rounded-xl bg-consur-red/10 border border-consur-red/20 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-charging-station text-consur-red text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-white uppercase tracking-wider">Especialistas PHEV &amp; EV</span>
+                                    <span class="block text-[11px] text-slate-400 font-light">Mantenimiento de alta tensión y baterías</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
+                                <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-microchip text-sky-400 text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-white uppercase tracking-wider">Diagnóstico Electrónico</span>
+                                    <span class="block text-[11px] text-slate-400 font-light">Scanners y software oficial de fábrica</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-cogs text-emerald-400 text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-white uppercase tracking-wider">Repuestos Legítimos</span>
+                                    <span class="block text-[11px] text-slate-400 font-light">Stock garantizado para toda la línea</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
+                                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-shield-halved text-purple-400 text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-white uppercase tracking-wider">Garantía CONSUR S.A.</span>
+                                    <span class="block text-[11px] text-slate-400 font-light">Trazabilidad oficial en cada servicio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna de Botón / Call to Action -->
+                    <div class="lg:col-span-4 flex flex-col items-center lg:items-end justify-center text-center lg:text-right space-y-4">
+                        <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/10 w-full max-w-sm space-y-4">
+                            <span class="text-xs uppercase tracking-widest text-slate-400 block font-light">
+                                ¿Necesitás agendar service o repuestos?
+                            </span>
+                            <a href="https://wa.me/595985204106?text=Hola%20CONSUR%2C%20quisiera%20agendar%20o%20consultar%20sobre%20el%20Servicio%20Posventa%20para%20OMODA%20%2F%20JAECOO."
+                               target="_blank" rel="noopener"
+                               class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-consur-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg shadow-red-600/30">
+                                <i class="fab fa-whatsapp text-base"></i>
+                                <span>Posventa OMODA &amp; JAECOO</span>
+                                <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                            <span class="text-[11px] text-slate-500 block">
+                                Atención técnica en Encarnación y sucursales CONSUR
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
 </div>

@@ -516,7 +516,7 @@ class PosventaPageSeeder extends Seeder
                                 <strong class="text-slate-900 font-medium">Técnicos altamente capacitados</strong> estarán poniendo el mejor de sus conocimientos para realizar los mantenimientos y reparaciones necesarias en su vehículo. El <strong class="text-slate-900 font-medium">Asesor de Repuestos</strong> podrá brindarle toda la información necesaria acerca de la disponibilidad y costos de accesorios y repuestos legítimos.
                             </p>
                             <p>
-                                <strong class="text-slate-900 font-medium">CONSUR S.A.</strong> cuenta con el Servicio Técnico oficial de los vehículos comercializados por la firma, ubicados en las diferentes sucursales, todos en una ubicación estratégica del departamento de Itapúa y Misiones.
+                                <strong class="text-slate-900 font-medium">CONSUR S.A.</strong> cuenta con el Servicio Técnico Oficial Toyota en sus diferentes sucursales, estratégicamente distribuidas en los departamentos de Itapúa y Misiones para brindarle una cobertura total y la mayor tranquilidad.
                             </p>
                         </div>
                     </div>
@@ -598,12 +598,12 @@ HTML;
         Page::updateOrCreate(
             ['slug' => 'posventa'],
             [
-                'title' => 'Posventa – Consur S.A.',
+                'title' => 'Posventa Toyota – Consur S.A.',
                 'subtitle' => 'Mantené tu Toyota como nuevo con técnicos certificados, repuestos 100% legítimos y talleres oficiales en Itapúa y Misiones.',
                 'banner_image' => '/images/pages/posventa-hero.jpg',
                 'content' => $html,
                 'meta_title' => 'Posventa Toyota | Consur S.A. – Servicio Técnico Oficial y Repuestos Legítimos',
-                'meta_description' => 'Servicio Técnico Oficial Toyota en Paraguay: Mantenimiento preventivo, Box Exprés, Vehículo de Cortesía y Taller Móvil con Consur S.A.',
+                'meta_description' => 'Servicio Técnico Oficial Toyota en Paraguay: Mantenimiento preventivo, Box Exprés, Vehículo de Cortesía, Taller Móvil y Garantía Toyota 10 con Consur S.A.',
                 'is_published' => true,
                 'sort_order' => 2,
             ]

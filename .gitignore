@@ -24,6 +24,8 @@
 !/storage/app/public/.gitkeep
 /public/images/vehicles/*
 !/public/images/vehicles/.gitkeep
+/public/images/instagram/*
+!/public/images/instagram/.gitkeep
 /vendor
 _ide_helper.php
 Homestead.json
