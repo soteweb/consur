@@ -594,9 +594,11 @@ HTML;
                 </div>
 
                 <div class="lg:col-span-6 flex items-center justify-center" data-aos="fade-left">
-                    <img src="/images/pages/consurbike-bici.png"
-                         alt="Bicicletas Specialized en Consur Bike"
-                         class="w-full max-w-[560px] h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-700">
+                    <div class="w-full max-w-[560px] bg-white bg-white-forced rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-200/80 dark:border-white/10 flex items-center justify-center overflow-hidden" data-keep-white style="background-color: #ffffff !important;">
+                        <img src="/images/pages/consurbike-bici.png"
+                             alt="Bicicletas Specialized en Consur Bike"
+                             class="w-full h-auto object-contain drop-shadow-md transform hover:scale-105 transition-transform duration-700">
+                    </div>
                 </div>
             </div>
 
