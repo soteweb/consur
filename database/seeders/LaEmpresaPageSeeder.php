@@ -141,26 +141,72 @@ class LaEmpresaPageSeeder extends Seeder
                     </div>
                 </div>
 
-                <!-- Columna de Imagen Oficial (consursomos.jpg) -->
-                <div class="lg:col-span-6" data-aos="fade-left" data-aos-delay="150">
-                    <div class="relative group">
+                <!-- Columna de Imágenes Históricas Oficiales -->
+                <div class="lg:col-span-6 space-y-4" data-aos="fade-left" data-aos-delay="150">
+                    <!-- Foto Principal: Acto Fundacional (Reemplazo de consursomos.jpg) -->
+                    <div class="relative group cursor-pointer"
+                         @click="lightboxSrc = '/images/pages/la-empresa/historia1.jpg'; lightboxTitle = 'Acto Fundacional y Bendición: Don Carlos Szopa y equipo fundador de CONSUR S.A.'; lightboxOpen = true">
                         <!-- Marco decorativo desplazado -->
                         <div class="absolute -inset-3 bg-gradient-to-tr from-[#eb0a1e]/20 via-slate-200/40 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500 pointer-events-none"></div>
 
-                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-neutral-800 bg-slate-900">
-                            <img src="/images/pages/la-empresa/consursomos.jpg"
-                                 alt="Consur S.A. - La fuerza automotriz del Sur"
-                                 class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-neutral-800 bg-slate-900 aspect-[16/10]">
+                            <img src="/images/pages/la-empresa/historia1.jpg"
+                                 alt="Consur S.A. - Acto Fundacional con Don Carlos Szopa"
+                                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+
+                            <!-- Botón de expandir flotante -->
+                            <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:bg-[#eb0a1e] transition-all">
+                                <i class="fas fa-expand text-xs"></i>
+                            </div>
 
                             <!-- Barra inferior superpuesta -->
-                            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-6 sm:p-8 flex items-end justify-between">
+                            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent p-5 sm:p-7 flex items-end justify-between">
                                 <div>
-                                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#eb0a1e] block">Legado y Visión</span>
-                                    <span class="text-white text-sm sm:text-base font-bold font-heading">Encarnación &bull; Itapúa &bull; Misiones</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#eb0a1e] block">Acto Fundacional &bull; 1977</span>
+                                    <span class="text-white text-sm sm:text-base font-bold font-heading">Don Carlos Szopa y Equipo Fundador</span>
                                 </div>
-                                <span class="px-3.5 py-1.5 rounded-full bg-[#eb0a1e] text-white text-xs font-bold tracking-wider uppercase shadow-lg">
+                                <span class="px-3.5 py-1.5 rounded-full bg-[#eb0a1e] text-white text-xs font-bold tracking-wider uppercase shadow-lg shrink-0">
                                     50 Años
                                 </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grilla Inferior de 2 Fotos Históricas (historia2 y historia3) -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Foto 2: Showroom Histórico y Land Cruiser II -->
+                        <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 dark:border-neutral-800 bg-slate-900 aspect-[16/11] cursor-pointer"
+                             @click="lightboxSrc = '/images/pages/la-empresa/historia2.jpg'; lightboxTitle = 'Showroom Histórico CONSUR S.R.L. Toyota con Land Cruiser II Turbo'; lightboxOpen = true">
+                            <img src="/images/pages/la-empresa/historia2.jpg"
+                                 alt="Showroom Histórico CONSUR S.R.L. Toyota"
+                                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                            
+                            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-[#eb0a1e] transition-all">
+                                <i class="fas fa-expand text-[10px]"></i>
+                            </div>
+
+                            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-[#eb0a1e] block">Sede Histórica</span>
+                                <span class="text-white text-xs sm:text-sm font-semibold font-heading block truncate">Salón Oficial Toyota</span>
+                            </div>
+                        </div>
+
+                        <!-- Foto 3: Crecimiento y Modernización de la Fachada -->
+                        <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 dark:border-neutral-800 bg-slate-900 aspect-[16/11] cursor-pointer"
+                             @click="lightboxSrc = '/images/pages/la-empresa/historia3.jpg'; lightboxTitle = 'Evolución y Crecimiento: Showroom CONSUR S.R.L. Toyota con Prado'; lightboxOpen = true">
+                            <img src="/images/pages/la-empresa/historia3.jpg"
+                                 alt="Evolución CONSUR S.R.L. Toyota"
+                                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+
+                            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:bg-[#eb0a1e] transition-all">
+                                <i class="fas fa-expand text-[10px]"></i>
+                            </div>
+
+                            <div class="absolute bottom-0 inset-x-0 p-3 sm:p-4">
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-[#eb0a1e] block">Evolución</span>
+                                <span class="text-white text-xs sm:text-sm font-semibold font-heading block truncate">Crecimiento y Liderazgo</span>
                             </div>
                         </div>
                     </div>
