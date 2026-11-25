@@ -157,18 +157,177 @@ class PosventaPageSeeder extends Seeder
                 </div>
 
                 <!-- Columna Derecha: Imagen Oficial de Instalaciones sin Bordes Redondeados -->
-                <!-- Columna Izquierda: Afiche Oficial Toyota 10 Proporcional con Enlace a PDF -->
+                <div class="lg:col-span-5" data-aos="fade-left" data-aos-delay="150">
+                    <div class="relative overflow-hidden shadow-2xl border border-slate-200 group">
+                        <img src="/images/toyota/frontservicios.png"
+                             alt="Instalaciones de Taller y Servicios Oficiales CONSUR Toyota"
+                             class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent p-6 border-t border-white/10">
+                            <span class="text-xs font-bold uppercase tracking-widest text-[#eb0a1e] block">
+                                Excelencia Operativa
+                            </span>
+                            <span class="text-white text-sm font-semibold font-heading uppercase tracking-wide block mt-0.5">
+                                Instalaciones de Taller y Mantenimiento Oficial en CONSUR
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICIOS ESPECIALIZADOS: BOX EXPRÉS, VEHÍCULO DE CORTESÍA Y TALLER MÓVIL (FULL-WIDTH GRIS CLARO) -->
+    <section id="servicios-especializados" class="w-full py-20 md:py-28 bg-slate-50 border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Encabezado Centrado -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3" data-aos="fade-up">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#eb0a1e] block">
+                    Soluciones a Tu Medida
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 font-heading uppercase tracking-normal">
+                    Servicios Posventa <span class="font-normal text-[#eb0a1e]">Especializados</span>
+                </h2>
+                <div class="w-16 h-1 bg-[#eb0a1e] mx-auto mt-4"></div>
+                <p class="text-sm sm:text-base text-slate-500 font-light max-w-3xl mx-auto pt-1">
+                    Atención inmediata sin esperas, movilidad garantizada mientras cuidamos de tu unidad y soporte técnico integral con respaldo oficial para toda la línea de vehículos <strong class="text-slate-800 font-semibold">Toyota</strong>.
+                </p>
+            </div>
+
+            <!-- Grilla de 3 Tarjetas Arquitectónicas (Bordes Rectos, Línea Superior de Hover, Sombra Fina) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- 1. Box Exprés -->
+                <div class="bg-white border border-slate-200 hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                     data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#eb0a1e] transition-colors"></div>
+
+                    <div>
+                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 border-b border-slate-100">
+                            <img src="/images/pages/posventa-boxexpress.jpg"
+                                 alt="Box Exprés CONSUR"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-8 space-y-3">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
+                                Atención Inmediata &bull; 21 Puntos Clave
+                            </span>
+                            <h3 class="text-xl font-semibold text-slate-900 font-heading uppercase tracking-wide">
+                                Box Exprés
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed font-light">
+                                En nuestro servicio Box Exprés, tu vehículo recibe atención inmediata y precisa. Con dos técnicos especializados, realizamos el cambio de aceite y filtro, más una inspección completa de 21 puntos clave que incluyen luces, suspensión y frenos. Un servicio rápido, eficiente y seguro, pensado para que vuelvas a la ruta sin demoras.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 pt-0">
+                        <a href="http://www.turnos365.com/turnos.aspx?con=131"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#eb0a1e] transition-colors">
+                            <span>Agendar Box Exprés</span>
+                            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Vehículo de Cortesía -->
+                <div class="bg-white border border-slate-200 hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                     data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#eb0a1e] transition-colors"></div>
+
+                    <div>
+                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 border-b border-slate-100">
+                            <img src="/images/pages/posventa-vehiculocortesia.jpg"
+                                 alt="Vehículo de Cortesía CONSUR"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-8 space-y-3">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
+                                Movilidad Garantizada
+                            </span>
+                            <h3 class="text-xl font-semibold text-slate-900 font-heading uppercase tracking-wide">
+                                Vehículo de Cortesía
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed font-light">
+                                Servicio posventa sin pausas: mientras cuidamos de tu vehículo, seguís tu camino. Consultá por nuestra opción de vehículo de cortesía para continuar con tu rutina de trabajo o compromisos personales sin ningún tipo de interrupciones.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 pt-0">
+                        <a href="https://wa.me/595985204106?text=Hola%20Consur%2C%20quisiera%20consultar%20por%20la%20opci%C3%B3n%20de%20Veh%C3%ADculo%20de%20Cortes%C3%ADa."
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#eb0a1e] transition-colors">
+                            <span>Consultar Disponibilidad</span>
+                            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Taller Móvil -->
+                <div class="bg-white border border-slate-200 hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                     data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#eb0a1e] transition-colors"></div>
+
+                    <div>
+                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 border-b border-slate-100">
+                            <img src="/images/pages/posventa-tallermovil.jpg"
+                                 alt="Taller Móvil CONSUR"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-8 space-y-3">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
+                                Asistencia Donde Estés
+                            </span>
+                            <h3 class="text-xl font-semibold text-slate-900 font-heading uppercase tracking-wide">
+                                Taller Móvil
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed font-light">
+                                ¡El taller ahora va donde estés! Con el servicio de Taller Móvil, solucionamos lo que tu vehículo necesita, estés donde estés. Práctico, rápido y confiable, con una unidad 100% equipada con herramientas de última generación, diagnóstico multimarca oficial y lubricantes certificados.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 pt-0">
+                        <a href="https://wa.me/595985204106?text=Hola%20Consur%2C%20solicito%20el%20servicio%20de%20Taller%20M%C3%B3vil%20en%20mi%20domicilio."
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#eb0a1e] transition-colors">
+                            <span>Solicitar Taller Móvil</span>
+                            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TOYOTA 10: GARANTÍA EXTENDIDA HASTA 10 AÑOS O 200.000 KM -->
+    <section id="toyota-10" class="w-full py-16 md:py-20 bg-white dark:bg-neutral-900 border-b border-slate-200 dark:border-neutral-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+            <!-- 1. ENCABEZADO Y PRESENTACIÓN PRINCIPAL (2 COLUMNAS EQUILIBRADAS) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Columna Izquierda: Afiche Oficial Toyota 10 -->
                 <div class="lg:col-span-5 flex flex-col items-center justify-center" data-aos="fade-right">
-                    <a href="/images/pages/toyota10/toyota10-terminos-y-condiciones.pdf"
-                       target="_blank" rel="noopener noreferrer"
-                       class="group relative block w-full max-w-[320px] sm:max-w-[340px] overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl border border-slate-200 dark:border-neutral-800 transition-all duration-300 transform hover:-translate-y-1"
-                       title="Ver Bases y Condiciones Toyota 10 (PDF)">
+                    <div class="relative w-full max-w-[460px] overflow-hidden rounded-2xl shadow-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-800/80 p-2 sm:p-3 group">
                         <img src="/images/pages/toyota10/toyota10.jpg"
                              alt="Toyota 10: hasta 10 años de garantía o 200.000 km - CONSUR S.A."
-                             class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none"></div>
-                    </a>
+                             class="w-full h-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.02]">
+                        <div class="mt-3 px-3 py-2 text-center border-t border-slate-100 dark:border-neutral-700/60">
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
+                                Programa Oficial Toyota
+                            </span>
+                            <span class="text-xs text-slate-500 dark:text-neutral-400">
+                                Exclusivo en la Red Oficial CONSUR S.A.
+                            </span>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Columna Derecha: Información Principal y Cómo Funciona -->
                 <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
                     <div class="space-y-2">
