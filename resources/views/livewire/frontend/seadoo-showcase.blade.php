@@ -26,13 +26,6 @@
 
         <!-- Contenido Central del Hero -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
-            <!-- Badge BRP / Sea-Doo -->
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-slate-900/90 border border-teal-500/40 text-teal-300 text-xs font-semibold uppercase tracking-[0.25em] mb-6 backdrop-blur-md shadow-2xl"
-                 data-aos="fade-down">
-                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                Concesionario Oficial Sea-Doo • CONSUR S.A.
-            </div>
-
             <!-- Logo Oficial Sea-Doo -->
             <div class="mb-6 flex justify-center" data-aos="zoom-in" data-aos-delay="100">
                 <img src="{{ asset('images/seadoo/logo-seadoo.png') }}" 
@@ -59,15 +52,11 @@
                    class="w-full sm:w-auto px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-black font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-xl shadow-teal-500/20 text-center">
                     <i class="fas fa-water mr-2"></i> Ver Modelos Disponibles (8)
                 </a>
-                <a href="#cotizar" 
-                   class="w-full sm:w-auto px-8 py-3.5 bg-slate-900/80 hover:bg-slate-800 text-white font-semibold uppercase tracking-wider text-xs sm:text-sm border border-slate-700 hover:border-teal-400 transition-all duration-300 backdrop-blur-sm text-center">
-                    <i class="fas fa-paper-plane mr-2 text-teal-400"></i> Solicitar Asesoría
-                </a>
                 <a href="https://wa.me/{{ $whatsappNumber }}?text={{ urlencode('Hola CONSUR S.A., me interesa conocer más sobre las motos de agua y pontones Sea-Doo.') }}" 
                    target="_blank" 
                    rel="noopener"
                    class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-emerald-600/20 text-center flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2 text-base"></i> WhatsApp Directo
+                    <i class="fab fa-whatsapp mr-2 text-base"></i> Comunicate con nuestros asesores
                 </a>
             </div>
         </div>

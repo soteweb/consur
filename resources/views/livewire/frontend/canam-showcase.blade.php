@@ -26,13 +26,6 @@
 
         <!-- Contenido Central del Hero -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
-            <!-- Badge BRP / Can-Am -->
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-neutral-900/90 border border-amber-500/40 text-amber-400 text-xs font-semibold uppercase tracking-[0.25em] mb-6 backdrop-blur-md shadow-2xl"
-                 data-aos="fade-down">
-                <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                Concesionario Oficial Can-Am • CONSUR S.A.
-            </div>
-
             <!-- Logo Oficial Can-Am -->
             <div class="mb-6 flex justify-center" data-aos="zoom-in" data-aos-delay="100">
                 <img src="{{ asset('images/canam/logo-canam.png') }}" 
@@ -60,15 +53,11 @@
                    class="w-full sm:w-auto px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-xl shadow-amber-500/20 text-center">
                     <i class="fas fa-th-large mr-2"></i> Ver Modelos Disponibles (8)
                 </a>
-                <a href="#cotizar" 
-                   class="w-full sm:w-auto px-8 py-3.5 bg-neutral-900/80 hover:bg-neutral-800 text-white font-semibold uppercase tracking-wider text-xs sm:text-sm border border-neutral-700 hover:border-amber-500 transition-all duration-300 backdrop-blur-sm text-center">
-                    <i class="fas fa-paper-plane mr-2 text-amber-500"></i> Solicitar Asesoría
-                </a>
                 <a href="https://wa.me/{{ $whatsappNumber }}?text={{ urlencode('Hola CONSUR S.A., me interesa conocer más sobre los modelos Can-Am Off-Road.') }}" 
                    target="_blank" 
                    rel="noopener"
                    class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-emerald-600/20 text-center flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2 text-base"></i> WhatsApp Directo
+                    <i class="fab fa-whatsapp mr-2 text-base"></i> Comunicate con nuestros asesores
                 </a>
             </div>
         </div>
