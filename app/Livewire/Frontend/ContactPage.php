@@ -49,13 +49,25 @@ class ContactPage extends Component
 
         $formConfig = FormConfig::getByKey('contacto_principal');
 
+        $departmentLabels = [
+            'ventas' => 'Ventas 0 KM',
+            'usados' => 'Venta de usados',
+            'brp' => 'BRP (Can-Am / Sea-Doo)',
+            'bike' => 'Ventas de Bicicletas - Consur Bike',
+            'posventa' => 'Servicio Posventa - Reserva de turnos',
+            'repuestos' => 'Servicios y Repuestos',
+            'seguros' => 'Seguros - cotizaciones y asesoramiento',
+        ];
+
+        $areaLabel = $departmentLabels[$this->department] ?? $this->department;
+
         Lead::create([
-            'type' => $this->department === 'posventa' ? 'servicio' : 'cotizacion',
+            'type' => in_array($this->department, ['posventa', 'repuestos']) ? 'servicio' : 'cotizacion',
             'full_name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email,
             'city' => $this->city,
-            'message' => "[Área: {$this->department}] " . ($this->vehicleInterest ? "Interés: {$this->vehicleInterest} | " : '') . $this->message,
+            'message' => "[Área: {$areaLabel}] " . ($this->vehicleInterest ? "Interés: {$this->vehicleInterest} | " : '') . $this->message,
             'status' => 'nuevo',
             'ip_address' => request()->ip(),
             'user_agent' => request()->userAgent(),

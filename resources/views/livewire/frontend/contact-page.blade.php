@@ -88,13 +88,13 @@
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Departamento / Área de Interés *</label>
                                 <select wire:model="department" required
                                         class="w-full pl-4 pr-10 py-2.5 bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-xl text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 transition">
-                                    <option value="ventas">Ventas 0 KM (Toyota, Omoda, Jaecoo, Hino)</option>
-                                    <option value="usados">Catálogo de Usados Certificados</option>
-                                    <option value="brp">Powersports BRP (Can-Am / Sea-Doo)</option>
-                                    <option value="bike">CONSUR Bike (Bicicletas & MTB)</option>
-                                    <option value="posventa">Servicio Posventa & Taller Oficial</option>
-                                    <option value="repuestos">Repuestos Legítimos</option>
-                                    <option value="seguros">Broker de Seguros</option>
+                                    <option value="ventas">Ventas 0 KM</option>
+                                    <option value="usados">Venta de usados</option>
+                                    <option value="brp">BRP (Can-Am / Sea-Doo)</option>
+                                    <option value="bike">Ventas de Bicicletas - Consur Bike</option>
+                                    <option value="posventa">Servicio Posventa - Reserva de turnos</option>
+                                    <option value="repuestos">Servicios y Repuestos</option>
+                                    <option value="seguros">Seguros - cotizaciones y asesoramiento</option>
                                 </select>
                             </div>
 
