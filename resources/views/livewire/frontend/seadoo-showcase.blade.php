@@ -329,13 +329,12 @@
                 
                 <!-- Columna Izquierda: Información de Concesionaria -->
                 <div class="lg:col-span-5 space-y-6">
-                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-teal-400 block">Atención Náutica Oficial</span>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-teal-400 block">Atención Oficial</span>
                     <h2 class="text-3xl sm:text-4xl font-light text-white tracking-tight font-heading leading-tight">
                         ¿Querés cotizar tu <span class="font-normal text-teal-400">Sea-Doo</span> en CONSUR?
                     </h2>
                     <p class="text-slate-300 text-sm font-light leading-relaxed">
-                        Consultá con nuestro equipo especializado en náutica recreativa y deportiva. 
-                        Te informamos sobre disponibilidad, colores, trailers oficiales, entrega en Encarnación y servicio postventa.
+                        Consulta con nuestros asesores. Te informamos sobre disponibilidad y colores, entrega en Encarnación y servicio posventa
                     </p>
 
                     <div class="space-y-4 pt-4 border-t border-slate-800 text-sm text-slate-300 font-light">
