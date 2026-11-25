@@ -10,7 +10,7 @@ class PosventaPageSeeder extends Seeder
     public function run(): void
     {
         $html = <<<'HTML'
-<div data-cms-layout="fullwidth" class="w-full bg-white text-slate-900">
+<div data-cms-layout="fullwidth" class="w-full bg-white dark:bg-slate-950 text-slate-900 dark:text-neutral-100">
 
     <!-- 1. HERO INSTITUCIONAL FULL-WIDTH CON EFECTO PARALLAX (Estilo /hino y /seguros) -->
     <section class="relative w-full min-h-[460px] md:min-h-[540px] flex items-center bg-fixed bg-cover bg-center overflow-hidden select-none"
@@ -82,7 +82,7 @@ class PosventaPageSeeder extends Seeder
     </section>
 
     <!-- 2. INTRODUCCIÓN EDITORIAL: EXCELENCIA OPERATIVA & RESPALDO OFICIAL (FULL-WIDTH BLANCO LIMPIO) -->
-    <section class="w-full py-20 md:py-28 bg-white border-b border-slate-100">
+    <section class="w-full py-20 md:py-28 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-neutral-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -93,42 +93,42 @@ class PosventaPageSeeder extends Seeder
                         <span>Con Garantía de Confianza</span>
                     </div>
 
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-normal font-heading leading-tight uppercase">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 dark:text-white tracking-normal font-heading leading-tight uppercase">
                         <span class="font-normal text-[#eb0a1e]">Mantené</span> tu vehículo como nuevo
                     </h2>
 
-                    <p class="text-lg sm:text-xl font-medium text-slate-800 tracking-wide border-l-4 border-[#eb0a1e] pl-4">
+                    <p class="text-lg sm:text-xl font-medium text-slate-800 dark:text-neutral-200 tracking-wide border-l-4 border-[#eb0a1e] pl-4">
                         A partir del momento en que adquirís tu vehículo empieza una relación de acompañamiento permanente.
                     </p>
 
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
-                        En <strong class="text-slate-900 font-medium">CONSUR S.A.</strong> cuidamos tu vehículo con los mismos estándares de fábrica con los que fue diseñado. Contamos con tecnología de diagnóstico computarizado oficial para todas nuestras marcas representadas, técnicos especializados con certificación internacional y un amplio stock de repuestos legítimos que garantizan tu seguridad y la vida útil de cada componente.
+                    <p class="text-slate-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed font-light">
+                        En <strong class="text-slate-900 dark:text-white font-medium">CONSUR S.A.</strong> cuidamos tu vehículo con los mismos estándares de fábrica con los que fue diseñado. Contamos con tecnología de diagnóstico computarizado oficial para todas nuestras marcas representadas, técnicos especializados con certificación internacional y un amplio stock de repuestos legítimos que garantizan tu seguridad y la vida útil de cada componente.
                     </p>
 
                     <!-- 3 Pilares Arquitectónicos en Fila Minimalista -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-slate-200 border border-slate-200 shadow-xs pt-0">
-                        <div class="bg-white p-5 space-y-2">
-                            <div class="w-10 h-10 bg-red-50 text-[#eb0a1e] flex items-center justify-center text-base">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-slate-200 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-800 shadow-xs pt-0">
+                        <div class="bg-white dark:bg-neutral-900 p-5 space-y-2">
+                            <div class="w-10 h-10 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center text-base">
                                 <i class="fas fa-user-check"></i>
                             </div>
-                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Técnicos Certificados</span>
-                            <span class="block text-[11px] text-slate-500 font-light leading-snug">Capacitación continua bajo estándares de fábrica</span>
+                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Técnicos Certificados</span>
+                            <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light leading-snug">Capacitación continua bajo estándares de fábrica</span>
                         </div>
 
-                        <div class="bg-white p-5 space-y-2">
-                            <div class="w-10 h-10 bg-red-50 text-[#eb0a1e] flex items-center justify-center text-base">
+                        <div class="bg-white dark:bg-neutral-900 p-5 space-y-2">
+                            <div class="w-10 h-10 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center text-base">
                                 <i class="fas fa-cogs"></i>
                             </div>
-                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Repuestos Genuinos</span>
-                            <span class="block text-[11px] text-slate-500 font-light leading-snug">Piezas originales con garantía oficial de fábrica</span>
+                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Repuestos Genuinos</span>
+                            <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light leading-snug">Piezas originales con garantía oficial de fábrica</span>
                         </div>
 
-                        <div class="bg-white p-5 space-y-2">
-                            <div class="w-10 h-10 bg-red-50 text-[#eb0a1e] flex items-center justify-center text-base">
+                        <div class="bg-white dark:bg-neutral-900 p-5 space-y-2">
+                            <div class="w-10 h-10 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center text-base">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
-                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Preventivo Oficial</span>
-                            <span class="block text-[11px] text-slate-500 font-light leading-snug">Mantenimientos programados que cuidan tu inversión</span>
+                            <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Preventivo Oficial</span>
+                            <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light leading-snug">Mantenimientos programados que cuidan tu inversión</span>
                         </div>
                     </div>
 
@@ -141,7 +141,7 @@ class PosventaPageSeeder extends Seeder
                             <span>Agendá tu Turno Online</span>
                         </a>
                         <a href="#servicios-especializados"
-                           class="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent hover:bg-slate-100 text-slate-900 border border-slate-300 text-xs font-bold uppercase tracking-widest transition">
+                           class="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent hover:bg-slate-100 dark:hover:bg-neutral-800 text-slate-900 dark:text-white border border-slate-300 dark:border-neutral-700 text-xs font-bold uppercase tracking-widest transition">
                             <span>Ver Servicios Especializados</span>
                             <i class="fas fa-arrow-down text-[10px] text-[#eb0a1e]"></i>
                         </a>
@@ -150,7 +150,7 @@ class PosventaPageSeeder extends Seeder
 
                 <!-- Columna Derecha: Imagen Oficial de Instalaciones sin Bordes Redondeados -->
                 <div class="lg:col-span-5" data-aos="fade-left" data-aos-delay="150">
-                    <div class="relative overflow-hidden shadow-2xl border border-slate-200 group">
+                    <div class="relative overflow-hidden shadow-2xl border border-slate-200 dark:border-neutral-800 group">
                         <img src="/images/toyota/frontservicios.png"
                              alt="Instalaciones de Taller y Servicios Oficiales CONSUR Toyota"
                              class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
@@ -170,7 +170,7 @@ class PosventaPageSeeder extends Seeder
     </section>
 
     <!-- 3. SERVICIOS ESPECIALIZADOS: BOX EXPRÉS, VEHÍCULO DE CORTESÍA Y TALLER MÓVIL (FULL-WIDTH GRIS CLARO) -->
-    <section id="servicios-especializados" class="w-full py-20 md:py-28 bg-slate-50 border-y border-slate-200/80">
+    <section id="servicios-especializados" class="w-full py-20 md:py-28 bg-slate-50 dark:bg-neutral-900/60 border-y border-slate-200/80 dark:border-neutral-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Encabezado Centrado -->
@@ -178,12 +178,12 @@ class PosventaPageSeeder extends Seeder
                 <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#eb0a1e] block">
                     Soluciones a Tu Medida
                 </span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 font-heading uppercase tracking-normal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 dark:text-white font-heading uppercase tracking-normal">
                     Servicios Posventa <span class="font-normal text-[#eb0a1e]">Especializados</span>
                 </h2>
                 <div class="w-16 h-1 bg-[#eb0a1e] mx-auto mt-4"></div>
-                <p class="text-sm sm:text-base text-slate-500 font-light max-w-3xl mx-auto pt-1">
-                    Atención inmediata sin esperas, movilidad garantizada mientras cuidamos de tu unidad y soporte técnico integral con respaldo oficial para toda la línea de vehículos <strong class="text-slate-800 font-semibold">Toyota</strong>.
+                <p class="text-sm sm:text-base text-slate-500 dark:text-neutral-400 font-light max-w-3xl mx-auto pt-1">
+                    Atención inmediata sin esperas, movilidad garantizada mientras cuidamos de tu unidad y soporte técnico integral con respaldo oficial para toda la línea de vehículos <strong class="text-slate-800 dark:text-neutral-200 font-semibold">Toyota</strong>.
                 </p>
             </div>
 
@@ -191,12 +191,12 @@ class PosventaPageSeeder extends Seeder
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                 <!-- 1. Box Exprés -->
-                <div class="bg-white border border-slate-200 hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                <div class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
                      data-aos="fade-up" data-aos-delay="0">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#eb0a1e] transition-colors"></div>
 
                     <div>
-                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-neutral-800 border-b border-slate-100 dark:border-neutral-800">
                             <img src="/images/pages/posventa-boxexpress.jpg"
                                  alt="Box Exprés CONSUR"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -205,10 +205,10 @@ class PosventaPageSeeder extends Seeder
                             <span class="text-[10px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
                                 Atención Inmediata &bull; 21 Puntos Clave
                             </span>
-                            <h3 class="text-xl font-semibold text-slate-900 font-heading uppercase tracking-wide">
+                            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading uppercase tracking-wide">
                                 Box Exprés
                             </h3>
-                            <p class="text-sm text-slate-600 leading-relaxed font-light">
+                            <p class="text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-light">
                                 En nuestro servicio Box Exprés, tu vehículo recibe atención inmediata y precisa. Con dos técnicos especializados, realizamos el cambio de aceite y filtro, más una inspección completa de 21 puntos clave que incluyen luces, suspensión y frenos. Un servicio rápido, eficiente y seguro, pensado para que vuelvas a la ruta sin demoras.
                             </p>
                         </div>
@@ -217,7 +217,7 @@ class PosventaPageSeeder extends Seeder
                     <div class="p-8 pt-0">
                         <a href="http://www.turnos365.com/turnos.aspx?con=131"
                            target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#eb0a1e] transition-colors">
+                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white group-hover:text-[#eb0a1e] dark:group-hover:text-[#eb0a1e] transition-colors">
                             <span>Agendar Box Exprés</span>
                             <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -225,12 +225,12 @@ class PosventaPageSeeder extends Seeder
                 </div>
 
                 <!-- 2. Vehículo de Cortesía -->
-                <div class="bg-white border border-slate-200 hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                <div class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
                      data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#eb0a1e] transition-colors"></div>
 
                     <div>
-                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-neutral-800 border-b border-slate-100 dark:border-neutral-800">
                             <img src="/images/pages/posventa-vehiculocortesia.jpg"
                                  alt="Vehículo de Cortesía CONSUR"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -239,10 +239,10 @@ class PosventaPageSeeder extends Seeder
                             <span class="text-[10px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
                                 Movilidad Garantizada
                             </span>
-                            <h3 class="text-xl font-semibold text-slate-900 font-heading uppercase tracking-wide">
+                            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading uppercase tracking-wide">
                                 Vehículo de Cortesía
                             </h3>
-                            <p class="text-sm text-slate-600 leading-relaxed font-light">
+                            <p class="text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-light">
                                 Servicio posventa sin pausas: mientras cuidamos de tu vehículo, seguís tu camino. Consultá por nuestra opción de vehículo de cortesía para continuar con tu rutina de trabajo o compromisos personales sin ningún tipo de interrupciones.
                             </p>
                         </div>
@@ -251,7 +251,7 @@ class PosventaPageSeeder extends Seeder
                     <div class="p-8 pt-0">
                         <a href="https://wa.me/595985204106?text=Hola%20Consur%2C%20quisiera%20consultar%20por%20la%20opci%C3%B3n%20de%20Veh%C3%ADculo%20de%20Cortes%C3%ADa."
                            target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#eb0a1e] transition-colors">
+                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white group-hover:text-[#eb0a1e] dark:group-hover:text-[#eb0a1e] transition-colors">
                             <span>Consultar Disponibilidad</span>
                             <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -259,12 +259,12 @@ class PosventaPageSeeder extends Seeder
                 </div>
 
                 <!-- 3. Taller Móvil -->
-                <div class="bg-white border border-slate-200 hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                <div class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
                      data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-[#eb0a1e] transition-colors"></div>
 
                     <div>
-                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 border-b border-slate-100">
+                        <div class="aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-neutral-800 border-b border-slate-100 dark:border-neutral-800">
                             <img src="/images/pages/posventa-tallermovil.jpg"
                                  alt="Taller Móvil CONSUR"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -273,10 +273,10 @@ class PosventaPageSeeder extends Seeder
                             <span class="text-[10px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
                                 Asistencia Donde Estés
                             </span>
-                            <h3 class="text-xl font-semibold text-slate-900 font-heading uppercase tracking-wide">
+                            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading uppercase tracking-wide">
                                 Taller Móvil
                             </h3>
-                            <p class="text-sm text-slate-600 leading-relaxed font-light">
+                            <p class="text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-light">
                                 ¡El taller ahora va donde estés! Con el servicio de Taller Móvil, solucionamos lo que tu vehículo necesita, estés donde estés. Práctico, rápido y confiable, con una unidad 100% equipada con herramientas de última generación, diagnóstico multimarca oficial y lubricantes certificados.
                             </p>
                         </div>
@@ -285,7 +285,7 @@ class PosventaPageSeeder extends Seeder
                     <div class="p-8 pt-0">
                         <a href="https://wa.me/595985204106?text=Hola%20Consur%2C%20solicito%20el%20servicio%20de%20Taller%20M%C3%B3vil%20en%20mi%20domicilio."
                            target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#eb0a1e] transition-colors">
+                           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white group-hover:text-[#eb0a1e] dark:group-hover:text-[#eb0a1e] transition-colors">
                             <span>Solicitar Taller Móvil</span>
                             <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -618,7 +618,7 @@ class PosventaPageSeeder extends Seeder
     </section>
 
     <!-- 5. COMPROMISO POSVENTA: TE ACOMPAÑAMOS & PERSONAL ALTAMENTE CALIFICADO (FULL-WIDTH BLANCO LIMPIO) -->
-    <section class="w-full py-20 md:py-28 bg-white border-b border-slate-200">
+    <section class="w-full py-20 md:py-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-neutral-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -629,71 +629,71 @@ class PosventaPageSeeder extends Seeder
                             <span class="w-8 h-[2px] bg-[#eb0a1e]"></span>
                             <span>Compromiso Posventa CONSUR</span>
                         </div>
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 font-heading uppercase tracking-normal">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 dark:text-white font-heading uppercase tracking-normal">
                             Te <span class="font-normal text-[#eb0a1e]">Acompañamos</span>
                         </h2>
-                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
+                        <p class="text-slate-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed font-light">
                             A partir del momento que Usted adquiere nuestras unidades o nuestros servicios empieza una relación donde siempre va a encontrarse acompañado con la calidez, transparencia y excelencia técnica que nos caracteriza desde 1977.
                         </p>
                     </div>
 
                     <!-- 4 Beneficios Clave (Grilla Arquitectónica Recta con Iconos Cuadrados) -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex items-center gap-4 p-5 bg-slate-50 border border-slate-200 hover:border-[#eb0a1e] transition-colors">
-                            <div class="w-11 h-11 bg-red-50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
+                        <div class="flex items-center gap-4 p-5 bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] transition-colors">
+                            <div class="w-11 h-11 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
                                 <i class="fas fa-shield-heart"></i>
                             </div>
                             <div>
-                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Extienda la Vida Útil</span>
-                                <span class="block text-[11px] text-slate-500 font-light mt-0.5">Mantenimientos preventivos que cuidan tu vehículo</span>
+                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Extienda la Vida Útil</span>
+                                <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light mt-0.5">Mantenimientos preventivos que cuidan tu vehículo</span>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 p-5 bg-slate-50 border border-slate-200 hover:border-[#eb0a1e] transition-colors">
-                            <div class="w-11 h-11 bg-red-50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
+                        <div class="flex items-center gap-4 p-5 bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] transition-colors">
+                            <div class="w-11 h-11 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
                                 <i class="fas fa-gas-pump"></i>
                             </div>
                             <div>
-                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Ahorre Combustible</span>
-                                <span class="block text-[11px] text-slate-500 font-light mt-0.5">Inyección y puesta a punto calibrada de fábrica</span>
+                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Ahorre Combustible</span>
+                                <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light mt-0.5">Inyección y puesta a punto calibrada de fábrica</span>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 p-5 bg-slate-50 border border-slate-200 hover:border-[#eb0a1e] transition-colors">
-                            <div class="w-11 h-11 bg-red-50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
+                        <div class="flex items-center gap-4 p-5 bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] transition-colors">
+                            <div class="w-11 h-11 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
                                 <i class="fas fa-coins"></i>
                             </div>
                             <div>
-                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Reducción de Costos</span>
-                                <span class="block text-[11px] text-slate-500 font-light mt-0.5">Prevención temprana de desgastes mayores</span>
+                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Reducción de Costos</span>
+                                <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light mt-0.5">Prevención temprana de desgastes mayores</span>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 p-5 bg-slate-50 border border-slate-200 hover:border-[#eb0a1e] transition-colors">
-                            <div class="w-11 h-11 bg-red-50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
+                        <div class="flex items-center gap-4 p-5 bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 hover:border-[#eb0a1e] dark:hover:border-[#eb0a1e] transition-colors">
+                            <div class="w-11 h-11 bg-red-50 dark:bg-red-950/50 text-[#eb0a1e] flex items-center justify-center shrink-0 text-lg">
                                 <i class="fas fa-route"></i>
                             </div>
                             <div>
-                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900">Evite Contratiempos</span>
-                                <span class="block text-[11px] text-slate-500 font-light mt-0.5">Seguridad y confianza en cada viaje o jornada</span>
+                                <span class="block text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Evite Contratiempos</span>
+                                <span class="block text-[11px] text-slate-500 dark:text-neutral-400 font-light mt-0.5">Seguridad y confianza en cada viaje o jornada</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Personal Altamente Calificado (Bloque con Borde Lateral Rojo Estilo Kaizen) -->
-                    <div class="border-l-4 border-[#eb0a1e] pl-6 space-y-4 bg-slate-50/70 p-6">
-                        <h3 class="text-lg sm:text-xl font-light text-slate-900 font-heading uppercase tracking-normal">
+                    <div class="border-l-4 border-[#eb0a1e] pl-6 space-y-4 bg-slate-50/70 dark:bg-neutral-900/90 p-6 border-y border-r border-transparent dark:border-neutral-800">
+                        <h3 class="text-lg sm:text-xl font-light text-slate-900 dark:text-white font-heading uppercase tracking-normal">
                             ¡<span class="font-normal text-[#eb0a1e]">Personal altamente calificado</span> para brindar los mejores servicios!
                         </h3>
-                        <div class="space-y-3 text-sm text-slate-600 leading-relaxed font-light">
+                        <div class="space-y-3 text-sm text-slate-600 dark:text-neutral-300 leading-relaxed font-light">
                             <p>
-                                Nuestra <strong class="text-slate-900 font-medium">Gerencia de Servicios</strong> se encargará de atenderlo en todo el proceso durante su visita al Servicio Técnico, tomando nota de sus necesidades y brindándole en forma ágil toda la información que necesita.
+                                Nuestra <strong class="text-slate-900 dark:text-white font-medium">Gerencia de Servicios</strong> se encargará de atenderlo en todo el proceso durante su visita al Servicio Técnico, tomando nota de sus necesidades y brindándole en forma ágil toda la información que necesita.
                             </p>
                             <p>
-                                <strong class="text-slate-900 font-medium">Técnicos altamente capacitados</strong> estarán poniendo el mejor de sus conocimientos para realizar los mantenimientos y reparaciones necesarias en su vehículo. El <strong class="text-slate-900 font-medium">Asesor de Repuestos</strong> podrá brindarle toda la información necesaria acerca de la disponibilidad y costos de accesorios y repuestos legítimos.
+                                <strong class="text-slate-900 dark:text-white font-medium">Técnicos altamente capacitados</strong> estarán poniendo el mejor de sus conocimientos para realizar los mantenimientos y reparaciones necesarias en su vehículo. El <strong class="text-slate-900 dark:text-white font-medium">Asesor de Repuestos</strong> podrá brindarle toda la información necesaria acerca de la disponibilidad y costos de accesorios y repuestos legítimos.
                             </p>
                             <p>
-                                <strong class="text-slate-900 font-medium">CONSUR S.A.</strong> cuenta con el Servicio Técnico Oficial Toyota en sus diferentes sucursales, estratégicamente distribuidas en los departamentos de Itapúa y Misiones para brindarle una cobertura total y la mayor tranquilidad.
+                                <strong class="text-slate-900 dark:text-white font-medium">CONSUR S.A.</strong> cuenta con el Servicio Técnico Oficial Toyota en sus diferentes sucursales, estratégicamente distribuidas en los departamentos de Itapúa y Misiones para brindarle una cobertura total y la mayor tranquilidad.
                             </p>
                         </div>
                     </div>
