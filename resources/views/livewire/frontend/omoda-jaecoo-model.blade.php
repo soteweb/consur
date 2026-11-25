@@ -810,9 +810,6 @@
             <div data-aos="fade-up" class="relative rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-14 shadow-xl overflow-hidden">
                 <div class="relative z-10">
                     <div class="text-center max-w-2xl mx-auto mb-10">
-                        <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4] mb-3">
-                            Atención oficial CONSUR S.A.
-                        </span>
                         <h2 class="oj-heading text-3xl sm:text-5xl text-[#0d0e0e] mb-3">
                             Cotizá tu <span class="font-normal text-[#67b0c4]">{{ $modelData['name'] }}</span>
                         </h2>
