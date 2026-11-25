@@ -1,4 +1,4 @@
-<div class="oj-theme bg-[#f4f5f7] dark:bg-slate-950 text-[#0d0e0e] dark:text-neutral-100 antialiased overflow-x-clip selection:bg-consur-red selection:text-white transition-colors"
+<div class="oj-theme bg-[#f4f5f7] dark:bg-slate-950 text-[#0d0e0e] dark:text-neutral-100 antialiased overflow-x-clip selection:bg-[#67b0c4] selection:text-[#0d0e0e] transition-colors"
      x-data="{
          vehicleInterest: @entangle('vehicleInterest'),
          sentSuccess: @entangle('sentSuccess')
@@ -92,9 +92,9 @@
             line-height: 1.12;
         }
 
-        /* ── Shimmer btn ── */
+        /* ── Shimmer btn inspirado en OMODA & JAECOO ── */
         .btn-shimmer {
-            background: linear-gradient(90deg, #eb0a1e 0%, #c50016 40%, #eb0a1e 60%, #c50016 100%);
+            background: linear-gradient(90deg, #67b0c4 0%, #4a93a8 40%, #67b0c4 60%, #4a93a8 100%);
             background-size: 200% 100%;
         }
         .btn-shimmer:hover {
@@ -109,7 +109,7 @@
         }
         .why-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(235,10,30,0.35);
+            border-color: rgba(103,176,196,0.45);
         }
 
         .spec-card-dark {
@@ -119,11 +119,11 @@
         }
         .spec-card-dark:hover {
             background: rgba(255,255,255,0.06);
-            border-color: rgba(235,10,30,0.35);
+            border-color: rgba(103,176,196,0.45);
         }
 
         /* ── Comparison badge ── */
-        .badge-best { background: linear-gradient(135deg,#eb0a1e,#c50016); }
+        .badge-best { background: linear-gradient(135deg, #67b0c4, #4a93a8); color: #0d0e0e; font-weight: 700; }
 
         /* ── Light form inputs ── */
         .form-input-light {
@@ -136,8 +136,8 @@
         .form-input-light:focus {
             outline: none;
             background: #ffffff;
-            border-color: #eb0a1e;
-            box-shadow: 0 0 0 3px rgba(235,10,30,0.1);
+            border-color: #67b0c4;
+            box-shadow: 0 0 0 3px rgba(103,176,196,0.2);
         }
 
         /* ── Dark mode card & form overrides (Slate / Deep Titanium) ── */
@@ -162,7 +162,7 @@
         }
         .dark .form-input-light:focus {
             background: #0f172a;
-            border-color: #eb0a1e;
+            border-color: #67b0c4;
         }
         .dark #comparativa {
             background-color: #020617 !important;
@@ -180,8 +180,8 @@
         .dark #comparativa .hover\:bg-slate-50\/80:hover {
             background-color: rgba(255,255,255,0.03) !important;
         }
-        .dark #comparativa .bg-red-50\/40 {
-            background-color: rgba(235,10,30,0.12) !important;
+        .dark #comparativa .bg-cyan-50\/40 {
+            background-color: rgba(103,176,196,0.12) !important;
         }
         .dark #cotizacion {
             background-color: #070709 !important;
@@ -204,7 +204,7 @@
             isolation: isolate;
         }
         .mdl-card:hover {
-            border-color: rgba(235, 10, 30, 0.5);
+            border-color: rgba(103, 176, 196, 0.55);
             box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.22);
             transform: translateY(-6px);
         }
@@ -284,12 +284,12 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            color: #eb0a1e;
+            color: #67b0c4;
             transition: color 0.3s ease;
             margin-top: 16px;
         }
         .mdl-card:hover .mdl-card__cta {
-            color: #ff4d5e;
+            color: #82c3d5;
         }
         .mdl-card__cta i {
             transition: transform 0.3s ease;
@@ -318,7 +318,7 @@
             <div class="max-w-2xl">
 
                 <!-- Eyebrow -->
-                <p data-aos="fade-up" data-aos-delay="50" class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-consur-red mb-4">
+                <p data-aos="fade-up" data-aos-delay="50" class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-[#67b0c4] mb-4">
                     De lo Clásico &nbsp;·&nbsp; Más Allá de lo Clásico
                 </p>
 
@@ -335,7 +335,7 @@
                 <!-- CTAs -->
                 <div data-aos="fade-up" data-aos-delay="350" class="flex flex-wrap gap-3.5">
                     <a href="#modelos"
-                       class="inline-flex items-center gap-2.5 px-7 py-3.5 btn-shimmer text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition hover:-translate-y-0.5">
+                       class="inline-flex items-center gap-2.5 px-7 py-3.5 btn-shimmer text-[#0d0e0e] font-bold text-[11px] uppercase tracking-[0.16em] transition hover:-translate-y-0.5">
                         <span>Explorar modelos</span>
                         <i class="fas fa-arrow-down text-[10px] opacity-80"></i>
                     </a>
@@ -359,11 +359,11 @@
 
             <!-- Section header -->
             <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-14">
-                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red mb-3">
+                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4] mb-3">
                     Gama completa disponible en CONSUR
                 </span>
                 <h2 class="oj-heading text-3xl sm:text-5xl text-[#0d0e0e] dark:text-white mb-3">
-                    Elegí tu <span class="font-normal text-consur-red">vehículo</span>
+                    Elegí tu <span class="font-normal text-[#67b0c4]">vehículo</span>
                 </h2>
                 <p class="text-sm sm:text-[15px] text-slate-600 dark:text-neutral-400 font-light leading-relaxed">
                     Cuatro modelos, una sola filosofía: ir más allá de lo clásico.
@@ -461,11 +461,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
             <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-14">
-                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red mb-3">
+                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4] mb-3">
                     Innovación de clase mundial
                 </span>
                 <h2 class="oj-heading text-3xl sm:text-5xl text-white mb-4">
-                    La tecnología que <span class="font-normal text-consur-red">te define</span>
+                    La tecnología que <span class="font-normal text-[#67b0c4]">te define</span>
                 </h2>
                 <p class="text-sm sm:text-[15px] text-slate-400 font-light leading-relaxed">
                     Cada vehículo de la gama OMODA &amp; JAECOO fue diseñado para transformar tu experiencia de conducción.
@@ -476,8 +476,8 @@
 
                 <div data-aos="fade-up" data-aos-delay="100">
                     <div class="why-card p-8 rounded-2xl h-full">
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-consur-red/10 border border-consur-red/20">
-                            <i class="fas fa-shapes text-xl text-consur-red"></i>
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-[#67b0c4]/10 border border-[#67b0c4]/20">
+                            <i class="fas fa-shapes text-xl text-[#67b0c4]"></i>
                         </div>
                         <h4 class="oj-heading text-xl text-white mb-3 !font-normal">Diseño de impacto</h4>
                         <p class="text-sm text-slate-400 font-light leading-relaxed">Líneas atléticas, silueta robusta y detalles que capturan miradas. Una estética que combina el lujo urbano con el carácter off-road y desafía los moldes tradicionales.</p>
@@ -516,7 +516,7 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-3.5 p-5 rounded-xl spec-card-dark">
-                    <i class="fas fa-plug-circle-bolt text-xl text-consur-red flex-shrink-0"></i>
+                    <i class="fas fa-plug-circle-bolt text-xl text-[#67b0c4] flex-shrink-0"></i>
                     <div>
                         <span class="text-[10px] font-semibold uppercase tracking-widest text-slate-400 block">PHEV Enchufable</span>
                         <span class="text-xs font-semibold text-white">288 HP + AWD (J7)</span>
@@ -548,11 +548,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
             <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-14">
-                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red mb-3">
+                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4] mb-3">
                     Gama OMODA &amp; JAECOO
                 </span>
                 <h2 class="oj-heading text-3xl sm:text-5xl text-[#0d0e0e] mb-4">
-                    Tabla <span class="font-normal text-consur-red">Comparativa</span>
+                    Tabla <span class="font-normal text-[#67b0c4]">Comparativa</span>
                 </h2>
                 <p class="text-sm sm:text-[15px] text-slate-600 font-light leading-relaxed">
                     Compará las 4 opciones de movilidad avanzada de CONSUR S.A.: combustión turbo, 100% eléctrica, híbrida autorrecargable y PHEV enchufable.
@@ -576,8 +576,8 @@
                                 <span class="block text-[9px] font-semibold text-emerald-400 tracking-widest mb-0.5">SHEV · Sin enchufe</span>
                                 <span class="text-white text-base font-medium">JAECOO J5</span>
                             </th>
-                            <th class="p-4 sm:p-5 text-left uppercase tracking-wider border-l border-slate-800 bg-consur-red/20">
-                                <span class="block text-[9px] font-semibold text-red-300 tracking-widest mb-0.5">PHEV · Enchufable</span>
+                            <th class="p-4 sm:p-5 text-left uppercase tracking-wider border-l border-slate-800 bg-[#67b0c4]/15">
+                                <span class="block text-[9px] font-semibold text-[#82c3d5] tracking-widest mb-0.5">PHEV · Enchufable</span>
                                 <span class="text-white text-base font-medium">JAECOO J7</span>
                             </th>
                         </tr>
@@ -588,23 +588,23 @@
                             <td class="p-4 sm:p-5 border-l border-slate-200">SUV Fastback Urbano</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">SUV 100% Eléctrico</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">SUV Familiar Híbrido</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40 font-medium text-slate-900">SUV Todocamino Premium</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10 font-medium text-slate-900">SUV Todocamino Premium</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Motorización</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-slate-900">1.5 Turbo Nafta</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-violet-700">Motor Eléctrico 150 kW</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-emerald-700">1.5T + Híbrido Autorecargable</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40 font-semibold text-consur-red">1.5 TGDI + Dual Motor PHEV</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10 font-semibold text-[#4a93a8] dark:text-[#82c3d5]">1.5 TGDI + Dual Motor PHEV</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Potencia</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-slate-900">147 HP</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-slate-900">201 HP (340 Nm)</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-slate-900">224 HP Combinados</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40 font-bold text-slate-900">
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10 font-bold text-slate-900">
                                 288 HP
-                                <span class="ml-1.5 text-[9px] font-bold px-2 py-0.5 rounded-full badge-best text-white">MÁX.</span>
+                                <span class="ml-1.5 text-[9px] font-bold px-2 py-0.5 rounded-full badge-best">MÁX.</span>
                             </td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
@@ -612,69 +612,69 @@
                             <td class="p-4 sm:p-5 border-l border-slate-200">Automática 9-CVT</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Directa 1-Speed EV</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Híbrida DHT150</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40">Híbrida 1DHT</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10">Híbrida 1DHT</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Autonomía / Recarga</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Alta eficiencia nafta</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-violet-700">430 km WLTP (DC 28m)</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Recarga continua sin enchufe</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40 font-semibold text-slate-900">+1200 km (90 km EV)</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10 font-semibold text-slate-900">+1200 km (90 km EV)</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Dimensiones (L×An×Al)</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">4400 × 1830 × 1588 mm</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">4545 × 1830 × 1588 mm</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">4380 × 1860 × 1650 mm</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40">4500 × 1865 × 1680 mm</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10">4500 × 1865 × 1680 mm</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Distancia entre ejes</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">2630 mm</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">2630 mm</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">2620 mm</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40">2672 mm</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10">2672 mm</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Pantallas / Cockpit</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Dual 10.25" HD</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-slate-900">Doble curva 24.6" UHD</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Táctil vertical 13.2" HD</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40 font-semibold text-sky-700">Táctil 14.8" HD + Sony® 8</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10 font-semibold text-sky-700">Táctil 14.8" HD + Sony® 8</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Cámaras y Visión</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">360° HD Panorámica</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">360° HD Dinámica</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">Reversa + Periférica</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40 font-semibold text-slate-900">540° Chasis Transparente</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10 font-semibold text-slate-900">540° Chasis Transparente</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Llantas</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">18" Bicolor</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">18" Aerodinámicas EV</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">18" Bicolor (235/55 R18)</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40">19" Aleación Kumho</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10">19" Aleación Kumho</td>
                         </tr>
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Catálogo</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">
-                                <a href="{{ asset('catalogos/omoda-jaecoo/omoda-c5.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-700 font-bold">
+                                <a href="{{ asset('catalogos/omoda-jaecoo/omoda-c5.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-[#4a93a8] hover:text-[#67b0c4] font-bold">
                                     <i class="fas fa-file-pdf"></i> Descargar PDF
                                 </a>
                             </td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">
-                                <a href="{{ asset('catalogos/omoda-jaecoo/omoda-e5.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-700 font-bold">
+                                <a href="{{ asset('catalogos/omoda-jaecoo/omoda-e5.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-[#4a93a8] hover:text-[#67b0c4] font-bold">
                                     <i class="fas fa-file-pdf"></i> Descargar PDF
                                 </a>
                             </td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">
-                                <a href="{{ asset('catalogos/omoda-jaecoo/jaecoo-j5.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-700 font-bold">
+                                <a href="{{ asset('catalogos/omoda-jaecoo/jaecoo-j5.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-[#4a93a8] hover:text-[#67b0c4] font-bold">
                                     <i class="fas fa-file-pdf"></i> Descargar PDF
                                 </a>
                             </td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40">
-                                <a href="{{ asset('catalogos/omoda-jaecoo/jaecoo-j7.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-red-600 hover:text-red-700 font-bold">
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10">
+                                <a href="{{ asset('catalogos/omoda-jaecoo/jaecoo-j7.pdf') }}" target="_blank" download class="inline-flex items-center gap-1.5 text-xs text-[#4a93a8] hover:text-[#67b0c4] font-bold">
                                     <i class="fas fa-file-pdf"></i> Descargar PDF
                                 </a>
                             </td>
@@ -682,21 +682,21 @@
                         <tr class="hover:bg-slate-50/80 transition">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Cotización</td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">
-                                <a href="#cotizacion" @click="vehicleInterest='OMODA C5'" class="inline-block px-3.5 py-2 rounded-lg bg-slate-900 text-white hover:bg-consur-red text-[11px] font-semibold uppercase tracking-wider transition">Cotizar C5</a>
+                                <a href="#cotizacion" @click="vehicleInterest='OMODA C5'" class="inline-block px-3.5 py-2 rounded-lg bg-slate-900 text-white hover:bg-[#67b0c4] hover:text-[#0d0e0e] text-[11px] font-semibold uppercase tracking-wider transition">Cotizar C5</a>
                             </td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">
-                                <a href="#cotizacion" @click="vehicleInterest='OMODA E5'" class="inline-block px-3.5 py-2 rounded-lg bg-slate-900 text-white hover:bg-consur-red text-[11px] font-semibold uppercase tracking-wider transition">Cotizar E5</a>
+                                <a href="#cotizacion" @click="vehicleInterest='OMODA E5'" class="inline-block px-3.5 py-2 rounded-lg bg-slate-900 text-white hover:bg-[#67b0c4] hover:text-[#0d0e0e] text-[11px] font-semibold uppercase tracking-wider transition">Cotizar E5</a>
                             </td>
                             <td class="p-4 sm:p-5 border-l border-slate-200">
-                                <a href="#cotizacion" @click="vehicleInterest='JAECOO J5'" class="inline-block px-3.5 py-2 rounded-lg bg-slate-900 text-white hover:bg-consur-red text-[11px] font-semibold uppercase tracking-wider transition">Cotizar J5</a>
+                                <a href="#cotizacion" @click="vehicleInterest='JAECOO J5'" class="inline-block px-3.5 py-2 rounded-lg bg-slate-900 text-white hover:bg-[#67b0c4] hover:text-[#0d0e0e] text-[11px] font-semibold uppercase tracking-wider transition">Cotizar J5</a>
                             </td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-red-50/40">
-                                <a href="#cotizacion" @click="vehicleInterest='JAECOO J7'" class="inline-block px-3.5 py-2 rounded-lg btn-shimmer text-white text-[11px] font-semibold uppercase tracking-wider transition shadow">Cotizar J7</a>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 bg-[#67b0c4]/10">
+                                <a href="#cotizacion" @click="vehicleInterest='JAECOO J7'" class="inline-block px-3.5 py-2 rounded-lg btn-shimmer text-[#0d0e0e] font-bold text-[11px] uppercase tracking-wider transition shadow">Cotizar J7</a>
                             </td>
                         </tr>
                         <tr class="bg-slate-50">
                             <td class="p-4 sm:p-5 font-semibold text-slate-500">Garantía oficial</td>
-                            <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-consur-red text-center" colspan="4">Garantía oficial CONSUR S.A. · Respaldo posventa y repuestos originales en Paraguay</td>
+                            <td class="p-4 sm:p-5 border-l border-slate-200 font-semibold text-[#4a93a8] dark:text-[#82c3d5] text-center" colspan="4">Garantía oficial CONSUR S.A. · Respaldo posventa y repuestos originales en Paraguay</td>
                         </tr>
                     </tbody>
                 </table>
@@ -706,260 +706,30 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-         5. POR QUÉ CONSUR (SECCIÓN OSCURA)
-    ═══════════════════════════════════════════════════════════ -->
-    <section id="consur" class="py-20 sm:py-24 bg-[#0d0e0e] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-                <!-- Left text -->
-                <div data-aos="fade-right" class="space-y-8">
-                    <div>
-                        <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red mb-3">
-                            Tu concesionario de confianza
-                        </span>
-                        <h2 class="oj-heading text-3xl sm:text-5xl text-white mt-2 mb-4">
-                            ¿Por qué elegir <span class="font-normal text-consur-red">CONSUR S.A.?</span>
-                        </h2>
-                        <p class="text-sm sm:text-[15px] text-slate-400 font-light leading-relaxed">Somos el concesionario oficial OMODA &amp; JAECOO en Paraguay, con años de experiencia en el sector automotriz y el respaldo de un equipo especializado en cada etapa de tu compra.</p>
-                    </div>
-
-                    <ul class="space-y-5">
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-consur-red/10 border border-consur-red/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-award text-consur-red text-sm"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-semibold text-white mb-1 uppercase tracking-wider">Concesionario oficial certificado</h5>
-                                <p class="text-xs text-slate-400 font-light leading-relaxed">Autorización directa de OMODA &amp; JAECOO para comercializar y dar servicio posventa con estándares de calidad internacionales.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-tools text-sky-400 text-sm"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-semibold text-white mb-1 uppercase tracking-wider">Servicio técnico especializado</h5>
-                                <p class="text-xs text-slate-400 font-light leading-relaxed">Mecánicos certificados, equipamiento de diagnóstico de última generación y repuestos originales garantizados.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-handshake text-emerald-400 text-sm"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-semibold text-white mb-1 uppercase tracking-wider">Financiación a tu medida</h5>
-                                <p class="text-xs text-slate-400 font-light leading-relaxed">Planes de financiación flexibles, planes con entrada reducida y posibilidad de entregar tu vehículo usado como parte de pago.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-location-dot text-purple-400 text-sm"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-sm font-semibold text-white mb-1 uppercase tracking-wider">Ubicación estratégica</h5>
-                                <p class="text-xs text-slate-400 font-light leading-relaxed">Ruta 1 Km 2.5 y Avda. San Roque González, Encarnación. Atendemos también a clientes de Posadas y toda la región.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Right: stat cards -->
-                <div data-aos="fade-left" data-aos-delay="150" class="grid grid-cols-2 gap-5">
-                    <div class="p-7 rounded-2xl bg-gradient-to-br from-consur-red/15 to-consur-red/5 border border-consur-red/25 flex flex-col gap-2">
-                        <span class="oj-heading text-4xl sm:text-5xl text-white leading-none">+15</span>
-                        <span class="text-xs text-slate-300 font-light leading-tight">Años de trayectoria en el sector automotriz paraguayo</span>
-                    </div>
-                    <div class="p-7 rounded-2xl bg-white/[0.04] border border-white/10 flex flex-col gap-2">
-                        <span class="oj-heading text-4xl sm:text-5xl text-white leading-none">100%</span>
-                        <span class="text-xs text-slate-300 font-light leading-tight">Disponibilidad de la gama OMODA &amp; JAECOO en Encarnación</span>
-                    </div>
-                    <div class="p-7 rounded-2xl bg-white/[0.04] border border-white/10 flex flex-col gap-2">
-                        <span class="oj-heading text-4xl sm:text-5xl text-white leading-none">3 yr</span>
-                        <span class="text-xs text-slate-300 font-light leading-tight">Garantía de fábrica incluida en todos los modelos</span>
-                    </div>
-                    <div class="p-7 rounded-2xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 border border-emerald-500/25 flex flex-col gap-2">
-                        <span class="oj-heading text-4xl sm:text-5xl text-white leading-none">24/7</span>
-                        <span class="text-xs text-slate-300 font-light leading-tight">Atención vía WhatsApp para consultas y agendamiento</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-         6. FORMULARIO DE COTIZACIÓN (SECCIÓN CLARA)
-    ═══════════════════════════════════════════════════════════ -->
-    <section id="cotizacion" class="py-20 sm:py-24 bg-[#f4f5f7] text-[#0d0e0e]">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div data-aos="fade-up" class="relative rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-14 shadow-xl overflow-hidden">
-
-                <div class="relative z-10">
-
-                    <!-- Header -->
-                    <div class="text-center max-w-2xl mx-auto mb-10">
-                        <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red mb-3">
-                            Atención oficial CONSUR S.A.
-                        </span>
-                        <h2 class="oj-heading text-3xl sm:text-5xl text-[#0d0e0e] mb-3">
-                            Cotizá tu <span class="font-normal text-consur-red" x-text="vehicleInterest">JAECOO</span>
-                        </h2>
-                        <p class="text-sm text-slate-600 font-light leading-relaxed">
-                            Completá tus datos y un asesor de CONSUR se comunicará con vos para brindarte precios, financiación y disponibilidad.
-                        </p>
-                    </div>
-
-                    <!-- Success message -->
-                    <div x-show="sentSuccess" x-cloak class="p-7 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3 animate-scaleIn">
-                        <i class="fas fa-circle-check text-emerald-600 text-4xl"></i>
-                        <h4 class="text-lg font-bold text-slate-900 uppercase tracking-wide">¡Solicitud enviada!</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Un asesor de <strong>CONSUR S.A.</strong> se pondrá en contacto a la brevedad para coordinar tu cotización y prueba de manejo.</p>
-                        <button @click="sentSuccess = false"
-                                type="button"
-                                class="text-xs text-emerald-700 underline font-semibold hover:text-emerald-800 transition mt-1">
-                            Enviar otra consulta
-                        </button>
-                    </div>
-
-                    <!-- Form -->
-                    <form x-show="!sentSuccess" wire:submit="submitQuotation" class="space-y-6">
-
-                        <!-- Vehicle select -->
-                        <div>
-                            <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-500 mb-3">Modelo de Interés <span class="text-consur-red">*</span></label>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                <button type="button" @click="vehicleInterest='OMODA C5'"
-                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
-                                        :class="vehicleInterest==='OMODA C5' ? 'bg-consur-red text-white border-consur-red shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-400 hover:text-slate-900'">
-                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='OMODA C5' ? 'text-white' : 'text-slate-300'"></i>
-                                    C5 — 1.5T
-                                </button>
-                                <button type="button" @click="vehicleInterest='OMODA E5'"
-                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
-                                        :class="vehicleInterest==='OMODA E5' ? 'bg-consur-red text-white border-consur-red shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-400 hover:text-slate-900'">
-                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='OMODA E5' ? 'text-white' : 'text-slate-300'"></i>
-                                    E5 — EV
-                                </button>
-                                <button type="button" @click="vehicleInterest='JAECOO J5'"
-                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
-                                        :class="vehicleInterest==='JAECOO J5' ? 'bg-consur-red text-white border-consur-red shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-400 hover:text-slate-900'">
-                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='JAECOO J5' ? 'text-white' : 'text-slate-300'"></i>
-                                    J5 — SHEV
-                                </button>
-                                <button type="button" @click="vehicleInterest='JAECOO J7'"
-                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
-                                        :class="vehicleInterest==='JAECOO J7' ? 'bg-consur-red text-white border-consur-red shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-400 hover:text-slate-900'">
-                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='JAECOO J7' ? 'text-white' : 'text-slate-300'"></i>
-                                    J7 — PHEV
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
-                            <!-- Nombre -->
-                            <div>
-                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Nombre y Apellido <span class="text-consur-red">*</span></label>
-                                <input type="text" wire:model="name" required placeholder="Tu nombre completo"
-                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('name') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
-                            </div>
-
-                            <!-- Teléfono -->
-                            <div>
-                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Teléfono / WhatsApp <span class="text-consur-red">*</span></label>
-                                <input type="text" wire:model="phone" required placeholder="Ej: 0985 804 106"
-                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('phone') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
-                            </div>
-
-                            <!-- Email -->
-                            <div>
-                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Correo electrónico</label>
-                                <input type="email" wire:model="email" placeholder="correo@ejemplo.com"
-                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('email') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
-                            </div>
-
-                            <!-- Ciudad -->
-                            <div>
-                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Ciudad de residencia</label>
-                                <input type="text" wire:model="city" placeholder="Ej: Encarnación, Posadas…"
-                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('city') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
-                            </div>
-
-                            <!-- Mensaje -->
-                            <div class="sm:col-span-2">
-                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Mensaje o consulta</label>
-                                <textarea wire:model="message" rows="3"
-                                          placeholder="¿Querés consultar sobre financiación, entrega de usado o agendar un Test Drive?"
-                                          class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm resize-none"></textarea>
-                            </div>
-
-                        </div>
-
-                        <div class="text-center">
-                            <button type="submit"
-                                    class="inline-flex items-center justify-center gap-3 px-10 py-4 btn-shimmer text-white text-xs font-semibold uppercase tracking-[0.18em] rounded-xl shadow-lg transition hover:-translate-y-0.5 w-full sm:w-auto">
-                                <span wire:loading.remove wire:target="submitQuotation" class="inline-flex items-center gap-3">
-                                    <i class="fas fa-paper-plane text-xs"></i>
-                                    Enviar solicitud de cotización
-                                </span>
-                                <span wire:loading wire:target="submitQuotation" class="inline-flex items-center gap-2">
-                                    <i class="fas fa-circle-notch fa-spin text-xs"></i>
-                                    Enviando...
-                                </span>
-                            </button>
-                            <p class="text-[11px] text-slate-400 mt-3">Tu información es confidencial y solo será utilizada para contactarte.</p>
-                        </div>
-
-                    </form>
-
-                    <!-- WhatsApp direct -->
-                    <div class="mt-8 pt-8 border-t border-slate-200 text-center">
-                        <p class="text-xs text-slate-500 mb-4">¿Preferís contacto directo e inmediato?</p>
-                        <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20modelos%20OMODA%20y%20JAECOO."
-                           target="_blank"
-                           class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-700 text-xs font-semibold uppercase tracking-widest hover:bg-emerald-100 transition">
-                            <i class="fab fa-whatsapp text-base"></i>
-                            Escribinos por WhatsApp ahora
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════
-         7. SOPORTE OFICIAL ESPECIALIZADO • NUEVA GENERACIÓN
+         5. SOPORTE OFICIAL ESPECIALIZADO • NUEVA GENERACIÓN (SECCIÓN OSCURA)
     ═══════════════════════════════════════════════════════════ -->
     <section id="posventa-oficial" class="py-20 sm:py-24 bg-[#0d0e0e] text-white border-t border-white/10 relative overflow-hidden">
-        <!-- Glows ambientales sutiles -->
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-consur-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Glows ambientales sutiles inspirados en OMODA & JAECOO -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#67b0c4]/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
 
             <div class="p-8 sm:p-12 lg:p-16 rounded-3xl bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 shadow-2xl relative overflow-hidden" data-aos="fade-up">
-                <div class="absolute top-0 left-0 bottom-0 w-2 bg-consur-red"></div>
+                <div class="absolute top-0 left-0 bottom-0 w-2 bg-[#67b0c4]"></div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                     
                     <!-- Columna de Información -->
                     <div class="lg:col-span-8 space-y-6">
-                        <div class="inline-flex items-center gap-2.5 bg-consur-red/15 border border-consur-red/30 text-consur-red text-[11px] font-bold uppercase px-3.5 py-1.5 rounded-full tracking-[0.2em]">
+                        <div class="inline-flex items-center gap-2.5 bg-[#67b0c4]/15 border border-[#67b0c4]/30 text-[#67b0c4] text-[11px] font-bold uppercase px-3.5 py-1.5 rounded-full tracking-[0.2em]">
                             <i class="fas fa-bolt text-xs"></i>
                             <span>Soporte Oficial Especializado &bull; Nueva Generación</span>
                         </div>
 
                         <div>
                             <h2 class="oj-heading text-2xl sm:text-4xl lg:text-5xl text-white font-light uppercase tracking-wide leading-tight">
-                                Servicio Técnico &amp; Posventa Oficial <span class="font-normal text-consur-red">OMODA &amp; JAECOO</span>
+                                Servicio Técnico &amp; Posventa Oficial <span class="font-normal text-[#67b0c4]">OMODA &amp; JAECOO</span>
                             </h2>
                             <p class="mt-4 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
                                 Contamos con bahías exclusivas de atención, equipamiento de diagnóstico electrónico avanzado, soporte especializado para sistemas híbridos enchufables (<strong class="text-white font-semibold">PHEV</strong>) y vehículos 100% eléctricos (<strong class="text-white font-semibold">EV</strong>), además de repuestos legítimos para toda la gama <strong class="text-white font-semibold">OMODA y JAECOO</strong> en Paraguay con el respaldo y la garantía oficial de <strong class="text-white font-semibold">CONSUR S.A.</strong>
@@ -969,8 +739,8 @@
                         <!-- 4 Pilares del Servicio Técnico OMODA / JAECOO -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                             <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                                <div class="w-10 h-10 rounded-xl bg-consur-red/10 border border-consur-red/20 flex items-center justify-center shrink-0">
-                                    <i class="fas fa-charging-station text-consur-red text-sm"></i>
+                                <div class="w-10 h-10 rounded-xl bg-[#67b0c4]/10 border border-[#67b0c4]/20 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-charging-station text-[#67b0c4] text-sm"></i>
                                 </div>
                                 <div>
                                     <span class="block text-xs font-semibold text-white uppercase tracking-wider">Especialistas PHEV &amp; EV</span>
@@ -1018,7 +788,7 @@
                             </span>
                             <a href="https://wa.me/595985204106?text=Hola%20CONSUR%2C%20quisiera%20agendar%20o%20consultar%20sobre%20el%20Servicio%20Posventa%20para%20OMODA%20%2F%20JAECOO."
                                target="_blank" rel="noopener"
-                               class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-consur-red hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg shadow-red-600/30">
+                               class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#67b0c4] hover:bg-[#4a93a8] text-[#0d0e0e] font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg shadow-[#67b0c4]/25">
                                 <i class="fab fa-whatsapp text-base"></i>
                                 <span>Posventa OMODA &amp; JAECOO</span>
                                 <i class="fas fa-arrow-right text-[10px]"></i>
@@ -1033,6 +803,152 @@
 
             </div>
 
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         6. FORMULARIO DE COTIZACIÓN (SECCIÓN CLARA)
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="cotizacion" class="py-20 sm:py-24 bg-[#f4f5f7] text-[#0d0e0e]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
+
+            <div data-aos="fade-up" class="relative rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-14 shadow-xl overflow-hidden">
+
+                <div class="relative z-10">
+
+                    <!-- Header -->
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4] mb-3">
+                            Atención oficial CONSUR S.A.
+                        </span>
+                        <h2 class="oj-heading text-3xl sm:text-5xl text-[#0d0e0e] mb-3">
+                            Cotizá tu <span class="font-normal text-[#67b0c4]" x-text="vehicleInterest">JAECOO</span>
+                        </h2>
+                        <p class="text-sm text-slate-600 font-light leading-relaxed">
+                            Completá tus datos y un asesor de CONSUR se comunicará con vos para brindarte precios, financiación y disponibilidad.
+                        </p>
+                    </div>
+
+                    <!-- Success message -->
+                    <div x-show="sentSuccess" x-cloak class="p-7 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3 animate-scaleIn">
+                        <i class="fas fa-circle-check text-emerald-600 text-4xl"></i>
+                        <h4 class="text-lg font-bold text-slate-900 uppercase tracking-wide">¡Solicitud enviada!</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Un asesor de <strong>CONSUR S.A.</strong> se pondrá en contacto a la brevedad para coordinar tu cotización y prueba de manejo.</p>
+                        <button @click="sentSuccess = false"
+                                type="button"
+                                class="text-xs text-emerald-700 underline font-semibold hover:text-emerald-800 transition mt-1">
+                            Enviar otra consulta
+                        </button>
+                    </div>
+
+                    <!-- Form -->
+                    <form x-show="!sentSuccess" wire:submit="submitQuotation" class="space-y-6">
+
+                        <!-- Vehicle select -->
+                        <div>
+                            <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-500 mb-3">Modelo de Interés <span class="text-[#67b0c4]">*</span></label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <button type="button" @click="vehicleInterest='OMODA C5'"
+                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
+                                        :class="vehicleInterest==='OMODA C5' ? 'bg-[#67b0c4] text-[#0d0e0e] border-[#67b0c4] font-bold shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-[#67b0c4]/50 hover:text-slate-900'">
+                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='OMODA C5' ? 'text-[#0d0e0e]' : 'text-slate-300'"></i>
+                                    C5 — 1.5T
+                                </button>
+                                <button type="button" @click="vehicleInterest='OMODA E5'"
+                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
+                                        :class="vehicleInterest==='OMODA E5' ? 'bg-[#67b0c4] text-[#0d0e0e] border-[#67b0c4] font-bold shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-[#67b0c4]/50 hover:text-slate-900'">
+                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='OMODA E5' ? 'text-[#0d0e0e]' : 'text-slate-300'"></i>
+                                    E5 — EV
+                                </button>
+                                <button type="button" @click="vehicleInterest='JAECOO J5'"
+                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
+                                        :class="vehicleInterest==='JAECOO J5' ? 'bg-[#67b0c4] text-[#0d0e0e] border-[#67b0c4] font-bold shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-[#67b0c4]/50 hover:text-slate-900'">
+                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='JAECOO J5' ? 'text-[#0d0e0e]' : 'text-slate-300'"></i>
+                                    J5 — SHEV
+                                </button>
+                                <button type="button" @click="vehicleInterest='JAECOO J7'"
+                                        class="p-3.5 rounded-xl border text-xs font-semibold uppercase tracking-wider transition flex items-center justify-center gap-2"
+                                        :class="vehicleInterest==='JAECOO J7' ? 'bg-[#67b0c4] text-[#0d0e0e] border-[#67b0c4] font-bold shadow-md' : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-[#67b0c4]/50 hover:text-slate-900'">
+                                    <i class="fas fa-check-circle text-xs" :class="vehicleInterest==='JAECOO J7' ? 'text-[#0d0e0e]' : 'text-slate-300'"></i>
+                                    J7 — PHEV
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                            <!-- Nombre -->
+                            <div>
+                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Nombre y Apellido <span class="text-[#67b0c4]">*</span></label>
+                                <input type="text" wire:model="name" required placeholder="Tu nombre completo"
+                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
+                                @error('name') <span class="text-xs text-rose-600 mt-1 block">{{ $message }}</span> @enderror
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div>
+                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Teléfono / WhatsApp <span class="text-[#67b0c4]">*</span></label>
+                                <input type="text" wire:model="phone" required placeholder="Ej: 0985 804 106"
+                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
+                                @error('phone') <span class="text-xs text-rose-600 mt-1 block">{{ $message }}</span> @enderror
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Correo electrónico</label>
+                                <input type="email" wire:model="email" placeholder="correo@ejemplo.com"
+                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
+                                @error('email') <span class="text-xs text-rose-600 mt-1 block">{{ $message }}</span> @enderror
+                            </div>
+
+                            <!-- Ciudad -->
+                            <div>
+                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Ciudad de residencia</label>
+                                <input type="text" wire:model="city" placeholder="Ej: Encarnación, Posadas…"
+                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
+                                @error('city') <span class="text-xs text-rose-600 mt-1 block">{{ $message }}</span> @enderror
+                            </div>
+
+                            <!-- Mensaje -->
+                            <div class="sm:col-span-2">
+                                <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Mensaje o consulta</label>
+                                <textarea wire:model="message" rows="3"
+                                          placeholder="¿Querés consultar sobre financiación, entrega de usado o agendar un Test Drive?"
+                                          class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm resize-none"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit"
+                                    class="inline-flex items-center justify-center gap-3 px-10 py-4 btn-shimmer text-[#0d0e0e] font-bold text-xs uppercase tracking-[0.18em] rounded-xl shadow-lg transition hover:-translate-y-0.5 w-full sm:w-auto">
+                                <span wire:loading.remove wire:target="submitQuotation" class="inline-flex items-center gap-3">
+                                    <i class="fas fa-paper-plane text-xs"></i>
+                                    Enviar solicitud de cotización
+                                </span>
+                                <span wire:loading wire:target="submitQuotation" class="inline-flex items-center gap-2">
+                                    <i class="fas fa-circle-notch fa-spin text-xs"></i>
+                                    Enviando...
+                                </span>
+                            </button>
+                            <p class="text-[11px] text-slate-400 mt-3">Tu información es confidencial y solo será utilizada para contactarte.</p>
+                        </div>
+
+                    </form>
+
+                    <!-- WhatsApp direct -->
+                    <div class="mt-8 pt-8 border-t border-slate-200 text-center">
+                        <p class="text-xs text-slate-500 mb-4">¿Preferís contacto directo e inmediato?</p>
+                        <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20modelos%20OMODA%20y%20JAECOO."
+                           target="_blank"
+                           class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-700 text-xs font-semibold uppercase tracking-widest hover:bg-emerald-100 transition">
+                            <i class="fab fa-whatsapp text-base"></i>
+                            Escribinos por WhatsApp ahora
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </section>
 
