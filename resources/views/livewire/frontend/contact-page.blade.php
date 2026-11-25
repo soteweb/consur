@@ -13,7 +13,7 @@
                 Atención Oficial Directa
             </span>
             <h1 class="text-3xl sm:text-5xl font-light font-heading tracking-tight text-white uppercase">
-                Contactate con <span class="font-bold text-white">CONSUR S.A.</span>
+                Contactate con <span class="font-bold text-white">CONSUR</span>
             </h1>
             <p class="mt-4 text-sm sm:text-base text-neutral-300 font-light max-w-2xl mx-auto leading-relaxed">
                 Estamos a tu disposición para asesorarte en la compra de tu 0 Km, vehículos usados garantizados, servicio posventa oficial y cotización de seguros.

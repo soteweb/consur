@@ -339,8 +339,8 @@ class LaEmpresaPageSeeder extends Seeder
                 </div>
             </div>
 
-            <!-- Grilla de 4 Sucursales del Interior -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Grilla de Sucursales del Interior -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
 
                 <!-- Sucursal 1: María Auxiliadora -->
                 <div data-aos="fade-up" data-aos-delay="150"
@@ -413,31 +413,6 @@ class LaEmpresaPageSeeder extends Seeder
                         <p class="text-slate-200 text-sm mt-1 flex items-center gap-2">
                             <i class="fas fa-location-dot text-[#eb0a1e]"></i>
                             <span>Ruta 1 Mcal. Estigarribia, km 224</span>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Sucursal 4: San Pedro del Paraná -->
-                <div data-aos="fade-up" data-aos-delay="300"
-                     @click="lightboxSrc = '/images/pages/la-empresa/consursanpedro.jpg'; lightboxTitle = 'San Pedro del Paraná: Gregorio Cabrera González entre Capitán Leguizamón y Tebicuary'; lightboxOpen = true"
-                     class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 dark:border-neutral-800 cursor-pointer h-[280px] sm:h-[340px]">
-                    <img src="/images/pages/la-empresa/consursanpedro.jpg"
-                         alt="San Pedro del Paraná: Gregorio Cabrera González entre Capitán Leguizamón y Tebicuary"
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
-
-                    <div class="absolute top-5 right-5 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:bg-[#eb0a1e] transition-all">
-                        <i class="fas fa-expand text-xs"></i>
-                    </div>
-
-                    <div class="absolute bottom-0 inset-x-0 p-6 sm:p-8">
-                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#eb0a1e] block mb-1">Sucursal Itapúa</span>
-                        <h3 class="text-xl sm:text-2xl font-semibold text-white font-heading uppercase tracking-wide">
-                            San Pedro del Paraná
-                        </h3>
-                        <p class="text-slate-200 text-sm mt-1 flex items-center gap-2">
-                            <i class="fas fa-location-dot text-[#eb0a1e]"></i>
-                            <span>Gregorio Cabrera González entre Capitán Leguizamón y Tebicuary</span>
                         </p>
                     </div>
                 </div>
