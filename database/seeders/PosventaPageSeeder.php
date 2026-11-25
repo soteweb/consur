@@ -307,10 +307,12 @@ class PosventaPageSeeder extends Seeder
                 <div class="lg:col-span-5 flex flex-col items-center justify-center" data-aos="fade-right">
                     <a href="/images/pages/toyota10/toyota10-terminos-y-condiciones.pdf"
                        target="_blank" rel="noopener noreferrer"
-                       class="group relative block w-full max-w-[285px] sm:max-w-[300px] overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl border border-slate-200 dark:border-neutral-800 transition-all duration-300 transform hover:-translate-y-1 bg-white dark:bg-neutral-800/80"
+                       style="max-width: 290px;"
+                       class="group relative block w-full overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl border border-slate-200 dark:border-neutral-800 transition-all duration-300 transform hover:-translate-y-1 bg-white dark:bg-neutral-800/80"
                        title="Ver Bases y Condiciones Toyota 10 (PDF)">
                         <img src="/images/pages/toyota10/toyota10.jpg"
                              alt="Toyota 10: hasta 10 años de garantía o 200.000 km - CONSUR S.A."
+                             style="max-height: 460px; object-fit: contain;"
                              class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none rounded-2xl"></div>
                     </a>
