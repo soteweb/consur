@@ -248,9 +248,7 @@
                     ¿Cuál es tu lugar favorito para tu <span class="font-normal text-amber-500">próxima aventura</span>?
                 </h2>
                 <p class="text-neutral-400 text-sm sm:text-base font-light mt-3 leading-relaxed">
-                    Can-Am nació para los apasionados que buscan superar cualquier límite. 
-                    Desde expediciones en el Chaco hasta las dunas de San Cosme y las serranías de Itapúa, 
-                    cada máquina está configurada para entregarte el máximo control y fiabilidad.
+                    Can Am nació para apasionados que buscan superar cualquier límite. Desde expediciones, touring, aventuras familiares, trabajos en el campo. Cada máquina está configurada para entregarle el máximo control y fiabilidad.
                 </p>
             </div>
 
