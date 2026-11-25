@@ -311,21 +311,17 @@ class PosventaPageSeeder extends Seeder
             <!-- 1. ENCABEZADO Y PRESENTACIÓN PRINCIPAL (2 COLUMNAS EQUILIBRADAS) -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
-                <!-- Columna Izquierda: Afiche Oficial Toyota 10 -->
+                <!-- Columna Izquierda: Afiche Oficial Toyota 10 Proporcional con Enlace a Bases y Condiciones -->
                 <div class="lg:col-span-5 flex flex-col items-center justify-center" data-aos="fade-right">
-                    <div class="relative w-full max-w-[460px] overflow-hidden rounded-2xl shadow-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-800/80 p-2 sm:p-3 group">
+                    <a href="/images/pages/toyota10/toyota10-terminos-y-condiciones.pdf"
+                       target="_blank" rel="noopener noreferrer"
+                       class="group relative block w-full max-w-[285px] sm:max-w-[300px] overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl border border-slate-200 dark:border-neutral-800 transition-all duration-300 transform hover:-translate-y-1 bg-white dark:bg-neutral-800/80"
+                       title="Ver Bases y Condiciones Toyota 10 (PDF)">
                         <img src="/images/pages/toyota10/toyota10.jpg"
                              alt="Toyota 10: hasta 10 años de garantía o 200.000 km - CONSUR S.A."
-                             class="w-full h-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.02]">
-                        <div class="mt-3 px-3 py-2 text-center border-t border-slate-100 dark:border-neutral-700/60">
-                            <span class="text-[11px] font-bold uppercase tracking-widest text-[#eb0a1e] block">
-                                Programa Oficial Toyota
-                            </span>
-                            <span class="text-xs text-slate-500 dark:text-neutral-400">
-                                Exclusivo en la Red Oficial CONSUR S.A.
-                            </span>
-                        </div>
-                    </div>
+                             class="w-full h-auto object-contain rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none rounded-2xl"></div>
+                    </a>
                 </div>
 
                 <!-- Columna Derecha: Información Principal y Cómo Funciona -->
