@@ -342,20 +342,16 @@
                             <span class="w-9 h-9 rounded-full bg-slate-800 text-teal-400 flex items-center justify-center shrink-0">
                                 <i class="fas fa-map-marker-alt"></i>
                             </span>
-                            <span>Casa Central: <strong>Av. Irrazábal c/ Pedro Juan Caballero, Encarnación</strong></span>
+                            <span>Casa Matriz: <strong>Av. Bernardino Caballero 749, Encarnación</strong></span>
                         </div>
-                        <div class="flex items-center gap-3">
+                        <a href="https://wa.me/595985204106?text={{ urlencode('Hola CONSUR, quisiera consultar sobre modelos Sea-Doo.') }}"
+                           target="_blank" rel="noopener"
+                           class="flex items-center gap-3 hover:text-emerald-400 transition">
                             <span class="w-9 h-9 rounded-full bg-slate-800 text-emerald-500 flex items-center justify-center shrink-0">
                                 <i class="fab fa-whatsapp"></i>
                             </span>
-                            <span>WhatsApp Náutica: <strong class="text-white">+{{ $whatsappNumber }}</strong></span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-full bg-slate-800 text-teal-400 flex items-center justify-center shrink-0">
-                                <i class="fas fa-anchor"></i>
-                            </span>
-                            <span>Servicio Oficial, Mantenimiento & Repuestos Genuinos BRP Sea-Doo</span>
-                        </div>
+                            <span>Ventas y Asesoramiento: <strong class="text-white">+595985204106</strong></span>
+                        </a>
                     </div>
                 </div>
 

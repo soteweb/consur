@@ -362,20 +362,16 @@
                             <span class="w-9 h-9 rounded-full bg-neutral-800 text-amber-500 flex items-center justify-center shrink-0">
                                 <i class="fas fa-map-marker-alt"></i>
                             </span>
-                            <span>Casa Central: <strong>Av. Irrazábal c/ Pedro Juan Caballero, Encarnación</strong></span>
+                            <span>Casa Matriz: <strong>Av. Bernardino Caballero 749, Encarnación</strong></span>
                         </div>
-                        <div class="flex items-center gap-3">
+                        <a href="https://wa.me/595985204106?text={{ urlencode('Hola CONSUR, quisiera consultar sobre modelos Can-Am.') }}"
+                           target="_blank" rel="noopener"
+                           class="flex items-center gap-3 hover:text-emerald-400 transition">
                             <span class="w-9 h-9 rounded-full bg-neutral-800 text-emerald-500 flex items-center justify-center shrink-0">
                                 <i class="fab fa-whatsapp"></i>
                             </span>
-                            <span>WhatsApp Asesoría: <strong class="text-white">+{{ $whatsappNumber }}</strong></span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="w-9 h-9 rounded-full bg-neutral-800 text-amber-500 flex items-center justify-center shrink-0">
-                                <i class="fas fa-wrench"></i>
-                            </span>
-                            <span>Taller Oficial & Repuestos Genuinos BRP Can-Am</span>
-                        </div>
+                            <span>Ventas y Asesoramiento: <strong class="text-white">+595985204106</strong></span>
+                        </a>
                     </div>
                 </div>
 
