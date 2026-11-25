@@ -834,10 +834,9 @@ HTML;
 
                     <a href="https://www.youtube.com/@RACEPARAGUAY?sub_confirmation=1"
                        target="_blank" rel="noopener"
-                       class="w-full inline-flex items-center justify-center gap-2.5 bg-[#eb0a1e] hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-6 py-4 transition-all duration-300 shadow-xl shadow-red-600/25">
-                        <i class="fab fa-youtube text-base"></i>
-                        <span>Suscribirse al Canal</span>
-                        <i class="fas fa-arrow-right text-[10px]"></i>
+                       title="Suscribirse en YouTube"
+                       class="w-12 h-12 sm:w-14 sm:h-14 inline-flex items-center justify-center bg-[#eb0a1e] hover:bg-red-700 text-white transition-all duration-300 shadow-xl shadow-red-600/25">
+                        <i class="fab fa-youtube text-2xl"></i>
                     </a>
 
                     <p class="text-[10px] text-slate-500 text-center font-light">
