@@ -131,6 +131,16 @@
                 </div>
             </a>
 
+            <a href="{{ route('admin.media') }}" class="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-slate-200/80 hover:border-slate-900 transition group">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-slate-900 text-slate-700 group-hover:text-white flex items-center justify-center text-xs transition shrink-0">
+                    <i class="fas fa-photo-video"></i>
+                </div>
+                <div class="min-w-0">
+                    <span class="block text-xs font-bold text-slate-800 truncate">Medios</span>
+                    <span class="block text-[10px] text-slate-400 truncate">Fotos & PDFs</span>
+                </div>
+            </a>
+
             <a href="{{ route('admin.posts') }}" class="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-slate-200/80 hover:border-slate-900 transition group">
                 <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-slate-900 text-slate-700 group-hover:text-white flex items-center justify-center text-xs transition shrink-0">
                     <i class="fas fa-newspaper"></i>

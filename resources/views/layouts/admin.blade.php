@@ -41,7 +41,7 @@
 </head>
 @php
     $isCatalogGroup = request()->routeIs('admin.vehicles*', 'admin.brands*', 'admin.catalog*');
-    $isContentGroup = request()->routeIs('admin.posts*', 'admin.pages*', 'admin.branches*');
+    $isContentGroup = request()->routeIs('admin.posts*', 'admin.pages*', 'admin.media*', 'admin.branches*');
     $isAppearanceGroup = request()->routeIs('admin.sliders*', 'admin.sections*', 'admin.menus*', 'admin.footer*', 'admin.testimonials*');
     $isSystemGroup = request()->routeIs('admin.users*', 'admin.forms*', 'admin.audit*', 'admin.settings*');
 
@@ -59,6 +59,7 @@
         request()->routeIs('admin.catalog*') => 'Catálogo Mensual (Revista PDF)',
         request()->routeIs('admin.posts*') => 'Novedades & Prensa',
         request()->routeIs('admin.pages*') => 'Páginas del Sitio (CMS)',
+        request()->routeIs('admin.media*') => 'Biblioteca de Medios (Multimedia)',
         request()->routeIs('admin.branches*') => 'Sucursales & Talleres Oficiales',
         request()->routeIs('admin.sliders*') => 'Banners & Sliders de Portada',
         request()->routeIs('admin.sections*') => 'Secciones de Portada (Home)',
@@ -224,6 +225,10 @@
                             <a href="{{ route('admin.pages') }}"
                                class="block px-3 py-2 rounded-lg text-xs transition {{ request()->routeIs('admin.pages*') ? 'bg-[#eb0a1e]/15 text-white font-semibold border-l-2 border-[#eb0a1e] -ml-[13px] pl-[23px]' : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]' }}">
                                 Páginas del Sitio (CMS)
+                            </a>
+                            <a href="{{ route('admin.media') }}"
+                               class="block px-3 py-2 rounded-lg text-xs transition {{ request()->routeIs('admin.media*') ? 'bg-[#eb0a1e]/15 text-white font-semibold border-l-2 border-[#eb0a1e] -ml-[13px] pl-[23px]' : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]' }}">
+                                Biblioteca de Medios
                             </a>
                             <a href="{{ route('admin.branches') }}"
                                class="block px-3 py-2 rounded-lg text-xs transition {{ request()->routeIs('admin.branches*') ? 'bg-[#eb0a1e]/15 text-white font-semibold border-l-2 border-[#eb0a1e] -ml-[13px] pl-[23px]' : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]' }}">
@@ -406,6 +411,9 @@
                                 <a href="{{ route('admin.pages') }}" class="flex items-center gap-2.5 px-3.5 py-2 text-slate-700 hover:bg-slate-50 hover:text-[#eb0a1e] font-medium">
                                     <i class="fas fa-file-alt w-4 text-center text-slate-400"></i> Editar Páginas CMS
                                 </a>
+                                <a href="{{ route('admin.media') }}" class="flex items-center gap-2.5 px-3.5 py-2 text-slate-700 hover:bg-slate-50 hover:text-[#eb0a1e] font-medium">
+                                    <i class="fas fa-photo-video w-4 text-center text-slate-400"></i> Biblioteca de Medios
+                                </a>
                                 <a href="{{ route('admin.sliders') }}" class="flex items-center gap-2.5 px-3.5 py-2 text-slate-700 hover:bg-slate-50 hover:text-[#eb0a1e] font-medium">
                                     <i class="fas fa-images w-4 text-center text-slate-400"></i> Banners de Portada
                                 </a>
@@ -466,6 +474,10 @@
                     <a href="{{ route('admin.pages') }}"
                        class="px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition {{ request()->routeIs('admin.pages*') ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:bg-slate-100' }}">
                         <i class="fas fa-file-alt mr-1.5 text-[11px] {{ request()->routeIs('admin.pages*') ? 'text-[#eb0a1e]' : 'text-slate-400' }}"></i>Páginas del Sitio (CMS)
+                    </a>
+                    <a href="{{ route('admin.media') }}"
+                       class="px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition {{ request()->routeIs('admin.media*') ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:bg-slate-100' }}">
+                        <i class="fas fa-photo-video mr-1.5 text-[11px] {{ request()->routeIs('admin.media*') ? 'text-[#eb0a1e]' : 'text-slate-400' }}"></i>Biblioteca de Medios
                     </a>
                     <a href="{{ route('admin.branches') }}"
                        class="px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition {{ request()->routeIs('admin.branches*') ? 'bg-slate-900 text-white shadow-2xs' : 'text-slate-600 hover:bg-slate-100' }}">
@@ -549,6 +561,7 @@
                             <div class="pt-3 pb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-neutral-500">Contenidos & Apariencia</div>
                             <a href="{{ route('admin.posts') }}" class="block px-3 py-2 rounded-lg text-xs font-medium text-neutral-300 hover:bg-white/5">Novedades & Prensa</a>
                             <a href="{{ route('admin.pages') }}" class="block px-3 py-2 rounded-lg text-xs font-medium text-neutral-300 hover:bg-white/5">Páginas CMS</a>
+                            <a href="{{ route('admin.media') }}" class="block px-3 py-2 rounded-lg text-xs font-medium text-neutral-300 hover:bg-white/5">Biblioteca de Medios</a>
                             <a href="{{ route('admin.branches') }}" class="block px-3 py-2 rounded-lg text-xs font-medium text-neutral-300 hover:bg-white/5">Sucursales & Talleres</a>
                             <a href="{{ route('admin.sliders') }}" class="block px-3 py-2 rounded-lg text-xs font-medium text-neutral-300 hover:bg-white/5">Banners & Sliders</a>
                             <a href="{{ route('admin.sections') }}" class="block px-3 py-2 rounded-lg text-xs font-medium text-neutral-300 hover:bg-white/5">Secciones Home</a>

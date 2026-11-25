@@ -9,6 +9,7 @@ use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\FooterManager;
 use App\Livewire\Admin\FormsManager;
 use App\Livewire\Admin\LeadsManager;
+use App\Livewire\Admin\MediaManager;
 use App\Livewire\Admin\MenusManager;
 use App\Livewire\Admin\PagesManager;
 use App\Livewire\Admin\PostsManager;
@@ -146,6 +147,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::get('/marcas-categorias', BrandsManager::class)->name('brands');
         Route::get('/novedades', PostsManager::class)->name('posts');
         Route::get('/paginas', PagesManager::class)->name('pages');
+        Route::get('/medios', MediaManager::class)->name('media');
         Route::get('/menus', MenusManager::class)->name('menus');
         Route::get('/secciones-home', SectionsManager::class)->name('sections');
         Route::get('/footer', FooterManager::class)->name('footer');
