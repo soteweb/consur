@@ -46,18 +46,30 @@
             </p>
 
             <!-- Botones de Acción Hero -->
-            <div class="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto"
+            <div class="flex flex-col items-center gap-5 w-full sm:w-auto"
                  data-aos="fade-up" data-aos-delay="400">
-                <a href="#catalogo-seadoo" 
-                   class="w-full sm:w-auto px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-black font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-xl shadow-teal-500/20 text-center">
-                    <i class="fas fa-water mr-2"></i> Ver Modelos Disponibles (8)
-                </a>
-                <a href="https://wa.me/{{ $whatsappNumber }}?text={{ urlencode('Hola CONSUR S.A., me interesa conocer más sobre las motos de agua y pontones Sea-Doo.') }}" 
-                   target="_blank" 
-                   rel="noopener"
-                   class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-emerald-600/20 text-center flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2 text-base"></i> Comunicate con nuestros asesores
-                </a>
+                <div class="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
+                    <a href="#catalogo-seadoo" 
+                       class="w-full sm:w-auto px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-black font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-xl shadow-teal-500/20 text-center">
+                        <i class="fas fa-water mr-2"></i> Ver Modelos Disponibles
+                    </a>
+                    <a href="#cotizar" 
+                       class="w-full sm:w-auto px-8 py-3.5 bg-slate-900/80 hover:bg-slate-800 text-white font-semibold uppercase tracking-wider text-xs sm:text-sm border border-slate-700 hover:border-teal-400 transition-all duration-300 backdrop-blur-sm text-center">
+                        <i class="fas fa-file-invoice-dollar mr-2 text-teal-400"></i> Cotizar
+                    </a>
+                </div>
+
+                <!-- Contacto WhatsApp con Asesores -->
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md shadow-lg">
+                    <span class="text-xs sm:text-sm text-slate-300 font-light">Comunicate con nuestros asesores</span>
+                    <a href="https://wa.me/{{ $whatsappNumber }}?text={{ urlencode('Hola CONSUR S.A., me interesa conocer más sobre las motos de agua y pontones Sea-Doo.') }}" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold tracking-wide transition-all hover:scale-105 shadow-md shadow-emerald-600/30">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
             </div>
         </div>
 
