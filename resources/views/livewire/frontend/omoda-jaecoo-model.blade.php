@@ -1,4 +1,4 @@
-<div class="oj-theme bg-white dark:bg-slate-950 text-[#0d0e0e] dark:text-white antialiased overflow-x-clip selection:bg-consur-red selection:text-white transition-colors"
+<div class="oj-theme bg-white dark:bg-slate-950 text-[#0d0e0e] dark:text-white antialiased overflow-x-clip selection:bg-[#67b0c4] selection:text-[#0d0e0e] transition-colors"
      x-data="{
          activeColor: 0,
          colors: @js($modelData['configurator']['colors']),
@@ -112,11 +112,11 @@
         }
         .swatch.active {
             transform: scale(1.15);
-            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #eb0a1e;
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #67b0c4;
         }
 
         .btn-shimmer {
-            background: linear-gradient(90deg, #eb0a1e 0%, #c50016 40%, #eb0a1e 60%, #c50016 100%);
+            background: linear-gradient(90deg, #67b0c4 0%, #4a93a8 40%, #67b0c4 60%, #4a93a8 100%);
             background-size: 200% 100%;
         }
         .btn-shimmer:hover {
@@ -133,8 +133,8 @@
         .form-input-light:focus {
             outline: none;
             background: #ffffff;
-            border-color: #eb0a1e;
-            box-shadow: 0 0 0 3px rgba(235,10,30,0.1);
+            border-color: #67b0c4;
+            box-shadow: 0 0 0 3px rgba(103,176,196,0.2);
         }
 
         /* ── Dark Mode Overrides (Slate / Deep Titanium Scheme) ── */
@@ -181,7 +181,7 @@
         }
         .dark .form-input-light:focus {
             background: #0f172a !important;
-            border-color: #eb0a1e !important;
+            border-color: #67b0c4 !important;
         }
         .dark section.bg-\[\#f4f5f7\] {
             background-color: #0b0c10 !important;
@@ -203,23 +203,23 @@
         <!-- Subtle Top Bar inside Hero -->
         <div class="absolute top-6 left-0 right-0 z-20 max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
             <a href="{{ route('omoda-jaecoo') }}#modelos"
-               class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/55 hover:bg-black/80 border border-white/15 hover:border-consur-red/60 backdrop-blur-md text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-200 hover:text-white transition">
-                <i class="fas fa-arrow-left text-[10px] text-consur-red"></i>
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/55 hover:bg-black/80 border border-white/15 hover:border-[#67b0c4]/60 backdrop-blur-md text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-200 hover:text-white transition">
+                <i class="fas fa-arrow-left text-[10px] text-[#67b0c4]"></i>
                 <span class="hidden sm:inline">Todos los</span> Modelos
             </a>
 
             @if(!empty($modelData['catalog_pdf']))
                 <a href="{{ $modelData['catalog_pdf'] }}" target="_blank" download
-                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/55 hover:bg-black/80 border border-white/15 hover:border-red-500/60 backdrop-blur-md text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-200 hover:text-white transition group"
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/55 hover:bg-black/80 border border-white/15 hover:border-[#67b0c4]/60 backdrop-blur-md text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-200 hover:text-white transition group"
                    title="Descargar Catálogo Oficial PDF">
-                    <i class="fas fa-file-pdf text-red-500 text-xs group-hover:scale-110 transition-transform"></i>
+                    <i class="fas fa-file-pdf text-[#67b0c4] text-xs group-hover:scale-110 transition-transform"></i>
                     <span>Catálogo <span class="hidden sm:inline">Oficial</span> PDF</span>
                 </a>
             @endif
         </div>
 
         <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-14 sm:pb-20">
-            <p data-aos="fade-up" data-aos-delay="50" class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-consur-red">{{ $modelData['hero']['eyebrow'] }}</p>
+            <p data-aos="fade-up" data-aos-delay="50" class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-[#67b0c4]">{{ $modelData['hero']['eyebrow'] }}</p>
             <h1 data-aos="fade-up" data-aos-delay="150" class="mt-4 oj-heading text-3xl sm:text-5xl lg:text-[52px] text-white">
                 @foreach($modelData['hero']['lines'] as $line)
                     <span class="block">{{ $line }}</span>
@@ -227,16 +227,16 @@
             </h1>
             <p data-aos="fade-up" data-aos-delay="250" class="mt-4 max-w-lg text-sm sm:text-[15px] text-slate-200 font-light leading-relaxed">{{ $modelData['hero']['description'] }}</p>
             <div data-aos="fade-up" data-aos-delay="350" class="mt-8 flex flex-wrap items-center gap-4">
-                <a href="#cotizacion" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 btn-shimmer text-white text-[11px] font-bold uppercase tracking-[0.16em] transition hover:-translate-y-0.5 shadow-lg shadow-red-950/40">
+                <a href="#cotizacion" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 btn-shimmer text-[#0d0e0e] text-[11px] font-bold uppercase tracking-[0.16em] transition hover:-translate-y-0.5 shadow-lg shadow-[#67b0c4]/25">
                     Cotizar este modelo
                 </a>
                 @if(!empty($modelData['viewer_3d']))
                     <a href="#visor3d" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition backdrop-blur-xs hover:-translate-y-0.5">
-                        <i class="fas fa-cube text-consur-red"></i> Explorar en 3D
+                        <i class="fas fa-cube text-[#67b0c4]"></i> Explorar en 3D
                     </a>
                 @else
                     <a href="#colores" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition backdrop-blur-xs hover:-translate-y-0.5">
-                        <i class="fas fa-sliders-h text-consur-red"></i> Ver Especificaciones
+                        <i class="fas fa-sliders-h text-[#67b0c4]"></i> Ver Especificaciones
                     </a>
                 @endif
             </div>
@@ -249,7 +249,7 @@
     <section id="colores" class="bg-white text-[#0d0e0e] border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 sm:py-24">
             <div data-aos="fade-up" class="max-w-2xl">
-                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red">Personalización</p>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4]">Personalización</p>
                 <h2 class="mt-2 oj-heading text-3xl sm:text-5xl text-[#0d0e0e]">{{ $modelData['configurator']['heading'] }}</h2>
             </div>
 
@@ -277,7 +277,7 @@
 
                 <!-- Barra lateral de especificaciones técnicas -->
                 <aside data-aos="fade-left" data-aos-delay="150" class="space-y-6 bg-slate-50 p-6 sm:p-8 lg:bg-transparent lg:p-0 rounded-2xl">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.25em] text-consur-red">Especificaciones clave</h3>
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#67b0c4]">Especificaciones clave</h3>
 
                     @foreach($modelData['configurator']['specs'] as $spec)
                         <div>
@@ -294,10 +294,10 @@
                         </a>
                         @if(!empty($modelData['catalog_pdf']))
                             <a href="{{ $modelData['catalog_pdf'] }}" target="_blank" download class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-slate-900 hover:bg-black dark:bg-slate-800 dark:hover:bg-slate-700 text-white text-[11px] font-semibold uppercase tracking-[0.16em] rounded-xl transition border border-slate-900 dark:border-slate-700 shadow-xs">
-                                <i class="fas fa-file-pdf text-red-500 text-sm"></i> Descargar Catálogo (.PDF)
+                                <i class="fas fa-file-pdf text-[#67b0c4] text-sm"></i> Descargar Catálogo (.PDF)
                             </a>
                         @endif
-                        <a href="#cotizacion" class="block text-center text-[10px] text-slate-500 hover:text-consur-red font-semibold uppercase tracking-widest transition pt-1">
+                        <a href="#cotizacion" class="block text-center text-[10px] text-slate-500 hover:text-[#67b0c4] font-semibold uppercase tracking-widest transition pt-1">
                             O solicitar cotización formal &rarr;
                         </a>
                     </div>
@@ -327,7 +327,7 @@
                         <img src="{{ $feature['image'] }}" alt="{{ $feature['title'] }}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
                     </div>
                     <div data-aos="{{ $idx % 2 === 0 ? 'fade-left' : 'fade-right' }}" data-aos-delay="100" class="{{ $idx % 2 === 1 ? 'lg:order-1' : '' }}">
-                        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red">{{ $feature['eyebrow'] }}</p>
+                        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4]">{{ $feature['eyebrow'] }}</p>
                         <h2 class="mt-3 oj-heading text-3xl sm:text-4xl lg:text-5xl text-white">{{ $feature['title'] }}</h2>
                         <p class="mt-5 max-w-lg text-sm sm:text-[15px] text-slate-300 font-light leading-relaxed">{{ $feature['description'] }}</p>
                     </div>
@@ -363,7 +363,7 @@
             <!-- Header con Título y Botones de Navegación -->
             <div data-aos="fade-up" class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
                 <div class="max-w-3xl">
-                    <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red">{{ $modelData['security']['eyebrow'] }}</p>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4]">{{ $modelData['security']['eyebrow'] }}</p>
                     <h2 class="mt-3 oj-heading text-3xl sm:text-4xl lg:text-5xl text-[#0d0e0e]">{{ $modelData['security']['heading'] }}</h2>
                 </div>
 
@@ -372,7 +372,7 @@
                     <button type="button"
                             @click="scroll(-1)"
                             :disabled="!canScrollLeft"
-                            :class="canScrollLeft ? 'border-slate-300 hover:border-consur-red hover:bg-consur-red hover:text-white text-slate-800 cursor-pointer shadow-sm' : 'border-slate-200 text-slate-300 opacity-50 cursor-not-allowed'"
+                            :class="canScrollLeft ? 'border-slate-300 hover:border-[#67b0c4] hover:bg-[#67b0c4] hover:text-[#0d0e0e] text-slate-800 cursor-pointer shadow-sm' : 'border-slate-200 text-slate-300 opacity-50 cursor-not-allowed'"
                             class="w-11 h-11 rounded-full border bg-white flex items-center justify-center transition-all duration-300"
                             aria-label="Anterior">
                         <i class="fas fa-arrow-left text-sm"></i>
@@ -380,7 +380,7 @@
                     <button type="button"
                             @click="scroll(1)"
                             :disabled="!canScrollRight"
-                            :class="canScrollRight ? 'border-slate-300 hover:border-consur-red hover:bg-consur-red hover:text-white text-slate-800 cursor-pointer shadow-sm' : 'border-slate-200 text-slate-300 opacity-50 cursor-not-allowed'"
+                            :class="canScrollRight ? 'border-slate-300 hover:border-[#67b0c4] hover:bg-[#67b0c4] hover:text-[#0d0e0e] text-slate-800 cursor-pointer shadow-sm' : 'border-slate-200 text-slate-300 opacity-50 cursor-not-allowed'"
                             class="w-11 h-11 rounded-full border bg-white flex items-center justify-center transition-all duration-300"
                             aria-label="Siguiente">
                         <i class="fas fa-arrow-right text-sm"></i>
@@ -405,10 +405,10 @@
 
                         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
 
-                        <div class="absolute inset-x-0 bottom-0 h-1 bg-consur-red scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-[#67b0c4] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
                         <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end text-left z-10">
-                            <div class="mb-3.5 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-consur-red text-sm group-hover:bg-consur-red group-hover:text-white group-hover:border-consur-red transition-all duration-300">
+                            <div class="mb-3.5 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-[#67b0c4] text-sm group-hover:bg-[#67b0c4] group-hover:text-[#0d0e0e] group-hover:border-[#67b0c4] transition-all duration-300">
                                 <i class="{{ $secItem['icon'] }}"></i>
                             </div>
 
@@ -435,8 +435,8 @@
         <!-- Barra de título / Controles superiores -->
         <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <div class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-consur-red">
-                    <span class="w-2 h-2 rounded-full bg-consur-red animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#67b0c4]">
+                    <span class="w-2 h-2 rounded-full bg-[#67b0c4] animate-pulse"></span>
                     Experiencia Interactiva 360°
                 </div>
                 <h2 class="mt-2 oj-heading text-3xl sm:text-4xl lg:text-5xl tracking-wide text-white">
@@ -448,13 +448,13 @@
             </div>
             <div class="flex items-center gap-2.5 text-xs text-slate-400 font-medium flex-wrap">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                    <i class="fas fa-hand-pointer text-consur-red"></i> Arrastrá para rotar
+                    <i class="fas fa-hand-pointer text-[#67b0c4]"></i> Arrastrá para rotar
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                    <i class="fas fa-search-plus text-consur-red"></i> Zoom con rueda/pellizco
+                    <i class="fas fa-search-plus text-[#67b0c4]"></i> Zoom con rueda/pellizco
                 </span>
                 <button type="button" id="btnFullscreen3D" title="Pantalla completa" class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition">
-                    <i class="fas fa-expand text-xs text-consur-red" id="iconFullscreen3D"></i>
+                    <i class="fas fa-expand text-xs text-[#67b0c4]" id="iconFullscreen3D"></i>
                     <span class="text-[11px] uppercase tracking-wider font-semibold">Pantalla completa</span>
                 </button>
             </div>
@@ -465,8 +465,8 @@
             <!-- Loader animado mientras carga el render 3D -->
             <div id="visor3DLoader" class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[#0d0e0e] text-slate-300 transition-opacity duration-500">
                 <div class="relative w-14 h-14">
-                    <div class="w-14 h-14 rounded-full border-2 border-white/10 border-t-consur-red animate-spin"></div>
-                    <i class="fas fa-cube text-base text-consur-red absolute inset-0 flex items-center justify-center"></i>
+                    <div class="w-14 h-14 rounded-full border-2 border-white/10 border-t-[#67b0c4] animate-spin"></div>
+                    <i class="fas fa-cube text-base text-[#67b0c4] absolute inset-0 flex items-center justify-center"></i>
                 </div>
                 <div class="text-center">
                     <p class="text-xs font-bold uppercase tracking-[0.25em] text-white">Cargando Modelo 3D...</p>
@@ -492,7 +492,7 @@
                     ¿Te gustó el <strong class="text-white">{{ $modelData['name'] }}</strong>? Solicitá una propuesta personalizada o agendá tu test drive en CONSUR.
                 </p>
                 <div class="flex items-center gap-3">
-                    <a href="#cotizacion" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl btn-shimmer text-white text-[11px] font-bold uppercase tracking-wider transition">
+                    <a href="#cotizacion" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl btn-shimmer text-[#0d0e0e] text-[11px] font-bold uppercase tracking-wider shadow-lg shadow-[#67b0c4]/25 transition">
                         Cotizar este modelo
                     </a>
                 </div>
@@ -594,19 +594,19 @@
                     <button type="button" 
                         @click="setTab('todos')"
                         class="px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300"
-                        :class="activeTab === 'todos' ? 'bg-consur-red text-white shadow-lg shadow-consur-red/25' : 'text-slate-400 hover:text-white'">
+                        :class="activeTab === 'todos' ? 'bg-[#67b0c4] text-[#0d0e0e] font-bold shadow-lg shadow-[#67b0c4]/25' : 'text-slate-400 hover:text-white'">
                         Todos
                     </button>
                     <button type="button" 
                         @click="setTab('exterior')"
                         class="px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300"
-                        :class="activeTab === 'exterior' ? 'bg-consur-red text-white shadow-lg shadow-consur-red/25' : 'text-slate-400 hover:text-white'">
+                        :class="activeTab === 'exterior' ? 'bg-[#67b0c4] text-[#0d0e0e] font-bold shadow-lg shadow-[#67b0c4]/25' : 'text-slate-400 hover:text-white'">
                         Exterior
                     </button>
                     <button type="button" 
                         @click="setTab('interior')"
                         class="px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300"
-                        :class="activeTab === 'interior' ? 'bg-consur-red text-white shadow-lg shadow-consur-red/25' : 'text-slate-400 hover:text-white'">
+                        :class="activeTab === 'interior' ? 'bg-[#67b0c4] text-[#0d0e0e] font-bold shadow-lg shadow-[#67b0c4]/25' : 'text-slate-400 hover:text-white'">
                         Interior
                     </button>
                 </div>
@@ -642,7 +642,7 @@
                         class="absolute top-4 right-4 z-20 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 hover:bg-black/85 border border-white/20 text-white text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md transition hover:scale-105"
                         title="Ver en pantalla completa"
                     >
-                        <i class="fas fa-expand text-consur-red text-xs"></i>
+                        <i class="fas fa-expand text-[#67b0c4] text-xs"></i>
                         <span class="hidden sm:inline">Pantalla Completa</span>
                     </button>
 
@@ -668,7 +668,7 @@
                 <button 
                     type="button" 
                     @click.stop="prev()"
-                    class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-consur-red border border-white/20 hover:border-consur-red text-white flex items-center justify-center transition-all duration-300 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md hover:scale-110 shadow-lg"
+                    class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#67b0c4] border border-white/20 hover:border-[#67b0c4] text-white hover:text-[#0d0e0e] flex items-center justify-center transition-all duration-300 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md hover:scale-110 shadow-lg"
                     aria-label="Foto anterior"
                 >
                     <i class="fas fa-chevron-left text-sm"></i>
@@ -676,7 +676,7 @@
                 <button 
                     type="button" 
                     @click.stop="next()"
-                    class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-consur-red border border-white/20 hover:border-consur-red text-white flex items-center justify-center transition-all duration-300 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md hover:scale-110 shadow-lg"
+                    class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#67b0c4] border border-white/20 hover:border-[#67b0c4] text-white hover:text-[#0d0e0e] flex items-center justify-center transition-all duration-300 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md hover:scale-110 shadow-lg"
                     aria-label="Foto siguiente"
                 >
                     <i class="fas fa-chevron-right text-sm"></i>
@@ -696,7 +696,7 @@
                             @click="selectItem(idx)"
                             class="relative flex-shrink-0 w-24 sm:w-32 lg:w-36 aspect-[16/10] rounded-lg overflow-hidden border transition-all duration-300 group focus:outline-none"
                             :class="activeIdx === idx 
-                                ? 'border-consur-red ring-2 ring-consur-red/50 scale-[1.03] opacity-100 shadow-lg shadow-consur-red/20' 
+                                ? 'border-[#67b0c4] ring-2 ring-[#67b0c4]/50 scale-[1.03] opacity-100 shadow-lg shadow-[#67b0c4]/20' 
                                 : 'border-white/10 opacity-40 hover:opacity-85 hover:border-white/30'"
                             :title="'Foto ' + (idx + 1)"
                         >
@@ -726,7 +726,7 @@
             <!-- Barra superior del Lightbox -->
             <div class="flex items-center justify-between gap-4 pb-4 border-b border-white/10">
                 <div class="flex items-center gap-3">
-                    <span class="w-2.5 h-2.5 rounded-full bg-consur-red"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#67b0c4]"></span>
                     <span class="text-xs uppercase tracking-widest font-semibold text-white" x-text="'{{ $modelData['name'] }} · ' + (currentItem.category ? currentItem.category.toUpperCase() : 'GALERÍA')"></span>
                 </div>
                 <button 
@@ -755,7 +755,7 @@
                 <button 
                     type="button" 
                     @click.stop="prev()"
-                    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-consur-red border border-white/20 text-white flex items-center justify-center transition hover:scale-110"
+                    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-[#67b0c4] border border-white/20 text-white flex items-center justify-center transition hover:scale-110"
                     aria-label="Anterior"
                 >
                     <i class="fas fa-chevron-left text-base"></i>
@@ -763,7 +763,7 @@
                 <button 
                     type="button" 
                     @click.stop="next()"
-                    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-consur-red border border-white/20 text-white flex items-center justify-center transition hover:scale-110"
+                    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-[#67b0c4] border border-white/20 text-white flex items-center justify-center transition hover:scale-110"
                     aria-label="Siguiente"
                 >
                     <i class="fas fa-chevron-right text-base"></i>
@@ -785,7 +785,7 @@
         <img src="{{ $modelData['test_drive']['image'] }}" alt="{{ $modelData['name'] }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-[#0d0e0e]/80"></div>
         <div data-aos="zoom-in" class="relative z-10 w-full max-w-4xl mx-auto px-6 py-20 text-center">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-consur-red">Probalo vos mismo</p>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#67b0c4]">Probalo vos mismo</p>
             <h2 class="mt-4 oj-heading text-3xl sm:text-5xl text-white">
                 <span class="block">{{ $modelData['test_drive']['line1'] }}</span>
                 <span class="block">{{ $modelData['test_drive']['line2'] }}</span>
@@ -794,7 +794,7 @@
                 <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text={{ urlencode($modelData['hero']['whatsapp_text']) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 border border-white/40 hover:border-white hover:bg-white/10 text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition">
                     <i class="fab fa-whatsapp text-sm"></i> Hablar con un asesor
                 </a>
-                <a href="#cotizacion" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 btn-shimmer text-white text-[11px] font-semibold uppercase tracking-[0.16em] transition hover:-translate-y-0.5">
+                <a href="#cotizacion" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 btn-shimmer text-[#0d0e0e] text-[11px] font-bold uppercase tracking-[0.16em] transition hover:-translate-y-0.5 shadow-lg shadow-[#67b0c4]/25">
                     Cotizar este modelo
                 </a>
             </div>
@@ -810,11 +810,11 @@
             <div data-aos="fade-up" class="relative rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-14 shadow-xl overflow-hidden">
                 <div class="relative z-10">
                     <div class="text-center max-w-2xl mx-auto mb-10">
-                        <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red mb-3">
+                        <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4] mb-3">
                             Atención oficial CONSUR S.A.
                         </span>
                         <h2 class="oj-heading text-3xl sm:text-5xl text-[#0d0e0e] mb-3">
-                            Cotizá tu <span class="font-normal text-consur-red">{{ $modelData['name'] }}</span>
+                            Cotizá tu <span class="font-normal text-[#67b0c4]">{{ $modelData['name'] }}</span>
                         </h2>
                         <p class="text-sm text-slate-600 font-light">Completá tus datos y un asesor comercial de CONSUR te contactará a la brevedad con la mejor propuesta y planes de financiación.</p>
                     </div>
@@ -834,13 +834,13 @@
                                 <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Nombre completo *</label>
                                 <input type="text" wire:model="name" required placeholder="Ej. Juan Pérez"
                                        class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('name') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
+                                @error('name') <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span> @enderror
                             </div>
                             <div>
                                 <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Teléfono / WhatsApp *</label>
                                 <input type="tel" wire:model="phone" required placeholder="Ej. 0985 804 106"
                                        class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('phone') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
+                                @error('phone') <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span> @enderror
                             </div>
                         </div>
 
@@ -849,13 +849,13 @@
                                 <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Correo electrónico</label>
                                 <input type="email" wire:model="email" placeholder="ejemplo@correo.com"
                                        class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('email') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
+                                @error('email') <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span> @enderror
                             </div>
                             <div>
                                 <label class="block text-[11px] font-semibold uppercase tracking-widest text-slate-600 mb-2">Ciudad / Departamento</label>
                                 <input type="text" wire:model="city" placeholder="Ej. Encarnación, Asunción..."
                                        class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm">
-                                @error('city') <span class="text-xs text-consur-red mt-1 block">{{ $message }}</span> @enderror
+                                @error('city') <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span> @enderror
                             </div>
                         </div>
 
@@ -865,7 +865,7 @@
                                       class="form-input-light w-full px-4 py-3.5 rounded-xl text-sm resize-none"></textarea>
                         </div>
 
-                        <button type="submit" class="w-full py-4 rounded-xl btn-shimmer text-white text-xs font-semibold uppercase tracking-[0.2em] transition shadow-lg hover:-translate-y-0.5">
+                        <button type="submit" class="w-full py-4 rounded-xl btn-shimmer text-[#0d0e0e] text-xs font-bold uppercase tracking-[0.2em] transition shadow-lg shadow-[#67b0c4]/25 hover:-translate-y-0.5">
                             <span wire:loading.remove wire:target="submitQuotation">Solicitar Cotización de {{ $modelData['name'] }}</span>
                             <span wire:loading wire:target="submitQuotation"><i class="fas fa-circle-notch fa-spin mr-2"></i> Enviando...</span>
                         </button>
@@ -881,15 +881,15 @@
     ═══════════════════════════════════════════════════════════ -->
     <section class="bg-[#f4f5f7] border-t border-slate-200/80 py-14">
         <div data-aos="fade-up" class="max-w-7xl mx-auto px-6 lg:px-10 text-center">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-consur-red">Gama Completa CONSUR</p>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#67b0c4]">Gama Completa CONSUR</p>
             <h3 class="mt-2 oj-heading text-2xl sm:text-3xl text-[#0d0e0e]">Descubrí nuestros otros vehículos</h3>
             <div class="mt-7 flex flex-wrap justify-center items-center gap-3">
-                <a href="{{ route('omoda-jaecoo') }}#modelos" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-[11px] font-semibold uppercase tracking-[0.16em] text-white hover:bg-consur-red transition">
+                <a href="{{ route('omoda-jaecoo') }}#modelos" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-[11px] font-semibold uppercase tracking-[0.16em] text-white hover:bg-[#67b0c4] transition">
                     <i class="fas fa-th-large text-xs"></i> Ver showroom completo
                 </a>
 
                 @foreach($otherModels as $other)
-                    <a href="{{ route('omoda-jaecoo.model', $other['slug']) }}" class="px-5 py-3 rounded-lg border border-slate-300 bg-white text-[11px] font-semibold uppercase tracking-widest text-slate-700 hover:text-consur-red hover:border-consur-red transition">
+                    <a href="{{ route('omoda-jaecoo.model', $other['slug']) }}" class="px-5 py-3 rounded-lg border border-slate-300 bg-white text-[11px] font-semibold uppercase tracking-widest text-slate-700 hover:text-[#67b0c4] hover:border-[#67b0c4] transition">
                         {{ $other['name'] }}
                     </a>
                 @endforeach
@@ -967,9 +967,9 @@
 
                     document.addEventListener('fullscreenchange', () => {
                         if (document.fullscreenElement === stage) {
-                            if (iconFullscreen) iconFullscreen.className = 'fas fa-compress text-xs text-consur-red';
+                            if (iconFullscreen) iconFullscreen.className = 'fas fa-compress text-xs text-[#67b0c4]';
                         } else {
-                            if (iconFullscreen) iconFullscreen.className = 'fas fa-expand text-xs text-consur-red';
+                            if (iconFullscreen) iconFullscreen.className = 'fas fa-expand text-xs text-[#67b0c4]';
                         }
                     });
                 }
