@@ -65,9 +65,9 @@
                     <a href="https://wa.me/{{ $whatsappNumber }}?text={{ urlencode('Hola CONSUR S.A., me interesa conocer más sobre las motos de agua y pontones Sea-Doo.') }}" 
                        target="_blank" 
                        rel="noopener"
-                       class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold tracking-wide transition-all hover:scale-105 shadow-md shadow-emerald-600/30">
-                        <i class="fab fa-whatsapp text-sm"></i>
-                        <span>WhatsApp</span>
+                       aria-label="WhatsApp"
+                       class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-base transition-all hover:scale-110 shadow-md shadow-emerald-600/30">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
