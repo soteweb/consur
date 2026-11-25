@@ -69,8 +69,8 @@ class DatabaseSeeder extends Seeder
             'phone' => '+595 71 204 106',
             'whatsapp' => '+595985804106',
             'email' => 'ventas@consur.com.py',
-            'schedule_weekdays' => '07:00 a 12:00 | 14:00 a 17:30',
-            'schedule_saturday' => '07:30 a 12:00',
+            'schedule_weekdays' => 'De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:00 Hs.',
+            'schedule_saturday' => 'Sábados: de 07:30 a 12:00 Hs.',
             'google_maps_url' => 'https://maps.google.com/?q=Consur+SA+Toyota+Encarnacion',
             'has_workshop' => true,
             'has_mobile_workshop' => true,
@@ -84,8 +84,8 @@ class DatabaseSeeder extends Seeder
             'phone' => '+595 775 232 400',
             'whatsapp' => '+595985204106',
             'email' => 'colonias@consur.com.py',
-            'schedule_weekdays' => '07:00 a 12:00 | 13:30 a 17:00',
-            'schedule_saturday' => '07:30 a 12:00',
+            'schedule_weekdays' => 'De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:00 Hs.',
+            'schedule_saturday' => 'Sábados: de 07:30 a 12:00 Hs.',
             'has_workshop' => true,
             'has_mobile_workshop' => true,
             'sort_order' => 2,
@@ -376,7 +376,7 @@ class DatabaseSeeder extends Seeder
         Setting::set('contact_whatsapp', '595985204106', 'contact', 'WhatsApp Principal (sin +)');
         Setting::set('contact_email', 'contacto@consur.com.py', 'contact', 'Email de Contacto');
         Setting::set('usd_to_pyg_rate', '7850', 'finance', 'Tipo de Cambio USD a Guaraníes (₲)');
-        Setting::set('schedule_info', 'Lun a Vie: 7:00 a 12:00 • 14:00 a 17:30 | Sáb: 7:30 a 12:00', 'general', 'Horarios de Atención');
+        Setting::set('schedule_info', 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00', 'general', 'Horarios de Atención');
         Setting::set('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131', 'general', 'Enlace de Turnos Online');
         Setting::set('facebook_url', 'https://www.facebook.com/ConsurToyota/', 'social', 'Facebook URL');
         Setting::set('instagram_url', 'https://www.instagram.com/consur_toyota/', 'social', 'Instagram URL');

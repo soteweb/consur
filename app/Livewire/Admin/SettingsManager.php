@@ -47,7 +47,7 @@ class SettingsManager extends Component
         $this->contact_phone = Setting::get('contact_phone', '+595 985 804 106');
         $this->contact_whatsapp = Setting::get('contact_whatsapp', '595985204106');
         $this->contact_email = Setting::get('contact_email', 'contacto@consur.com.py');
-        $this->schedule_info = Setting::get('schedule_info', 'Lun a Vie: 7:00 a 12:00 • 14:00 a 17:30 | Sáb: 7:30 a 12:00');
+        $this->schedule_info = Setting::get('schedule_info', 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00');
         $this->turnos_url = Setting::get('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131');
         $this->facebook_url = Setting::get('facebook_url', 'https://www.facebook.com/ConsurToyota/');
         $this->instagram_url = Setting::get('instagram_url', 'https://www.instagram.com/consur_toyota/');

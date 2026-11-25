@@ -51,7 +51,7 @@ class FooterManager extends Component
 
     public function loadSettings()
     {
-        $this->schedule_info = Setting::get('schedule_info', 'Lun a Vie: 07:00 a 12:00 • 13:30 a 17:30 | Sáb: 07:30 a 11:30');
+        $this->schedule_info = Setting::get('schedule_info', 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00');
         $this->footer_show_facebook = (bool) Setting::get('footer_show_facebook', 1);
         $this->facebook_url = Setting::get('facebook_url', 'https://www.facebook.com/ConsurToyota/');
         $this->footer_show_instagram = (bool) Setting::get('footer_show_instagram', 1);

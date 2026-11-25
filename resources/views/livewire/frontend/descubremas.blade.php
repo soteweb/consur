@@ -206,7 +206,7 @@
                         <p class="text-xs text-slate-500">Agendamiento de taller y servicios</p>
                     </div>
                     <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:underline">
-                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                        <i class="fab fa-whatsapp"></i> Chatea con nosotros
                     </span>
                 </a>
 
@@ -227,7 +227,7 @@
                         <p class="text-xs text-slate-500">Trámites, títulos y transferencias</p>
                     </div>
                     <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:underline">
-                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                        <i class="fab fa-whatsapp"></i> Chatea con nosotros
                     </span>
                 </a>
 
@@ -248,7 +248,7 @@
                         <p class="text-xs text-slate-500">Pagos, cuotas y estados de cuenta</p>
                     </div>
                     <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:underline">
-                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                        <i class="fab fa-whatsapp"></i> Chatea con nosotros
                     </span>
                 </a>
 
@@ -269,7 +269,7 @@
                         <p class="text-xs text-slate-500">Atención institucional y consultas</p>
                     </div>
                     <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 group-hover:underline">
-                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                        <i class="fab fa-whatsapp"></i> Chatea con nosotros
                     </span>
                 </a>
             </div>
@@ -391,10 +391,10 @@
                         Horario de Atención en Casa Matriz y Sucursales:
                     </span>
                     <p class="text-slate-800 text-sm sm:text-base font-medium">
-                        De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:30 Hs.
+                        Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00
                     </p>
                     <p class="text-slate-600 text-xs sm:text-sm">
-                        Sábados: de 07:30 a 12:00 Hs.
+                        Sábados: 7:30 a 12:00
                     </p>
                 </div>
 

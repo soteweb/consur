@@ -795,7 +795,7 @@
 
                                     <div class="pt-3 border-t border-slate-200/70 dark:border-neutral-800 text-[11px] text-slate-500 dark:text-neutral-400 font-medium">
                                         <span class="font-bold text-slate-700 dark:text-neutral-300 block uppercase mb-1">Horario de Atención:</span>
-                                        Lun a Vie: 07:00 a 12:00 • 13:30 a 17:30<br>Sábados: 07:30 a 11:30
+                                        {{ \App\Models\Setting::get('schedule_info', 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00') }}
                                     </div>
                                 </div>
 

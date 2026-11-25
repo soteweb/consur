@@ -91,7 +91,7 @@ class ContactPage extends Component
             'companyPhone' => Setting::get('contact_phone', '+595 71 204 106'),
             'companyWhatsapp' => Setting::get('contact_whatsapp', '595985804106'),
             'companyEmail' => Setting::get('contact_email', 'contacto@consur.com.py'),
-            'scheduleInfo' => Setting::get('schedule_info', 'Lun a Vie: 7:00 a 12:00 • 14:00 a 17:30 | Sáb: 7:30 a 12:00'),
+            'scheduleInfo' => Setting::get('schedule_info', 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00'),
         ]);
     }
 }

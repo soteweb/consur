@@ -345,7 +345,7 @@ class PosventaPageSeeder extends Seeder
                     </div>
                     <div class="pt-2 border-t border-white/10 text-[11px] text-slate-400">
                         <i class="far fa-clock text-[#eb0a1e] mr-1"></i>
-                        <span>Lun a Vie 07:00 a 17:30 Hs</span>
+                        <span>Lun a Vie: 07:00 a 12:00 y 14:00 a 17:00 Hs</span>
                     </div>
                 </div>
 
@@ -370,7 +370,7 @@ class PosventaPageSeeder extends Seeder
                     </div>
                     <div class="pt-2 border-t border-white/10 text-[11px] text-slate-400">
                         <i class="far fa-clock text-[#eb0a1e] mr-1"></i>
-                        <span>Lun a Vie 07:00 a 17:30 Hs</span>
+                        <span>Lun a Vie: 07:00 a 12:00 y 14:00 a 17:00 Hs</span>
                     </div>
                 </div>
 
@@ -395,7 +395,7 @@ class PosventaPageSeeder extends Seeder
                     </div>
                     <div class="pt-2 border-t border-white/10 text-[11px] text-slate-400">
                         <i class="far fa-clock text-[#eb0a1e] mr-1"></i>
-                        <span>Lun a Vie 07:00 a 17:30 Hs</span>
+                        <span>Lun a Vie: 07:00 a 12:00 y 14:00 a 17:00 Hs</span>
                     </div>
                 </div>
 
@@ -420,7 +420,7 @@ class PosventaPageSeeder extends Seeder
                     </div>
                     <div class="pt-2 border-t border-white/10 text-[11px] text-slate-400">
                         <i class="far fa-clock text-[#eb0a1e] mr-1"></i>
-                        <span>Lun a Vie 07:00 a 17:30 Hs</span>
+                        <span>Lun a Vie: 07:00 a 12:00 y 14:00 a 17:00 Hs</span>
                     </div>
                 </div>
 
@@ -559,7 +559,7 @@ class PosventaPageSeeder extends Seeder
                         </div>
                         <div>
                             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Horario de Atención</span>
-                            <span class="font-medium text-white">Lun a Vie: 07:00 a 12:00 y 14:00 a 17:30 &bull; Sáb: 07:30 a 12:00</span>
+                            <span class="font-medium text-white">Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00</span>
                         </div>
                     </div>
 

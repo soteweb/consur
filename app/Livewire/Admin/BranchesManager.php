@@ -32,7 +32,7 @@ class BranchesManager extends BaseCrudComponent
         $this->phone = '';
         $this->whatsapp = '+595 985 204 106';
         $this->email = '';
-        $this->schedule_weekdays = 'De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:30 Hs.';
+        $this->schedule_weekdays = 'De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:00 Hs.';
         $this->schedule_saturday = 'Sábados de 07:30 a 12:00 Hs.';
         $this->google_maps_url = '';
         $this->sort_order = Branch::max('sort_order') + 1;

@@ -149,7 +149,7 @@
                                target="_blank"
                                class="inline-flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl bg-white text-red-600 hover:bg-rose-50 font-bold text-sm shadow-md transition">
                                 <i class="fab fa-whatsapp text-lg text-emerald-500"></i>
-                                <span>Chatear por WhatsApp Oficial</span>
+                                <span>Chatea con nosotros</span>
                             </a>
                             <a href="tel:{{ preg_replace('/[^0-9]/', '', $companyPhone) }}"
                                class="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-red-700/60 hover:bg-red-700 text-white font-medium text-xs border border-white/20 transition">

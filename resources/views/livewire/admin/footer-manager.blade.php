@@ -54,7 +54,7 @@
                     <i class="far fa-clock text-[#eb0a1e] mr-1"></i> Horario de Atención (Visible debajo del logo en el Footer)
                 </label>
                 <input type="text" wire:model="schedule_info" class="w-full text-xs rounded-xl border border-slate-200 py-2.5 px-3.5 bg-white"
-                       placeholder="Lun a Vie: 07:00 a 12:00 • 13:30 a 17:30 | Sáb: 07:30 a 11:30">
+                       placeholder="Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00">
                 <p class="text-[11px] text-slate-400">Este horario se actualiza instantáneamente en la Columna 1 del pie de página.</p>
             </div>
 

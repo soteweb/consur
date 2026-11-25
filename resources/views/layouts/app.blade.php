@@ -83,13 +83,13 @@
                             '@type' => 'OpeningHoursSpecification',
                             'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
                             'opens' => '07:00',
-                            'closes' => '17:30',
+                            'closes' => '17:00',
                         ],
                         [
                             '@type' => 'OpeningHoursSpecification',
                             'dayOfWeek' => 'Saturday',
                             'opens' => '07:30',
-                            'closes' => '11:30',
+                            'closes' => '12:00',
                         ],
                     ],
                     'sameAs' => [
@@ -572,7 +572,7 @@
             <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20CONSUR%20S.A.,%20quisiera%20recibir%20asesoramiento%20comercial"
                target="_blank"
                class="group flex items-center gap-3 bg-white dark:bg-neutral-900 text-slate-800 dark:text-white pl-4 pr-2.5 py-2 rounded-2xl shadow-xl border border-slate-200/90 dark:border-neutral-800 hover:border-emerald-500 hover:shadow-2xl transition-all duration-200">
-                <span class="text-xs font-semibold whitespace-nowrap">Chatear por WhatsApp</span>
+                <span class="text-xs font-semibold whitespace-nowrap">Chatea con nosotros</span>
                 <span class="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30 group-hover:scale-105 transition-transform">
                     <i class="fab fa-whatsapp text-lg"></i>
                 </span>
@@ -620,7 +620,7 @@
     @php
         $featuredBrands ??= \App\Models\Brand::getFeaturedForMenu();
         $copyrightText = str_replace('{year}', date('Y'), \App\Models\Setting::get('footer_copyright', '© {year} CONSUR S.A. Todos los derechos reservados. Concesionaria Oficial Toyota Paraguay.'));
-        $scheduleInfo = \App\Models\Setting::get('schedule_info', 'Lun a Vie: 07:00 a 12:00 • 13:30 a 17:30 | Sáb: 07:30 a 11:30');
+        $scheduleInfo = \App\Models\Setting::get('schedule_info', 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00 | Sábados: 7:30 a 12:00');
         $turnosUrl = \App\Models\Setting::get('turnos_url', 'http://www.turnos365.com/turnos.aspx?con=131');
     @endphp
     <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800/80">

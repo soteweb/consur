@@ -519,8 +519,8 @@
                             <div class="flex items-start gap-2.5 pt-1 border-t border-slate-200/60 dark:border-slate-800">
                                 <i class="far fa-clock text-slate-400 mt-1"></i>
                                 <div class="text-xs text-slate-500 dark:text-neutral-400">
-                                    <div>Lunes a Viernes: 07:00 a 12:00 y 14:00 a 17:30 Hs.</div>
-                                    <div>Sábados: 07:30 a 12:00 Hs.</div>
+                                    <div>{{ $branch->schedule_weekdays ?: 'Lunes a Viernes: 7:00 a 12:00 • 14:00 a 17:00' }}</div>
+                                    <div>{{ $branch->schedule_saturday ?: 'Sábados: 7:30 a 12:00' }}</div>
                                 </div>
                             </div>
                         </div>

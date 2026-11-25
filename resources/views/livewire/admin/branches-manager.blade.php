@@ -95,7 +95,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Horario Lunes a Viernes</label>
-                                <input type="text" wire:model="schedule_weekdays" placeholder="De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:30 Hs."
+                                <input type="text" wire:model="schedule_weekdays" placeholder="De Lunes a Viernes de 07:00 a 12:00 y de 14:00 a 17:00 Hs."
                                        class="w-full text-xs rounded-xl border border-slate-200 py-2.5 px-3.5 focus:ring-2 focus:ring-red-500">
                             </div>
                             <div>
