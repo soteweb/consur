@@ -534,14 +534,8 @@
                                 </form>
                             </div>
 
-                            <!-- Acciones Inferiores: Eliminar / Ver -->
-                            <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-                                <a href="{{ $activeMedia->url }}"
-                                   target="_blank"
-                                   class="text-xs text-slate-600 hover:text-slate-900 font-semibold underline underline-offset-2">
-                                    Ver en pestaña nueva
-                                </a>
-
+                            <!-- Acciones Inferiores: Eliminar -->
+                            <div class="pt-4 border-t border-slate-200 flex items-center justify-end">
                                 <button type="button"
                                         wire:click="deleteSingle({{ $activeMedia->id }})"
                                         wire:confirm="¿Estás seguro de que deseas eliminar permanentemente este archivo del servidor?"

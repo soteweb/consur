@@ -352,6 +352,12 @@ class MediaManager extends BaseCrudComponent
             'imagesCount' => $imagesCount,
             'docsCount' => $docsCount,
             'humanTotalSize' => $humanTotalSize,
+            'filterType' => $this->filterType,
+            'viewMode' => $this->viewMode,
+            'selected' => $this->selected,
+            'selectAll' => $this->selectAll,
+            'showDetailModal' => $this->showDetailModal,
+            'activeMedia' => $this->activeMedia,
         ]);
     }
 }
