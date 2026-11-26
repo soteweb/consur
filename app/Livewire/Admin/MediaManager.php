@@ -314,10 +314,11 @@ class MediaManager extends BaseCrudComponent
 
         if (!empty($this->search)) {
             $search = '%' . trim($this->search) . '%';
-            $query->where(function ($q) use ($search) {
-                $q->where('name', 'like', $search)
-                  ->orWhere('file_name', 'like', $search)
-                  ->orWhere('alt', 'like', $search);
+            $likeOp = \Illuminate\Support\Facades\DB::getDriverName() === 'pgsql' ? 'ilike' : 'like';
+            $query->where(function ($q) use ($search, $likeOp) {
+                $q->where('name', $likeOp, $search)
+                  ->orWhere('file_name', $likeOp, $search)
+                  ->orWhere('alt', $likeOp, $search);
             });
         }
 
@@ -329,11 +330,14 @@ class MediaManager extends BaseCrudComponent
         $mediaQuery = $this->getQuery();
         $mediaItems = $mediaQuery->paginate($this->perPage);
 
-        // Agrupar meses disponibles para el filtro
-        $availableMonths = Media::selectRaw("DATE_FORMAT(created_at, '%Y-%m') as ym, DATE_FORMAT(created_at, '%M %Y') as label")
-            ->distinct()
-            ->orderBy('ym', 'desc')
-            ->pluck('label', 'ym');
+        // Agrupar meses disponibles para el filtro (100% agnóstico de base de datos MySQL/PostgreSQL)
+        $availableMonths = Media::select('created_at')
+            ->orderBy('created_at', 'desc')
+            ->pluck('created_at')
+            ->filter()
+            ->mapWithKeys(function ($date) {
+                return [$date->format('Y-m') => ucfirst($date->translatedFormat('F Y'))];
+            });
 
         $totalCount = Media::count();
         $imagesCount = Media::where('mime_type', 'like', 'image/%')->count();
