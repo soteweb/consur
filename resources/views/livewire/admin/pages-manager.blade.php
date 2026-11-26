@@ -8,7 +8,7 @@
                 </span>
             </div>
             <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-heading">Páginas Institucionales</h1>
-            <p class="text-xs sm:text-sm text-slate-500">Gestor de contenidos, cabeceras y carruseles con soporte para computadoras y móviles al estilo WordPress.</p>
+            <p class="text-xs sm:text-sm text-slate-500">Gestor de contenidos, cabeceras y carruseles con soporte para computadoras y dispositivos móviles.</p>
         </div>
         <div class="flex items-center gap-2">
             @if($isOpen)

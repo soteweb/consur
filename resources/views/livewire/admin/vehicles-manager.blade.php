@@ -941,7 +941,7 @@
                                 @endif
                             </div>
 
-                            <!-- 2. Editor de Código HTML Libre + Bloques Rápidos tipo Elementor + Vista Previa -->
+                            <!-- 2. Editor de Código HTML Libre + Bloques Rápidos + Vista Previa -->
                             <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
                                 <!-- Barra de Herramientas del Editor -->
                                 <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">

@@ -3,7 +3,7 @@
         <div>
             <div class="flex items-center gap-2 mb-1">
                 <span class="px-2.5 py-0.5 rounded-full bg-red-50 text-red-600 text-[10px] font-extrabold uppercase tracking-wider border border-red-200">
-                    <i class="fas fa-layer-group mr-1"></i> Banners & Sliders Hero (Estilo Slider Revolution)
+                    <i class="fas fa-layer-group mr-1"></i> Banners & Sliders Hero
                 </span>
             </div>
             <h1 class="text-2xl font-black text-slate-900 font-heading">Banners & Sliders Hero</h1>

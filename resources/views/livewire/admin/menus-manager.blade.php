@@ -3,7 +3,7 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
             <h1 class="text-2xl font-black text-slate-900 font-heading">Gestor de Menús (Navegación)</h1>
-            <p class="text-xs text-slate-500">Personalizá todos los enlaces del menú superior, creá submenús desplegables e insignias destacadas al estilo WordPress.</p>
+            <p class="text-xs text-slate-500">Personalizá todos los enlaces del menú superior, creá submenús desplegables e insignias destacadas del sitio web.</p>
         </div>
         <div>
             @if($isOpen)

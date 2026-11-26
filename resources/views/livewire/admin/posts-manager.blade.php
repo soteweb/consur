@@ -11,7 +11,7 @@
                 </a>
             </div>
             <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Novedades & Noticias</h2>
-            <p class="text-xs sm:text-sm text-slate-500">Administrá todas las entradas de la sección Novedades al estilo WordPress.</p>
+            <p class="text-xs sm:text-sm text-slate-500">Administrá todas las publicaciones y noticias de la sección Novedades & Prensa.</p>
         </div>
 
         <div class="flex items-center gap-3">

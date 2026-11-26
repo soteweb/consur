@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold text-slate-900 font-heading">Biblioteca de Medios</h1>
-                    <p class="text-xs text-slate-500">Administrá fotos, catálogos PDF y archivos multimedia del sitio web al estilo WordPress.</p>
+                    <p class="text-xs text-slate-500">Administrá fotos, catálogos PDF y archivos multimedia del sitio web oficial de CONSUR S.A.</p>
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
         </div>
     </div>
 
-    <!-- 4. Filtros, Búsqueda y Selector de Vistas (Estilo WordPress) -->
+    <!-- 4. Filtros, Búsqueda y Selector de Vistas -->
     <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <!-- Pestañas de Tipo de Medio -->
@@ -231,7 +231,7 @@
     @else
 
         @if($viewMode === 'grid')
-            <!-- VISTA EN CUADRÍCULA (Grid de Miniaturas Estilo WordPress) -->
+            <!-- VISTA EN CUADRÍCULA (Grid de Miniaturas) -->
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
                 @foreach($mediaItems as $item)
                     <div wire:key="media-grid-{{ $item->id }}"
@@ -381,7 +381,7 @@
 
     @endif
 
-    <!-- 6. MODAL LATERAL / DETALLE DEL MEDIO (Estilo WordPress) -->
+    <!-- 6. MODAL LATERAL / DETALLE DEL MEDIO -->
     @if($showDetailModal && $activeMedia)
         <div class="fixed inset-0 z-50 overflow-y-auto"
              x-cloak
@@ -505,7 +505,7 @@
                                                class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:ring-1 focus:ring-slate-900 focus:border-slate-900">
                                     </div>
 
-                                    <!-- Campo URL con Botón Copiar al Portapapeles (WordPress Style) -->
+                                    <!-- Campo URL con Botón Copiar al Portapapeles -->
                                     <div>
                                         <label class="block font-bold text-slate-700 uppercase tracking-wider text-[10px] mb-1">
                                             URL del Archivo

@@ -1,7 +1,7 @@
 <div class="space-y-6 max-w-6xl">
     <div>
         <h1 class="text-2xl font-black text-slate-900 font-heading">Personalizador de Secciones (Home Page Builder)</h1>
-        <p class="text-xs text-slate-500">Editá los textos, íconos, imágenes y visibilidad de cada bloque de la página de inicio estilo WordPress.</p>
+        <p class="text-xs text-slate-500">Editá los textos, íconos, imágenes y visibilidad de cada bloque de la página principal.</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
