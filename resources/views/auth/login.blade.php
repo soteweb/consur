@@ -1,124 +1,137 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-slate-900">
+<html lang="es" class="h-full bg-slate-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso al Panel Administrativo – CONSUR S.A.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="h-full flex items-center justify-center p-4 bg-slate-950 font-sans selection:bg-red-600 selection:text-white">
-    <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
-        <!-- Logo Header -->
-        <div class="text-center space-y-2">
-            <div class="inline-flex items-center gap-2">
-                <span class="text-3xl font-black tracking-tight text-white font-heading">
-                    CONSUR<span class="text-red-500">.</span>
-                </span>
-                <span class="text-xs uppercase font-bold tracking-widest bg-red-600 text-white px-2 py-0.5 rounded">
-                    TOYOTA
-                </span>
+<body class="min-h-full flex flex-col items-center justify-center p-4 sm:p-6 bg-[#f8fafc] font-sans text-slate-800 selection:bg-[#eb0a1e] selection:text-white">
+
+    <div class="w-full max-w-md">
+        <!-- Tarjeta Principal de Inicio de Sesión -->
+        <div class="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-10 shadow-xl shadow-slate-200/50 space-y-6">
+
+            <!-- Logo Header Oficial -->
+            <div class="text-center">
+                <a href="{{ route('home') }}" class="inline-block transition hover:opacity-90">
+                    <img src="{{ asset('images/logoconsurweb.png') }}" alt="CONSUR S.A." class="h-11 sm:h-12 w-auto mx-auto object-contain">
+                </a>
+                <p class="text-xs text-slate-500 font-medium mt-3">Plataforma de Gestión Integral</p>
             </div>
-            <p class="text-xs text-slate-400 font-medium">Plataforma de Gestión Integral Backoffice</p>
+
+            <!-- Alertas de Estado / Sesión -->
+            @if (session('status'))
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+                    <i class="fas fa-check-circle text-emerald-600 text-sm shrink-0"></i>
+                    <span>{{ session('status') }}</span>
+                </div>
+            @endif
+
+            <!-- Errores de Validación -->
+            @if ($errors->any())
+                <div class="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs space-y-1">
+                    <div class="font-bold flex items-center gap-1.5 text-red-800">
+                        <i class="fas fa-exclamation-circle text-sm shrink-0"></i>
+                        <span>Error de autenticación</span>
+                    </div>
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red-600 pl-5">{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+
+            <!-- Formulario de Acceso -->
+            <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                @csrf
+
+                <!-- Correo Electrónico -->
+                <div>
+                    <label for="email" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Correo Electrónico
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400 text-sm">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               value="{{ old('email') }}"
+                               required
+                               autofocus
+                               class="w-full pl-10 pr-4 py-3 bg-slate-50/80 border border-slate-300 rounded-xl text-slate-900 text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#eb0a1e]/20 focus:border-[#eb0a1e] placeholder-slate-400 transition"
+                               placeholder="nombre@consur.com.py">
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div>
+                    <label for="password" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Contraseña
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400 text-sm">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               required
+                               class="w-full pl-10 pr-4 py-3 bg-slate-50/80 border border-slate-300 rounded-xl text-slate-900 text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#eb0a1e]/20 focus:border-[#eb0a1e] placeholder-slate-400 transition"
+                               placeholder="••••••••">
+                    </div>
+                </div>
+
+                <!-- Recordarme y Olvidaste tu contraseña -->
+                <div class="flex items-center justify-between text-xs pt-1">
+                    <label for="remember" class="flex items-center text-slate-600 hover:text-slate-900 cursor-pointer select-none">
+                        <input type="checkbox"
+                               name="remember"
+                               id="remember"
+                               class="w-4 h-4 rounded border-slate-300 text-[#eb0a1e] focus:ring-[#eb0a1e] cursor-pointer">
+                        <span class="ml-2 font-medium">Recordarme en este equipo</span>
+                    </label>
+
+                    <a href="{{ route('password.request') }}" class="font-semibold text-[#eb0a1e] hover:text-red-700 transition">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+                </div>
+
+                <!-- Verificación Anti-Bot Cloudflare Turnstile -->
+                <x-turnstile action="login" theme="light" model="" />
+                @error('cf-turnstile-response')
+                    <p class="text-xs text-red-600 text-center font-medium">{{ $message }}</p>
+                @enderror
+
+                <!-- Botón de Ingreso -->
+                <div class="pt-2">
+                    <button type="submit"
+                            class="w-full py-3.5 px-4 bg-[#eb0a1e] hover:bg-red-700 active:scale-[0.99] text-white font-bold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all flex items-center justify-center cursor-pointer">
+                        <span>Ingresar</span>
+                    </button>
+                </div>
+            </form>
         </div>
 
-        @if ($errors->any())
-            <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs space-y-1">
-                <div class="font-bold flex items-center gap-1.5 text-rose-400">
-                    <i class="fas fa-exclamation-circle"></i> Error de Autenticación
-                </div>
-                @foreach ($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}" class="space-y-4">
-            @csrf
-            
-            <div>
-                <label for="email" class="block text-xs font-semibold text-slate-300 mb-1.5">Correo Electrónico</label>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-500 text-sm">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                    <input type="email" id="email" name="email" value="{{ old('email', 'admin@consur.com.py') }}" required autofocus
-                           class="w-full pl-10 pr-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#416A8D] focus:border-[#416A8D] placeholder-slate-500 transition"
-                           placeholder="nombre@consur.com.py">
-                </div>
-            </div>
-
-            <div>
-                <div class="flex items-center justify-between mb-1.5">
-                    <label for="password" class="block text-xs font-semibold text-slate-300">Contraseña</label>
-                </div>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-500 text-sm">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    <input type="password" id="password" name="password" required value="admin123"
-                           class="w-full pl-10 pr-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#416A8D] focus:border-[#416A8D] placeholder-slate-500 transition"
-                           placeholder="••••••••">
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between text-xs pt-1">
-                <label class="flex items-center text-slate-400 cursor-pointer">
-                    <input type="checkbox" name="remember" class="w-4 h-4 rounded border-slate-700 bg-slate-800 text-red-600 focus:ring-red-500">
-                    <span class="ml-2">Recordar dispositivo</span>
-                </label>
-            </div>
-
-            <!-- Cloudflare Turnstile Anti-Bot Verification -->
-            <x-turnstile action="login" theme="dark" model="" />
-            @error('cf-turnstile-response')
-                <p class="text-xs text-red-400 text-center font-medium">{{ $message }}</p>
-            @enderror
-
-            <button type="submit" 
-                    class="w-full py-3 px-4 bg-[#416A8D] hover:bg-[#2c5373] text-white font-bold text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
-                <i class="fas fa-sign-in-alt"></i>
-                <span>Ingresar al Sistema</span>
-            </button>
-        </form>
-
-        @if(app()->isLocal() || config('app.debug'))
-        <!-- Acceso Rápido por Roles (Solo Visible en Entornos de Desarrollo) -->
-        <div class="pt-4 border-t border-slate-800 space-y-2">
-            <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 text-center">
-                Acceso Rápido por Roles (Contraseña: password)
+        <!-- Pie de página y Créditos Institucionales -->
+        <div class="text-center space-y-3 pt-6 px-4">
+            <p class="text-xs text-slate-500 leading-relaxed">
+                Plataforma Consur &reg; es un producto digital desarrollado por <a href="https://soteweb.com" target="_blank" rel="noopener" class="font-semibold text-slate-700 hover:text-[#eb0a1e] underline underline-offset-2 transition">Soteweb</a> Tecnología
             </p>
-            <div class="grid grid-cols-3 gap-2">
-                <button type="button" 
-                        onclick="document.getElementById('email').value = 'admin@consur.com.py'; document.getElementById('password').value = 'password';"
-                        class="p-2 rounded-xl bg-purple-950/60 hover:bg-purple-900 border border-purple-800/60 text-purple-200 text-center text-[10px] font-bold transition">
-                    <i class="fas fa-user-shield block text-xs mb-0.5 text-purple-400"></i>
-                    Admin
-                </button>
-                <button type="button" 
-                        onclick="document.getElementById('email').value = 'gestor@consur.com.py'; document.getElementById('password').value = 'password';"
-                        class="p-2 rounded-xl bg-sky-950/60 hover:bg-sky-900 border border-sky-800/60 text-sky-200 text-center text-[10px] font-bold transition">
-                    <i class="fas fa-edit block text-xs mb-0.5 text-sky-400"></i>
-                    Gestor
-                </button>
-                <button type="button" 
-                        onclick="document.getElementById('email').value = 'vendedor@consur.com.py'; document.getElementById('password').value = 'password';"
-                        class="p-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/60 text-emerald-200 text-center text-[10px] font-bold transition">
-                    <i class="fas fa-handshake block text-xs mb-0.5 text-emerald-400"></i>
-                    Vendedor
-                </button>
-            </div>
-        </div>
-        @endif
 
-        <div class="pt-2 text-center">
-            <a href="{{ route('home') }}" class="text-xs text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5">
-                <i class="fas fa-arrow-left"></i> Volver a la Web Pública de CONSUR
-            </a>
+            <div>
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-700 transition">
+                    <i class="fas fa-arrow-left text-[10px]"></i>
+                    <span>Volver a la Web de CONSUR</span>
+                </a>
+            </div>
         </div>
     </div>
+
 </body>
 </html>
