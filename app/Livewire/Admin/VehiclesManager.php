@@ -11,7 +11,9 @@ use App\Models\Setting;
 use App\Models\Vehicle;
 use App\Models\VehicleCategory;
 use App\Models\VehicleImage;
+use App\Services\ImageOptimizer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
@@ -143,8 +145,8 @@ class VehiclesManager extends BaseCrudComponent
         if ($this->condition !== '0km') {
             $rules['colors.*.name'] = 'nullable|string|max:60';
             $rules['colors.*.hex'] = 'nullable';
-            $rules['colorFiles.*'] = 'nullable|image|max:4096';
-            $rules['highlightFiles.*'] = 'nullable|image|max:4096';
+            $rules['colorFiles.*'] = 'nullable|image|max:20480';
+            $rules['highlightFiles.*'] = 'nullable|image|max:20480';
             $rules['versions.*.name'] = 'nullable|string|max:100';
             $rules['versions.*.price_usd'] = 'nullable|numeric|min:0';
             $rules['versions.*.monthly_fee_usd'] = 'nullable|numeric|min:0';
@@ -579,11 +581,18 @@ class VehiclesManager extends BaseCrudComponent
     public function updatedUploadedHeroBanners()
     {
         foreach ($this->uploadedHeroBanners as $file) {
-            $path = $file->store('vehicles/hero', 'public');
-            $this->heroBanners[] = $path;
+            $storedUrl = ImageOptimizer::optimizeAndStore(
+                $file,
+                'images/vehicles/hero',
+                'hero-banner',
+                2560,
+                1440,
+                86
+            );
+            $this->heroBanners[] = ltrim($storedUrl, '/');
         }
         $this->uploadedHeroBanners = [];
-        $this->notify('Imagen(es) del Hero cargadas correctamente.');
+        $this->notify('Imagen(es) del Hero optimizadas y cargadas correctamente.');
     }
 
     public function addHeroBannerUrl()
@@ -605,14 +614,22 @@ class VehiclesManager extends BaseCrudComponent
     {
         foreach ($this->uploadedHtmlMedia as $file) {
             $originalName = $file->getClientOriginalName();
-            $path = $file->store('vehicles/html-media', 'public');
+            $slugBase = Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) ?: 'html-media';
+            $storedUrl = ImageOptimizer::optimizeAndStore(
+                $file,
+                'images/vehicles/html-media',
+                $slugBase,
+                1920,
+                1440,
+                85
+            );
             $this->htmlMedia[] = [
                 'name' => $originalName,
-                'path' => $path,
+                'path' => ltrim($storedUrl, '/'),
             ];
         }
         $this->uploadedHtmlMedia = [];
-        $this->notify('Fotografías subidas a la biblioteca del vehículo. Ya podés insertarlas en el HTML.');
+        $this->notify('Fotografías optimizadas y subidas a la biblioteca del vehículo. Ya podés insertarlas en el HTML.');
     }
 
     public function addHtmlMediaUrl()
@@ -691,16 +708,34 @@ class VehiclesManager extends BaseCrudComponent
         // Procesar posibles subidas pendientes de Hero o HTML Media
         if (!empty($this->uploadedHeroBanners)) {
             foreach ($this->uploadedHeroBanners as $file) {
-                $this->heroBanners[] = $file->store('vehicles/hero', 'public');
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $file,
+                    'images/vehicles/hero',
+                    'hero-banner',
+                    2560,
+                    1440,
+                    86
+                );
+                $this->heroBanners[] = ltrim($storedUrl, '/');
             }
             $this->uploadedHeroBanners = [];
         }
 
         if (!empty($this->uploadedHtmlMedia)) {
             foreach ($this->uploadedHtmlMedia as $file) {
+                $originalName = $file->getClientOriginalName();
+                $slugBase = Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) ?: 'html-media';
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $file,
+                    'images/vehicles/html-media',
+                    $slugBase,
+                    1920,
+                    1440,
+                    85
+                );
                 $this->htmlMedia[] = [
-                    'name' => $file->getClientOriginalName(),
-                    'path' => $file->store('vehicles/html-media', 'public'),
+                    'name' => $originalName,
+                    'path' => ltrim($storedUrl, '/'),
                 ];
             }
             $this->uploadedHtmlMedia = [];
@@ -753,7 +788,16 @@ class VehiclesManager extends BaseCrudComponent
         // Colores (con render subido o por URL)
         $data['colors'] = collect($this->colors)->map(function ($c, $i) {
             if (!empty($this->colorFiles[$i])) {
-                $c['image'] = $this->colorFiles[$i]->store('vehicles/colors', 'public');
+                $colorName = Str::slug($c['name'] ?? 'color') ?: 'color';
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $this->colorFiles[$i],
+                    'images/vehicles/colors',
+                    'color-' . $colorName,
+                    1400,
+                    900,
+                    86
+                );
+                $c['image'] = ltrim($storedUrl, '/');
             }
             return [
                 'name' => trim($c['name'] ?? ''),
@@ -779,7 +823,16 @@ class VehiclesManager extends BaseCrudComponent
         // Bloques de storytelling
         $data['highlights'] = collect($this->highlights)->map(function ($h, $i) {
             if (!empty($this->highlightFiles[$i])) {
-                $h['image'] = $this->highlightFiles[$i]->store('vehicles/highlights', 'public');
+                $slug = Str::slug($h['title'] ?? 'highlight') ?: 'highlight';
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $this->highlightFiles[$i],
+                    'images/vehicles/highlights',
+                    'highlight-' . $slug,
+                    1600,
+                    1200,
+                    84
+                );
+                $h['image'] = ltrim($storedUrl, '/');
             }
             return [
                 'title' => trim($h['title'] ?? ''),
@@ -804,10 +857,19 @@ class VehiclesManager extends BaseCrudComponent
 
         // Subida de fotos por archivo
         if (!empty($this->uploadedImages)) {
+            $dateFolder = date('Y/m');
+            $slugBase = Str::slug($vehicle->model . '-' . $vehicle->year) ?: 'vehiculo';
             foreach ($this->uploadedImages as $file) {
-                $path = $file->store('vehicles', 'public');
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $file,
+                    "images/vehicles/{$dateFolder}",
+                    $slugBase,
+                    1600,
+                    1200,
+                    84
+                );
                 $vehicle->images()->create([
-                    'image_path' => $path,
+                    'image_path' => ltrim($storedUrl, '/'),
                     'is_main' => $vehicle->images()->count() === 0,
                 ]);
             }

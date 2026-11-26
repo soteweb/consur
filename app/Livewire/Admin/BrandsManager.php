@@ -6,6 +6,7 @@ use App\Livewire\BaseCrudComponent;
 use App\Models\ActivityLog;
 use App\Models\Brand;
 use App\Models\VehicleCategory;
+use App\Services\ImageOptimizer;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -64,20 +65,32 @@ class BrandsManager extends BaseCrudComponent
             'brandTagline' => 'nullable|string|max:150',
             'brandCustomUrl' => 'nullable|string|max:255',
             'brandDescription' => 'nullable|string|max:2000',
-            'newLogo' => 'nullable|image|max:3072',
-            'newBanner' => 'nullable|image|max:5120',
+            'newLogo' => 'nullable|image|max:15360',
+            'newBanner' => 'nullable|image|max:20480',
         ]);
 
         $logoUrl = $this->brandLogo;
         if ($this->newLogo) {
-            $path = $this->newLogo->store('marcas', 'public');
-            $logoUrl = asset('storage/' . $path);
+            $logoUrl = ImageOptimizer::optimizeAndStore(
+                $this->newLogo,
+                'images/marcas',
+                'logo-' . Str::slug($this->brandName),
+                800,
+                800,
+                90
+            );
         }
 
         $bannerUrl = $this->brandBanner;
         if ($this->newBanner) {
-            $path = $this->newBanner->store('marcas/banners', 'public');
-            $bannerUrl = asset('storage/' . $path);
+            $bannerUrl = ImageOptimizer::optimizeAndStore(
+                $this->newBanner,
+                'images/marcas/banners',
+                'banner-' . Str::slug($this->brandName),
+                2000,
+                1000,
+                86
+            );
         }
 
         $data = [

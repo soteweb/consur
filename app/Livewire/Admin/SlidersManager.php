@@ -5,6 +5,8 @@ namespace App\Livewire\Admin;
 use App\Livewire\BaseCrudComponent;
 use App\Models\ActivityLog;
 use App\Models\Slider;
+use App\Services\ImageOptimizer;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
@@ -93,13 +95,31 @@ class SlidersManager extends BaseCrudComponent
     public function save()
     {
         if ($this->uploadedDesktopImage) {
-            $this->validate(['uploadedDesktopImage' => 'image|max:8192']);
-            $this->image_desktop = $this->uploadedDesktopImage->store('sliders', 'public');
+            $this->validate(['uploadedDesktopImage' => 'image|max:25600']);
+            $slug = 'slider-' . Str::slug($this->group . '-' . ($this->title ?: 'desktop'));
+            $storedUrl = ImageOptimizer::optimizeAndStore(
+                $this->uploadedDesktopImage,
+                'images/sliders',
+                $slug,
+                2560,
+                1440,
+                86
+            );
+            $this->image_desktop = ltrim($storedUrl, '/');
         }
 
         if ($this->uploadedMobileImage) {
-            $this->validate(['uploadedMobileImage' => 'image|max:8192']);
-            $this->image_mobile = $this->uploadedMobileImage->store('sliders', 'public');
+            $this->validate(['uploadedMobileImage' => 'image|max:25600']);
+            $slug = 'slider-' . Str::slug($this->group . '-' . ($this->title ?: 'mobile'));
+            $storedUrl = ImageOptimizer::optimizeAndStore(
+                $this->uploadedMobileImage,
+                'images/sliders',
+                $slug,
+                960,
+                1440,
+                86
+            );
+            $this->image_mobile = ltrim($storedUrl, '/');
         }
 
         if ($this->uploadedVideo) {
