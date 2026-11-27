@@ -161,6 +161,33 @@
                             title="Página Siguiente">
                         <i class="fas fa-chevron-right text-base"></i>
                     </button>
+
+                    <!-- Banner de Fin de Catálogo (Aparece dinámicamente al llegar a la última página/pliego) -->
+                    <div id="mag-end-banner" class="hidden absolute bottom-4 sm:bottom-6 z-30 inset-x-4 max-w-xl mx-auto bg-neutral-900/95 backdrop-blur-md border border-[#eb0a1e]/40 rounded-2xl p-3 sm:p-4 shadow-2xl text-center transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                            <div class="flex items-center gap-2.5 text-left">
+                                <span class="w-8 h-8 rounded-xl bg-[#eb0a1e]/20 border border-[#eb0a1e]/40 flex items-center justify-center text-[#eb0a1e] shrink-0">
+                                    <i class="fas fa-check-double text-xs"></i>
+                                </span>
+                                <div>
+                                    <p class="text-xs font-bold text-white uppercase tracking-wider">Has llegado al final del catálogo</p>
+                                    <p class="text-[11px] text-slate-400">¿Deseas consultar por algún modelo o plan de financiación?</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 shrink-0 w-full sm:w-auto">
+                                <button type="button" id="btn-end-restart" class="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer" title="Volver a la portada">
+                                    <i class="fas fa-rotate-left text-[10px]"></i>
+                                    <span>Portada</span>
+                                </button>
+                                <a href="https://wa.me/{{ \App\Models\Setting::get('contact_whatsapp', '595985204106') }}?text=Hola%20Consur%20S.A.,%20acabo%20de%20ver%20el%20Cat%C3%A1logo%20Digital%20completo%20y%20quiero%20recibir%20asesoramiento."
+                                   target="_blank" rel="noopener"
+                                   class="flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/30">
+                                    <i class="fab fa-whatsapp text-xs"></i>
+                                    <span>Asesor</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ÁREA ALTERNATIVA: VISTA EN CUADRÍCULA DE TODAS LAS PÁGINAS -->
@@ -250,10 +277,16 @@
         .stf__parent {
             margin: 0 auto !important;
         }
+        #flipbook-canvas-root {
+            border-radius: 4px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            background-color: #ffffff;
+        }
         .mag-page {
             background-color: #ffffff;
             overflow: hidden;
             box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.08);
+            outline: 1px solid rgba(0, 0, 0, 0.08);
         }
         .mag-page.--left {
             border-right: 1px solid rgba(0, 0, 0, 0.14);
@@ -496,15 +529,74 @@
                 }
             }
 
+            const endBanner = document.getElementById('mag-end-banner');
+            const btnPrevPage = document.getElementById('btn-prev-page');
+            const btnNextPage = document.getElementById('btn-next-page');
+            const btnBottomPrev = document.getElementById('btn-bottom-prev');
+            const btnBottomNext = document.getElementById('btn-bottom-next');
+            const btnFirstPage = document.getElementById('btn-first-page');
+            const btnLastPage = document.getElementById('btn-last-page');
+
             function updatePageUI(pageIndex) {
                 const isMobile = window.innerWidth < 768;
                 const currentNum = pageIndex + 1;
+                const isAtStart = pageIndex === 0;
+                // En modo escritorio (2 páginas), el final se alcanza cuando el pliego cubre la última página
+                const isAtEnd = isMobile ? (pageIndex >= totalPages - 1) : (pageIndex + 2 >= totalPages || currentNum >= totalPages);
+
                 if (!isMobile && currentNum < totalPages) {
                     pageIndicator.textContent = `Páginas ${currentNum}–${currentNum + 1} de ${totalPages}`;
+                } else if (isAtEnd) {
+                    pageIndicator.textContent = `Página ${currentNum} de ${totalPages} • Final`;
                 } else {
                     pageIndicator.textContent = `Página ${currentNum} de ${totalPages}`;
                 }
                 pageSlider.value = currentNum;
+
+                // Controles de retroceso (Inicio)
+                if (btnPrevPage) {
+                    btnPrevPage.classList.toggle('opacity-0', isAtStart);
+                    btnPrevPage.classList.toggle('pointer-events-none', isAtStart);
+                }
+                if (btnBottomPrev) {
+                    btnBottomPrev.disabled = isAtStart;
+                    btnBottomPrev.classList.toggle('opacity-30', isAtStart);
+                    btnBottomPrev.classList.toggle('cursor-not-allowed', isAtStart);
+                    btnBottomPrev.classList.toggle('pointer-events-none', isAtStart);
+                }
+                if (btnFirstPage) {
+                    btnFirstPage.disabled = isAtStart;
+                    btnFirstPage.classList.toggle('opacity-30', isAtStart);
+                    btnFirstPage.classList.toggle('cursor-not-allowed', isAtStart);
+                    btnFirstPage.classList.toggle('pointer-events-none', isAtStart);
+                }
+
+                // Controles de avance (Fin)
+                if (btnNextPage) {
+                    btnNextPage.classList.toggle('opacity-0', isAtEnd);
+                    btnNextPage.classList.toggle('pointer-events-none', isAtEnd);
+                }
+                if (btnBottomNext) {
+                    btnBottomNext.disabled = isAtEnd;
+                    btnBottomNext.classList.toggle('opacity-30', isAtEnd);
+                    btnBottomNext.classList.toggle('cursor-not-allowed', isAtEnd);
+                    btnBottomNext.classList.toggle('pointer-events-none', isAtEnd);
+                }
+                if (btnLastPage) {
+                    btnLastPage.disabled = isAtEnd;
+                    btnLastPage.classList.toggle('opacity-30', isAtEnd);
+                    btnLastPage.classList.toggle('cursor-not-allowed', isAtEnd);
+                    btnLastPage.classList.toggle('pointer-events-none', isAtEnd);
+                }
+
+                // Banner de Fin de Catálogo
+                if (endBanner) {
+                    if (isAtEnd) {
+                        endBanner.classList.remove('hidden');
+                    } else {
+                        endBanner.classList.add('hidden');
+                    }
+                }
 
                 document.querySelectorAll('.mag-thumb-item').forEach((btn) => {
                     const idx = parseInt(btn.dataset.pageIndex, 10);
@@ -552,6 +644,7 @@
             document.getElementById('btn-bottom-next')?.addEventListener('click', () => pageFlip && pageFlip.flipNext());
             document.getElementById('btn-first-page')?.addEventListener('click', () => pageFlip && pageFlip.flip(0));
             document.getElementById('btn-last-page')?.addEventListener('click', () => pageFlip && pageFlip.flip(totalPages - 1));
+            document.getElementById('btn-end-restart')?.addEventListener('click', () => pageFlip && pageFlip.flip(0));
 
             pageSlider?.addEventListener('input', (e) => {
                 const targetPage = parseInt(e.target.value, 10) - 1;
