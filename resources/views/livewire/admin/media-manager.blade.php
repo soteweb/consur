@@ -10,6 +10,22 @@
     showDropzone: false
 }">
 
+    @if(!empty($needsMigration))
+        <div class="p-6 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-sm text-amber-800">
+                <i class="fas fa-database text-amber-600"></i>
+                <span>Tabla de medios pendiente de migración</span>
+            </div>
+            <p class="text-xs text-amber-700 leading-relaxed">
+                La tabla <code class="bg-amber-100 px-1.5 py-0.5 rounded font-mono font-semibold text-amber-900">media</code> aún no ha sido creada en la base de datos de este servidor.
+                Por favor ejecuta en la terminal de tu servidor VPS el siguiente comando para crearla:
+            </p>
+            <div class="bg-slate-900 text-emerald-400 px-4 py-2.5 rounded-xl font-mono text-xs select-all">
+                php artisan migrate --force
+            </div>
+        </div>
+    @endif
+
     <!-- 1. Header con Resumen & Acciones Principales -->
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
         <div>

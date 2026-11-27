@@ -327,6 +327,24 @@ class MediaManager extends BaseCrudComponent
 
     public function render()
     {
+        if (!\Illuminate\Support\Facades\Schema::hasTable('media')) {
+            return view('livewire.admin.media-manager', [
+                'mediaItems' => new \Illuminate\Pagination\LengthAwarePaginator([], 0, $this->perPage),
+                'availableMonths' => collect([]),
+                'totalCount' => 0,
+                'imagesCount' => 0,
+                'docsCount' => 0,
+                'humanTotalSize' => '0 B',
+                'filterType' => $this->filterType,
+                'viewMode' => $this->viewMode,
+                'selected' => [],
+                'selectAll' => false,
+                'showDetailModal' => false,
+                'activeMedia' => null,
+                'needsMigration' => true,
+            ]);
+        }
+
         $mediaQuery = $this->getQuery();
         $mediaItems = $mediaQuery->paginate($this->perPage);
 
