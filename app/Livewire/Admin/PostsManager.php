@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use App\Livewire\BaseCrudComponent;
 use App\Models\ActivityLog;
 use App\Models\Post;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -59,9 +60,7 @@ class PostsManager extends BaseCrudComponent
         ]);
 
         $targetDir = public_path('images/novedades');
-        if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0775, true);
-        }
+        File::ensureDirectoryExists($targetDir, 0775, true);
 
         $ext = $this->featuredUpload->getClientOriginalExtension() ?: 'jpg';
         $baseSlug = Str::slug($this->slug ?: $this->title ?: 'novedad');
@@ -85,9 +84,7 @@ class PostsManager extends BaseCrudComponent
         ]);
 
         $targetDir = public_path('images/novedades');
-        if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0775, true);
-        }
+        File::ensureDirectoryExists($targetDir, 0775, true);
 
         $ext = $this->inlineUpload->getClientOriginalExtension() ?: 'jpg';
         $baseSlug = Str::slug($this->slug ?: $this->title ?: 'novedad');

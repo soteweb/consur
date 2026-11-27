@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class ImageOptimizer
@@ -28,8 +29,40 @@ class ImageOptimizer
         $sourcePath = is_string($uploadedFile) ? $uploadedFile : $uploadedFile->getRealPath();
 
         $targetDir = public_path($relativeDir);
+        $urlPrefix = '/' . trim($relativeDir, '/');
+
+        // Intentar crear/asegurar el directorio en public_path()
         if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0775, true);
+            try {
+                File::ensureDirectoryExists($targetDir, 0775, true);
+            } catch (\Throwable $e) {
+                // Silenciar para permitir intento con fallback si falla por permisos
+            }
+        }
+
+        // Si public_path no es escribible, usar fallback a storage/app/public/
+        if (!is_dir($targetDir) || !is_writable($targetDir)) {
+            $storageTargetDir = storage_path('app/public/' . trim($relativeDir, '/'));
+            try {
+                if (!is_dir($storageTargetDir)) {
+                    File::ensureDirectoryExists($storageTargetDir, 0775, true);
+                }
+            } catch (\Throwable $e) {
+                // Silenciar
+            }
+
+            if (is_dir($storageTargetDir) && is_writable($storageTargetDir)) {
+                $targetDir = $storageTargetDir;
+                $urlPrefix = '/storage/' . trim($relativeDir, '/');
+            }
+        }
+
+        // Si aún así no se puede escribir, lanzar un mensaje instructivo claro
+        if (!is_dir($targetDir) || !is_writable($targetDir)) {
+            throw new \RuntimeException(
+                "Permiso denegado: El servidor web no tiene permisos de escritura en '{$targetDir}'. " .
+                "Por favor ejecuta en tu terminal VPS: sudo chown -R www-data:www-data storage bootstrap/cache public/images && sudo chmod -R 775 storage bootstrap/cache public/images"
+            );
         }
 
         $imageInfo = @getimagesize($sourcePath);
@@ -38,7 +71,7 @@ class ImageOptimizer
             $ext = is_string($uploadedFile) ? pathinfo($uploadedFile, PATHINFO_EXTENSION) : $uploadedFile->getClientOriginalExtension();
             $filename = Str::slug($prefix) . '-' . time() . '-' . Str::random(6) . '.' . strtolower($ext ?: 'jpg');
             copy($sourcePath, $targetDir . DIRECTORY_SEPARATOR . $filename);
-            return '/' . trim($relativeDir, '/') . '/' . $filename;
+            return $urlPrefix . '/' . $filename;
         }
 
         $origW = $imageInfo[0];
@@ -86,7 +119,7 @@ class ImageOptimizer
         if (!$src) {
             $filename = Str::slug($prefix) . '-' . time() . '-' . Str::random(6) . '.jpg';
             copy($sourcePath, $targetDir . DIRECTORY_SEPARATOR . $filename);
-            return '/' . trim($relativeDir, '/') . '/' . $filename;
+            return $urlPrefix . '/' . $filename;
         }
 
         // Calcular nuevas dimensiones respetando la relación de aspecto
@@ -124,7 +157,7 @@ class ImageOptimizer
         imagedestroy($src);
         imagedestroy($dst);
 
-        return '/' . trim($relativeDir, '/') . '/' . $filename;
+        return $urlPrefix . '/' . $filename;
     }
 }
 
