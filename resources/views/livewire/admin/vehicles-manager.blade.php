@@ -487,13 +487,34 @@
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
+                                    <div x-data="{ isUploading: false, progress: 0, uploadError: null }"
+                                         x-on:livewire-upload-start="isUploading = true; progress = 0; uploadError = null"
+                                         x-on:livewire-upload-finish="isUploading = false"
+                                         x-on:livewire-upload-error="isUploading = false; uploadError = 'No se pudo subir: el archivo excede el tamaño máximo permitido por el servidor (Nginx/PHP) o falló la conexión.'"
+                                         x-on:livewire-upload-progress="progress = $event.detail.progress">
                                         <label class="block text-xs font-bold text-slate-700 mb-1">Subir Imagen(es) del Hero desde tu PC</label>
                                         <input type="file" wire:model="uploadedHeroBanners" multiple accept="image/*"
                                                class="w-full text-xs rounded-xl border border-slate-200 py-2 bg-white file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-red-600 file:text-white">
-                                        <div wire:loading wire:target="uploadedHeroBanners" class="text-xs text-red-600 font-bold mt-1">
-                                            <i class="fas fa-spinner fa-spin mr-1"></i> Subiendo imagen del Hero...
+                                        <div x-show="isUploading" class="mt-2 space-y-1">
+                                            <div class="flex items-center justify-between text-xs text-red-600 font-bold">
+                                                <span><i class="fas fa-spinner fa-spin mr-1"></i> Subiendo imagen del Hero...</span>
+                                                <span x-text="progress + '%'"></span>
+                                            </div>
+                                            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                                                <div class="bg-red-600 h-1.5 rounded-full transition-all duration-200" :style="'width: ' + progress + '%'"></div>
+                                            </div>
                                         </div>
+                                        <template x-if="uploadError">
+                                            <div class="mt-2 text-xs text-rose-600 font-bold flex items-start gap-1.5 bg-rose-50 border border-rose-200 rounded-lg p-2">
+                                                <i class="fas fa-exclamation-triangle mt-0.5 shrink-0"></i>
+                                                <span x-text="uploadError"></span>
+                                            </div>
+                                        </template>
+                                        <div wire:loading wire:target="uploadedHeroBanners" x-show="!isUploading" class="text-xs text-red-600 font-bold mt-1">
+                                            <i class="fas fa-spinner fa-spin mr-1"></i> Optimizando imagen...
+                                        </div>
+                                        @error('uploadedHeroBanners') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                                        @error('uploadedHeroBanners.*') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div>
@@ -538,9 +559,33 @@
                                         <p class="text-xs text-slate-500 mt-0.5">Imagen del vehículo con fondo limpio que se muestra en la grilla de la Home.</p>
                                     </div>
 
-                                    <div class="space-y-3">
+                                    <div class="space-y-3" x-data="{ isUploading: false, progress: 0, uploadError: null }"
+                                         x-on:livewire-upload-start="isUploading = true; progress = 0; uploadError = null"
+                                         x-on:livewire-upload-finish="isUploading = false"
+                                         x-on:livewire-upload-error="isUploading = false; uploadError = 'No se pudo subir: el archivo excede el tamaño máximo permitido o falló la conexión.'"
+                                         x-on:livewire-upload-progress="progress = $event.detail.progress">
                                         <input type="file" wire:model="uploadedImages" multiple accept="image/*"
                                                class="w-full text-xs rounded-xl border border-slate-200 py-2 bg-white file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-900 file:text-white">
+                                        <div x-show="isUploading" class="mt-2 space-y-1">
+                                            <div class="flex items-center justify-between text-xs text-indigo-600 font-bold">
+                                                <span><i class="fas fa-spinner fa-spin mr-1"></i> Subiendo imagen...</span>
+                                                <span x-text="progress + '%'"></span>
+                                            </div>
+                                            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                                                <div class="bg-indigo-600 h-1.5 rounded-full transition-all duration-200" :style="'width: ' + progress + '%'"></div>
+                                            </div>
+                                        </div>
+                                        <template x-if="uploadError">
+                                            <div class="mt-2 text-xs text-rose-600 font-bold flex items-start gap-1.5 bg-rose-50 border border-rose-200 rounded-lg p-2">
+                                                <i class="fas fa-exclamation-triangle mt-0.5 shrink-0"></i>
+                                                <span x-text="uploadError"></span>
+                                            </div>
+                                        </template>
+                                        <div wire:loading wire:target="uploadedImages" x-show="!isUploading" class="text-xs text-indigo-600 font-bold mt-1">
+                                            <i class="fas fa-spinner fa-spin mr-1"></i> Optimizando imagen...
+                                        </div>
+                                        @error('uploadedImages') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                                        @error('uploadedImages.*') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
                                         <div class="flex gap-2">
                                             <input type="text" wire:model="newImageUrl" placeholder="/images/vehicles/... o https://..."
                                                    class="flex-1 text-xs rounded-xl border border-slate-200 py-2 bg-white focus:ring-2 focus:ring-red-500">
@@ -875,13 +920,34 @@
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
+                                    <div x-data="{ isUploading: false, progress: 0, uploadError: null }"
+                                         x-on:livewire-upload-start="isUploading = true; progress = 0; uploadError = null"
+                                         x-on:livewire-upload-finish="isUploading = false"
+                                         x-on:livewire-upload-error="isUploading = false; uploadError = 'No se pudo subir: el archivo excede el tamaño máximo permitido por el servidor (Nginx/PHP) o falló la conexión.'"
+                                         x-on:livewire-upload-progress="progress = $event.detail.progress">
                                         <label class="block text-xs font-bold text-slate-700 mb-1">Subir Fotos desde tu Computadora (Múltiple)</label>
                                         <input type="file" wire:model="uploadedHtmlMedia" multiple accept="image/*"
                                                class="w-full text-xs rounded-xl border border-slate-200 py-2 bg-white file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-red-600 file:text-white">
-                                        <div wire:loading wire:target="uploadedHtmlMedia" class="text-xs text-red-600 font-bold mt-1">
-                                            <i class="fas fa-spinner fa-spin mr-1"></i> Subiendo fotos a la biblioteca...
+                                        <div x-show="isUploading" class="mt-2 space-y-1">
+                                            <div class="flex items-center justify-between text-xs text-red-600 font-bold">
+                                                <span><i class="fas fa-spinner fa-spin mr-1"></i> Subiendo fotos...</span>
+                                                <span x-text="progress + '%'"></span>
+                                            </div>
+                                            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                                                <div class="bg-red-600 h-1.5 rounded-full transition-all duration-200" :style="'width: ' + progress + '%'"></div>
+                                            </div>
                                         </div>
+                                        <template x-if="uploadError">
+                                            <div class="mt-2 text-xs text-rose-600 font-bold flex items-start gap-1.5 bg-rose-50 border border-rose-200 rounded-lg p-2">
+                                                <i class="fas fa-exclamation-triangle mt-0.5 shrink-0"></i>
+                                                <span x-text="uploadError"></span>
+                                            </div>
+                                        </template>
+                                        <div wire:loading wire:target="uploadedHtmlMedia" x-show="!isUploading" class="text-xs text-red-600 font-bold mt-1">
+                                            <i class="fas fa-spinner fa-spin mr-1"></i> Optimizando fotos...
+                                        </div>
+                                        @error('uploadedHtmlMedia') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                                        @error('uploadedHtmlMedia.*') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div>
@@ -1012,13 +1078,34 @@
                                 </h3>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
+                                    <div x-data="{ isUploading: false, progress: 0, uploadError: null }"
+                                         x-on:livewire-upload-start="isUploading = true; progress = 0; uploadError = null"
+                                         x-on:livewire-upload-finish="isUploading = false"
+                                         x-on:livewire-upload-error="isUploading = false; uploadError = 'No se pudo subir: el archivo excede el tamaño máximo permitido por el servidor (Nginx/PHP) o falló la conexión.'"
+                                         x-on:livewire-upload-progress="progress = $event.detail.progress">
                                         <label class="block text-xs font-bold text-slate-700 mb-1">Subir Archivo desde tu Equipo</label>
                                         <input type="file" wire:model="uploadedImages" multiple accept="image/*"
                                                class="w-full text-xs rounded-xl border border-slate-200 py-2 bg-white file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#416A8D] file:text-white">
-                                        <div wire:loading wire:target="uploadedImages" class="text-xs text-[#416A8D] font-bold mt-1">
-                                            <i class="fas fa-spinner fa-spin mr-1"></i> Cargando imágenes...
+                                        <div x-show="isUploading" class="mt-2 space-y-1">
+                                            <div class="flex items-center justify-between text-xs text-[#416A8D] font-bold">
+                                                <span><i class="fas fa-spinner fa-spin mr-1"></i> Subiendo imágenes...</span>
+                                                <span x-text="progress + '%'"></span>
+                                            </div>
+                                            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                                                <div class="bg-[#416A8D] h-1.5 rounded-full transition-all duration-200" :style="'width: ' + progress + '%'"></div>
+                                            </div>
                                         </div>
+                                        <template x-if="uploadError">
+                                            <div class="mt-2 text-xs text-rose-600 font-bold flex items-start gap-1.5 bg-rose-50 border border-rose-200 rounded-lg p-2">
+                                                <i class="fas fa-exclamation-triangle mt-0.5 shrink-0"></i>
+                                                <span x-text="uploadError"></span>
+                                            </div>
+                                        </template>
+                                        <div wire:loading wire:target="uploadedImages" x-show="!isUploading" class="text-xs text-[#416A8D] font-bold mt-1">
+                                            <i class="fas fa-spinner fa-spin mr-1"></i> Optimizando imágenes...
+                                        </div>
+                                        @error('uploadedImages') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
+                                        @error('uploadedImages.*') <span class="text-xs text-rose-600 font-bold mt-1 block">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div>

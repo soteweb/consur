@@ -26,6 +26,9 @@ class ImageOptimizer
         int $maxHeight = 1200,
         int $quality = 82
     ): string {
+        @ini_set('memory_limit', '512M');
+        @set_time_limit(180);
+
         $sourcePath = is_string($uploadedFile) ? $uploadedFile : $uploadedFile->getRealPath();
 
         $targetDir = public_path($relativeDir);

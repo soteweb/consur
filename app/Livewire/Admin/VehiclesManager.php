@@ -580,19 +580,32 @@ class VehiclesManager extends BaseCrudComponent
     // ----- Hero Banners (0 Km) -----
     public function updatedUploadedHeroBanners()
     {
-        foreach ($this->uploadedHeroBanners as $file) {
-            $storedUrl = ImageOptimizer::optimizeAndStore(
-                $file,
-                'images/vehicles/hero',
-                'hero-banner',
-                2560,
-                1440,
-                86
-            );
-            $this->heroBanners[] = ltrim($storedUrl, '/');
+        $files = is_array($this->uploadedHeroBanners) ? $this->uploadedHeroBanners : [$this->uploadedHeroBanners];
+        $count = 0;
+        foreach ($files as $file) {
+            if (!$file) {
+                continue;
+            }
+            try {
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $file,
+                    'images/vehicles/hero',
+                    'hero-banner',
+                    2560,
+                    1440,
+                    86
+                );
+                $this->heroBanners[] = ltrim($storedUrl, '/');
+                $count++;
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::error('Error optimizando banner hero: ' . $e->getMessage());
+                $this->notify('Error al procesar la imagen: ' . $e->getMessage(), 'error');
+            }
         }
         $this->uploadedHeroBanners = [];
-        $this->notify('Imagen(es) del Hero optimizadas y cargadas correctamente.');
+        if ($count > 0) {
+            $this->notify('Imagen(es) del Hero optimizadas y cargadas correctamente.');
+        }
     }
 
     public function addHeroBannerUrl()
@@ -612,24 +625,37 @@ class VehiclesManager extends BaseCrudComponent
     // ----- Biblioteca de Fotos para Diseño HTML (0 Km) -----
     public function updatedUploadedHtmlMedia()
     {
-        foreach ($this->uploadedHtmlMedia as $file) {
-            $originalName = $file->getClientOriginalName();
-            $slugBase = Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) ?: 'html-media';
-            $storedUrl = ImageOptimizer::optimizeAndStore(
-                $file,
-                'images/vehicles/html-media',
-                $slugBase,
-                1920,
-                1440,
-                85
-            );
-            $this->htmlMedia[] = [
-                'name' => $originalName,
-                'path' => ltrim($storedUrl, '/'),
-            ];
+        $files = is_array($this->uploadedHtmlMedia) ? $this->uploadedHtmlMedia : [$this->uploadedHtmlMedia];
+        $count = 0;
+        foreach ($files as $file) {
+            if (!$file) {
+                continue;
+            }
+            try {
+                $originalName = $file->getClientOriginalName();
+                $slugBase = Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) ?: 'html-media';
+                $storedUrl = ImageOptimizer::optimizeAndStore(
+                    $file,
+                    'images/vehicles/html-media',
+                    $slugBase,
+                    1920,
+                    1440,
+                    85
+                );
+                $this->htmlMedia[] = [
+                    'name' => $originalName,
+                    'path' => ltrim($storedUrl, '/'),
+                ];
+                $count++;
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::error('Error optimizando foto HTML media: ' . $e->getMessage());
+                $this->notify('Error al procesar la foto: ' . $e->getMessage(), 'error');
+            }
         }
         $this->uploadedHtmlMedia = [];
-        $this->notify('Fotografías optimizadas y subidas a la biblioteca del vehículo. Ya podés insertarlas en el HTML.');
+        if ($count > 0) {
+            $this->notify('Fotografías optimizadas y subidas a la biblioteca del vehículo. Ya podés insertarlas en el HTML.');
+        }
     }
 
     public function addHtmlMediaUrl()
